@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>신불당아트센터 아트홀</title>
+<meta name="description" content="천안 불당동 신불당아트센터 1층 아트홀. 카페와 갤러리가 함께 있는 약 150석의 무대. 공연·강연 일정, 공간 안내, 대관 문의 1533-8771.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* Layout: 건물 자체가 히어로(무음 루프 영상) → 위그모어홀식 한 줄 공연 목록 → 층별 세로 안내 → 방문 안내 → 대관 진입점. 로비(밝은 테라조) 위에 무대색(옥스블러드)과 샹들리에 금색을 포인트로. */
+:root{
+  --stage:#1a0d10;
+  --stage-2:#26131a;
+  --oxblood:#7a1522;
+  --gold:#d6ae5c;
+  --gold-soft:#e9d3a2;
+  --lobby:#f4f1ed;
+  --lobby-2:#e9e3dc;
+  --paper:#fffdfa;
+  --ink:#1f1a1a;
+  --ink-2:#5d5352;
+  --line:#d9d0c7;
+  --line-dark:rgba(233,211,162,.2);
+  --on-stage:#f4ece6;
+  --on-stage-2:#c2b4ad;
+
+  --f-display:"Hahmlet","Noto Serif KR","Nanum Myeongjo",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+
+  --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.0625rem; --s-lg:1.375rem;
+  --s-xl:clamp(1.6rem,3.2vw,2.3rem); --s-2xl:clamp(2.4rem,6.4vw,4.6rem);
+  --gutter:clamp(16px,4vw,48px);
+  --wrap:1180px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--lobby);color:var(--ink);font-family:var(--f-body);font-size:var(--s-md);line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.25;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--oxblood);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:var(--s-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--oxblood)}
+.num{font-variant-numeric:tabular-nums}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:600;font-size:var(--s-sm);border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn-gold{background:var(--gold);color:var(--stage)}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:var(--oxblood)}
+.btn-line{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.todo{display:inline-block;padding:0 6px;border-radius:3px;background:#fff1c9;color:#7a5200;font-size:var(--s-xs);font-weight:600}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(26,13,16,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--on-stage);border-bottom:1px solid var(--line-dark)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand svg{width:44px;height:20px;color:var(--gold-soft)}
+.brand b{font-family:var(--f-display);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
+.brand small{display:block;font-size:.625rem;letter-spacing:.28em;color:var(--on-stage-2);line-height:1}
+.nav{display:flex;gap:24px;margin-left:auto;font-size:var(--s-sm)}
+.nav a{text-decoration:none;color:var(--on-stage-2);transition:color .2s}
+.nav a:hover{color:var(--on-stage)}
+.top .btn{padding:9px 16px;border-radius:999px}
+@media (max-width:880px){.nav{display:none}.top .btn{margin-left:auto}}
+
+/* ---------- hero: 건물이 주인공 ---------- */
+.hero{position:relative;isolation:isolate;background:var(--stage);color:var(--on-stage);overflow:hidden}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(26,13,16,.8) 0%,rgba(26,13,16,.45) 50%,rgba(26,13,16,.1) 100%),linear-gradient(180deg,rgba(26,13,16,.3) 0%,transparent 35%,rgba(26,13,16,.9) 100%)}
+.hero .wrap{min-height:clamp(520px,78vh,760px);display:grid;align-content:end;gap:28px;padding-block:120px 40px}
+.hero h1{font-size:var(--s-2xl);font-weight:300;line-height:1.1}
+.hero h1 b{font-weight:700;color:var(--gold-soft)}
+.hero .lead{font-size:var(--s-lg);color:var(--on-stage-2);max-width:34ch}
+.hero-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:820px}
+.hcard{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 18px;border-radius:10px;background:rgba(26,13,16,.72);border:1px solid var(--line-dark);text-decoration:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:border-color .2s}
+.hcard:hover{border-color:var(--gold)}
+.hcard img{width:56px;height:56px;border-radius:6px;object-fit:cover}
+.hcard small{display:block;font-size:var(--s-xs);color:var(--gold);letter-spacing:.06em}
+.hcard b{font-weight:500;font-size:var(--s-sm);line-height:1.45;display:block}
+.hcard i{font-style:normal;color:var(--gold)}
+.vctl{position:absolute;right:var(--gutter);top:84px;background:rgba(26,13,16,.6);border:1px solid var(--line-dark);color:var(--on-stage);border-radius:999px;padding:6px 12px;font:inherit;font-size:var(--s-xs);cursor:pointer}
+@media (max-width:700px){.hero-cards{grid-template-columns:1fr}.hero .wrap{min-height:560px}}
+
+/* ---------- identity strip ---------- */
+.ident{background:var(--stage-2);color:var(--on-stage)}
+.ident .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-block:22px}
+.ident div{display:grid;gap:2px;padding-right:16px}
+.ident b{font-family:var(--f-display);font-weight:500;font-size:clamp(1.15rem,2.2vw,1.6rem);color:var(--gold-soft);white-space:nowrap}
+.ident span{font-size:var(--s-xs);color:var(--on-stage-2)}
+@media (max-width:700px){.ident .wrap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(64px,9vw,112px)}
+.alt{background:var(--lobby-2)}
+.dark{background:var(--stage);color:var(--on-stage)}
+.dark .eyebrow{color:var(--gold)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 40px;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head > div:not(.tabs){display:grid;gap:12px;max-width:680px}
+.sec-head h2{font-size:var(--s-xl)}
+.sec-head p{color:var(--ink-2)}
+.dark .sec-head p{color:var(--on-stage-2)}
+
+/* ---------- programme list ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button{font:inherit;font-size:var(--s-sm);padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.prog{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.prog > li{border-bottom:1px solid var(--line)}
+.row{display:grid;grid-template-columns:150px minmax(0,1fr) 120px 32px;gap:24px;align-items:center;padding:22px 0;width:100%;background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.row:hover h3{color:var(--oxblood)}
+.when{font-family:var(--f-display);display:grid;line-height:1.2}
+.when b{font-weight:700;font-size:var(--s-lg);letter-spacing:.01em}
+.when span{font-size:var(--s-xs);letter-spacing:.12em;color:var(--ink-2);text-transform:uppercase}
+.what{display:grid;gap:4px;min-width:0}
+.what h3{font-size:var(--s-lg);transition:color .2s}
+.what p{font-size:var(--s-sm);color:var(--ink-2)}
+.kind{justify-self:start;font-size:var(--s-xs);padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
+.kind.past{background:var(--lobby-2);border-color:transparent}
+.chev{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .3s;font-size:.8rem}
+.row[aria-expanded="true"] .chev{transform:rotate(180deg);background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.detail{padding:0 0 28px 174px;display:grid;gap:16px}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.strip button{all:unset;cursor:zoom-in;border-radius:6px;overflow:hidden;aspect-ratio:4/3;display:block}
+.strip button:focus-visible{outline:2px solid var(--oxblood);outline-offset:2px}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.strip button:hover img{transform:scale(1.05)}
+.detail dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 20px;font-size:var(--s-sm)}
+.detail dt{color:var(--ink-2)}
+.detail dd{margin:0}
+.next{background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:22px 24px;margin-bottom:28px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
+.next b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg)}
+.next p{font-size:var(--s-sm);color:var(--ink-2)}
+@media (max-width:820px){
+  .row{grid-template-columns:92px minmax(0,1fr) 28px;gap:16px}
+  .row .kind{display:none}
+  .detail{padding-left:0}
+  .strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ---------- videos ---------- */
+.vgrid{display:grid;gap:12px}
+.vrow{display:flex;gap:12px}
+.vgrid figure{margin:0;min-width:0}
+.vgrid .w{flex:1.7778}.vgrid .t{flex:.5625}
+.vgrid video{width:100%;background:#000;border-radius:8px}
+.vgrid .w video{aspect-ratio:16/9}.vgrid .t video{aspect-ratio:9/16}
+@media (max-width:640px){.vrow{flex-direction:column}.vgrid .t{width:62%;align-self:center}}
+
+/* ---------- floors ---------- */
+.floors-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,64px);align-items:start}
+.building{margin:0;position:sticky;top:96px;display:grid;gap:10px}
+.building img{border-radius:8px;width:100%;aspect-ratio:3/4;object-fit:cover}
+.building figcaption{font-size:var(--s-xs);color:var(--ink-2)}
+.stack{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.floor{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;padding:20px 22px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.floor .lv{font-family:var(--f-display);font-weight:700;font-size:var(--s-xl);color:var(--oxblood);line-height:1}
+.floor h3{font-size:var(--s-lg)}
+.floor p{font-size:var(--s-sm);color:var(--ink-2)}
+.floor.main{background:var(--stage);color:var(--on-stage);border-color:var(--stage)}
+.floor.main .lv{color:var(--gold)}
+.floor.main p{color:var(--on-stage-2)}
+.floor .body{display:grid;gap:8px;min-width:0}
+.floor .pics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:6px}
+.floor .pics img{border-radius:6px;aspect-ratio:16/10;object-fit:cover;width:100%}
+.spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px;margin:6px 0 0;font-size:var(--s-sm)}
+.spec div{display:grid;gap:0}
+.spec dt{font-size:var(--s-xs);color:var(--gold);letter-spacing:.04em}
+.spec dd{margin:0}
+@media (max-width:860px){.floors-grid{grid-template-columns:1fr}.building{position:static}.building img{aspect-ratio:4/3}}
+@media (max-width:480px){.floor{grid-template-columns:1fr;gap:8px}.spec{grid-template-columns:1fr}}
+
+/* ---------- visit ---------- */
+.visit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.visit article{display:grid;grid-template-rows:auto 1fr;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.visit img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.visit .vb{padding:20px 22px 24px;display:grid;gap:8px;align-content:start}
+.visit h3{font-size:var(--s-lg)}
+.visit p{font-size:var(--s-sm);color:var(--ink-2)}
+.faq{margin-top:clamp(32px,5vw,56px);border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:400;color:var(--oxblood)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin-top:10px;color:var(--ink-2);font-size:var(--s-sm)}
+@media (max-width:860px){.visit{grid-template-columns:1fr}}
+
+/* ---------- rental teaser ---------- */
+.rent-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rent{position:relative;isolation:isolate;border-radius:10px;overflow:hidden;min-height:300px;display:grid;align-content:end;padding:22px;text-decoration:none;color:var(--on-stage)}
+.rent img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s}
+.rent:hover img{transform:scale(1.04)}
+.rent::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(26,13,16,.1) 0%,rgba(26,13,16,.55) 45%,rgba(26,13,16,.96) 100%)}
+.rent h3{font-size:var(--s-lg)}
+.rent p{font-size:var(--s-sm);color:var(--on-stage-2);margin-top:6px}
+.rent .go{margin-top:12px;font-size:var(--s-sm);color:var(--gold);font-weight:600}
+.rent.feature{outline:1px solid var(--gold)}
+.rent .flag{position:absolute;top:16px;left:16px;font-size:var(--s-xs);font-weight:700;padding:4px 10px;border-radius:4px;background:var(--gold);color:var(--stage)}
+.rent-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--line-dark)}
+.rent-cta .phone{font-family:var(--f-display);font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--gold-soft);text-decoration:none}
+.rent-cta p{color:var(--on-stage-2);font-size:var(--s-sm)}
+@media (max-width:860px){.rent-grid{grid-template-columns:1fr}.rent{min-height:240px}}
+
+/* ---------- location ---------- */
+.loc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.loc dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 28px;border-top:1px solid var(--ink);padding-top:20px}
+.loc dt{font-weight:600}
+.loc dd{margin:0;color:var(--ink-2)}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+@media (max-width:760px){.loc{grid-template-columns:1fr}}
+
+footer{background:var(--stage);color:var(--on-stage-2);font-size:var(--s-xs);padding-block:40px 110px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+footer a{color:var(--on-stage)}
+
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(26,13,16,.96);border-top:1px solid var(--line-dark)}
+.callbar a{flex:1;justify-content:center}
+.callbar .btn-line{color:var(--on-stage);border-color:var(--line-dark)}
+@media (max-width:880px){.callbar{display:flex}}
+
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,5,6,.94);display:grid;place-items:center;padding:24px}
+.lb img{max-height:86vh;width:auto;border-radius:6px}
+.lb p{color:var(--on-stage-2);font-size:var(--s-sm);text-align:center;margin-top:12px}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:none;border:1px solid var(--line-dark);color:var(--on-stage);border-radius:999px;width:44px;height:44px;font-size:1.3rem;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="신불당아트센터 아트홀 처음으로">
+      <svg viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 17h12l6-15 4 11 4-11 6 15h12"/></svg>
+      <span><b>신불당아트센터</b><small>ART HALL</small></span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#program">공연·행사</a>
+      <a href="#spaces">공간</a>
+      <a href="#visit">방문 안내</a>
+      <a href="#rental">대관</a>
+      <a href="#location">오시는 길</a>
+    </nav>
+    <a class="btn btn-gold num" href="#rental">대관 문의</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" style="padding:0" aria-labelledby="hero-title">
+  <img class="poster" src="assets/img/hall-wide.jpg" alt="" aria-hidden="true">
+  <video id="hero-video" src="assets/video/video1.mp4" poster="assets/img/hall-wide.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+  <button class="vctl" type="button" id="vctl" aria-label="배경 영상 일시정지">❚❚ 일시정지</button>
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--gold)">천안 불당동 · 신불당아트센터 1층</p>
+    <h1 id="hero-title">샹들리에 아래,<br><b>150석의 무대</b></h1>
+    <p class="lead">카페와 갤러리가 함께 있는 공연장. 연주회와 강연, 단체 행사가 열리는 신불당의 무대입니다.</p>
+    <div class="hero-cards">
+      <a class="hcard" href="yearend.html">
+        <img src="assets/img/event-ceremony.jpg" alt="">
+        <span><small>대관 접수 중</small><b>2026 기업 송년회, 무대가 있는 곳에서</b></span>
+        <i aria-hidden="true">→</i>
+      </a>
+      <a class="hcard" href="#program">
+        <img src="assets/img/poster-art.jpg" alt="">
+        <span><small class="num">최근 무대 · 10. 1. THU</small><b>재개관 기념 강연 「예술이란 무엇인가?」</b></span>
+        <i aria-hidden="true">→</i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="ident">
+  <div class="wrap num">
+    <div><b>약 150석</b><span>2층 관람석 포함</span></div>
+    <div><b>그랜드 피아노</b><span>공연용 음향·조명</span></div>
+    <div><b>400인치 LED</b><span>무대 뒤 대형 전광판</span></div>
+    <div><b>무료 주차</b><span>30대 · 2시간</span></div>
+  </div>
+</div>
+
+<!-- PROGRAMME -->
+<section id="program" aria-labelledby="pg-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">공연·행사</p>
+        <h2 id="pg-title">이 무대에서 열린 공연과 강연</h2>
+        <p>항목을 누르면 현장 사진과 정보가 펼쳐집니다.</p>
+      </div>
+      <div class="tabs" role="group" aria-label="종류로 거르기">
+        <button type="button" data-f="all" aria-pressed="true">전체</button>
+        <button type="button" data-f="music" aria-pressed="false">음악</button>
+        <button type="button" data-f="talk" aria-pressed="false">강연</button>
+        <button type="button" data-f="event" aria-pressed="false">행사</button>
+      </div>
+    </div>
+
+    <div class="next">
+      <div>
+        <b>다음 공연</b>
+        <p>일정이 확정되면 이곳에 가장 먼저 안내합니다.</p>
+      </div>
+      <a class="btn btn-line num" href="#location">공연 문의 1533-8771</a>
+    </div>
+
+    <ul class="prog" id="prog">
+      <li data-k="talk music">
+        <button class="row" type="button" aria-expanded="true" aria-controls="d1">
+          <span class="when num"><b>10. 1.</b><span>2026 · THU 19:30</span></span>
+          <span class="what"><h3>재개관 기념 강연 「예술이란 무엇인가?」</h3><p>문학·음악·미술을 중심으로 · 강연 나성남 · 피아노 곽원섭</p></span>
+          <span class="kind past">강연 + 연주</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="detail" id="d1">
+          <div class="strip">
+            <button data-cap="재개관 기념 강연 포스터"><img src="assets/img/poster-art.jpg" alt="재개관 기념 강연 포스터" loading="lazy"></button>
+            <button data-cap="강연 중 2층에서 본 아트홀"><img src="assets/img/lecture-wide.jpg" alt="강연 중 2층에서 본 아트홀" loading="lazy"></button>
+            <button data-cap="그랜드 피아노 연주와 LED 영상"><img src="assets/img/piano-led.jpg" alt="그랜드 피아노 연주와 LED 영상" loading="lazy"></button>
+            <button data-cap="강연 후 무대 위 단체 사진"><img src="assets/img/opening-group.jpg" alt="LED 화면 앞에 선 관계자 단체 사진" loading="lazy"></button>
+          </div>
+          <dl>
+            <dt>강연</dt><dd>나성남 (철학박사) · 홍익대학교 미술대학 외래교수, 뉴욕 롱아일랜드대학교 객원교수, 호서대학교 예체능대학장</dd>
+            <dt>연주</dt><dd>곽원섭 (피아니스트) · 뉴욕 맨해튼 음악대학원 석사, 나사렛대학교 음악학과 교수, 나우앙상블 음악감독</dd>
+            <dt>입장</dt><dd>전석 초대</dd>
+          </dl>
+        </div>
+      </li>
+      <li data-k="music">
+        <button class="row" type="button" aria-expanded="false" aria-controls="d2">
+          <span class="when num"><b>9. 17.</b><span>2026 · THU 19:30</span></span>
+          <span class="what"><h3>트리오판테온 제4회 정기연주회</h3><p>「트리오판테온이 당신에게 가을이었다」 · 2026 아트홀 공모 선정 공연</p></span>
+          <span class="kind past">피아노 삼중주</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="detail" id="d2" hidden>
+          <div class="strip">
+            <button data-cap="가을 거리 영상과 삼중주"><img src="assets/img/trio-autumn.jpg" alt="가을 거리 영상 앞 피아노 삼중주" loading="lazy"></button>
+            <button data-cap="도시 야경 영상과 함께한 연주"><img src="assets/img/trio-night.jpg" alt="도시 야경 영상과 함께한 연주" loading="lazy"></button>
+            <button data-cap="붉은 영상 앞 연주"><img src="assets/img/trio-red.jpg" alt="붉은 영상 앞 피아노 삼중주" loading="lazy"></button>
+            <button data-cap="곡 소개 중인 연주자들"><img src="assets/img/trio-talk.jpg" alt="공연 타이틀 화면 앞에서 곡을 소개하는 연주자들" loading="lazy"></button>
+          </div>
+          <dl>
+            <dt>편성</dt><dd>피아노 · 바이올린 · 첼로</dd>
+            <dt>무대</dt><dd>곡마다 400인치 LED 영상을 바꿔 가며 분위기를 연출</dd>
+          </dl>
+        </div>
+      </li>
+      <li data-k="music">
+        <button class="row" type="button" aria-expanded="false" aria-controls="d3">
+          <span class="when num"><b>리사이틀</b><span>2026</span></span>
+          <span class="what"><h3>바이올린 리사이틀</h3><p>장미 영상으로 꾸민 무대에서 열린 독주회</p></span>
+          <span class="kind past">독주회</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="detail" id="d3" hidden>
+          <div class="strip">
+            <button data-cap="리사이틀 무대"><img src="assets/img/stage-piano.jpg" alt="장미 영상이 띄워진 LED 앞 그랜드 피아노" loading="lazy"></button>
+            <button data-cap="공연 전 진행자 소개"><img src="assets/img/recital-mc.jpg" alt="공연 전 진행자 소개" loading="lazy"></button>
+            <button data-cap="입장 중인 관객"><img src="assets/img/recital-audience.jpg" alt="공연 전 객석과 카페에 모인 관객" loading="lazy"></button>
+            <button data-cap="객석 정면에서 본 무대"><img src="assets/img/seats-piano.jpg" alt="투명 의자 객석 너머 피아노 무대" loading="lazy"></button>
+          </div>        </div>
+      </li>
+      <li data-k="event">
+        <button class="row" type="button" aria-expanded="false" aria-controls="d4">
+          <span class="when num"><b>대관</b><span>단체 행사</span></span>
+          <span class="what"><h3>대회 개회식 · 단체 행사</h3><p>객석 배치, 포토월, 접수 테이블까지 갖춘 행사 대관</p></span>
+          <span class="kind past">행사</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="detail" id="d4" hidden>
+          <div class="strip">
+            <button data-cap="개회사 진행 중인 무대"><img src="assets/img/event-ceremony.jpg" alt="단체 행사 개회사" loading="lazy"></button>
+            <button data-cap="행사 시작 전 준비"><img src="assets/img/event-setup.jpg" alt="행사 시작 전 객석과 백월" loading="lazy"></button>
+            <button data-cap="LED 슬라이드를 쓴 강연"><img src="assets/img/lecture-close.jpg" alt="LED 화면에 띄운 슬라이드" loading="lazy"></button>
+            <button data-cap="2층에서 본 객석"><img src="assets/img/lecture-hall.jpg" alt="2층에서 본 객석과 무대" loading="lazy"></button>
+          </div>
+          <dl><dt>문의</dt><dd><a href="#rental">대관 안내 보기</a></dd></dl>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="dark" aria-labelledby="vd-title">
+  <div class="wrap">
+    <div class="sec-head"><div>
+      <p class="eyebrow">무대 영상</p>
+      <h2 id="vd-title">아트홀의 소리와 분위기</h2>
+    </div></div>
+    <div class="vgrid">
+      <div class="vrow">
+        <figure class="w"><video src="assets/video/video2.mp4" controls preload="metadata" playsinline aria-label="현장 영상 2"></video></figure>
+        <figure class="t"><video src="assets/video/video3.mp4" controls preload="metadata" playsinline aria-label="현장 영상 3"></video></figure>
+      </div>
+      <div class="vrow">
+        <figure class="t"><video src="assets/video/video4.mp4" controls preload="metadata" playsinline aria-label="현장 영상 4"></video></figure>
+        <figure class="w"><video src="assets/video/video1.mp4" controls preload="metadata" playsinline aria-label="현장 영상 1"></video></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOORS -->
+<section id="spaces" aria-labelledby="sp-title">
+  <div class="wrap">
+    <div class="sec-head"><div>
+      <p class="eyebrow">공간</p>
+      <h2 id="sp-title">한 건물, 네 개의 층</h2>
+      <p>공연은 1층 아트홀에서, 쉬는 시간은 카페와 갤러리에서.</p>
+    </div></div>
+    <div class="floors-grid">
+      <figure class="building">
+        <img src="assets/img/building.jpg" alt="신불당아트센터 건물 외관. 세로 간판에 층별 안내" loading="lazy">
+        <figcaption>충남 천안시 서북구 불당34길 3-16</figcaption>
+      </figure>
+      <ol class="stack" reversed>
+        <li class="floor"><span class="lv">5F</span><div class="body"><h3>이벤트홀</h3><p class="num">100석 규모. 세미나·강연부터 연회와 파티까지 열 수 있는 공간입니다.</p></div></li>
+        <li class="floor"><span class="lv">3F</span><div class="body"><h3>세미나홀</h3><p class="num">규모별 세미나실 4개. M1 50석 · M2 35석 · M3 20석 · VIP실</p></div></li>
+        <li class="floor"><span class="lv">2F</span><div class="body"><h3>M갤러리 · 2층 관람석</h3><p>전시를 보고, 2층 관람석에서 아트홀 무대를 내려다볼 수 있습니다.</p></div></li>
+        <li class="floor main"><span class="lv">1F</span>
+          <div class="body">
+            <h3>아트홀 · 멜버른커피하우스</h3>
+            <p>붉은 벽의 정면 무대와 샹들리에 아래 객석. 카페와 한 공간으로 이어져 있습니다.</p>
+            <dl class="spec num">
+              <div><dt>객석</dt><dd>약 150석</dd></div>
+              <div><dt>면적</dt><dd>공연장 약 70평</dd></div>
+              <div><dt>무대</dt><dd>높은 층고, 그랜드 피아노</dd></div>
+              <div><dt>영상</dt><dd>400인치 LED 전광판</dd></div>
+            </dl>
+            <div class="pics">
+              <img src="assets/img/hall-wide.jpg" alt="2층에서 본 아트홀과 카페" loading="lazy">
+              <img src="assets/img/stage-piano.jpg" alt="그랜드 피아노가 놓인 무대" loading="lazy">
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="alt" id="visit" aria-labelledby="vs-title">
+  <div class="wrap">
+    <div class="sec-head"><div>
+      <p class="eyebrow">방문 안내</p>
+      <h2 id="vs-title">공연 전후를 더 즐겁게</h2>
+    </div></div>
+    <div class="visit">
+      <article>
+        <img src="assets/img/recital-audience.jpg" alt="공연 전 카페 테이블과 객석에 모인 관객" loading="lazy">
+        <div class="vb"><h3>공연 전 커피 한 잔</h3><p>객석 바로 옆이 1층 멜버른커피하우스입니다. 일찍 도착해 카페에서 기다리세요.</p></div>
+      </article>
+      <article>
+        <img src="assets/img/lecture-hall.jpg" alt="아트홀 벽면의 대형 회화 작품" loading="lazy">
+        <div class="vb"><h3>그림과 함께</h3><p>홀 벽에 걸린 대형 회화와 2층 M갤러리 전시를 함께 둘러보세요.</p></div>
+      </article>
+      <article>
+        <img src="assets/img/building.jpg" alt="건물 1층 주차장 입구" loading="lazy" style="object-position:50% 85%">
+        <div class="vb"><h3>주차 걱정 없이</h3><p>건물 주차장 30대, 2시간 무료. 1층 공연장이라 계단 없이 바로 들어옵니다.</p></div>
+      </article>
+    </div>
+    <div class="faq">
+      <details><summary>운영 시간은 어떻게 되나요?</summary><p>오전 9:30부터 오후 10:00까지입니다.</p></details>
+      <details><summary>주차는 몇 시간까지 무료인가요?</summary><p>건물 주차장 30대, 2시간까지 무료입니다.</p></details>
+      <details><summary>공연 예매는 어디서 하나요?</summary><p>전화 1533-8771로 예매하실 수 있습니다. 운영 시간(오전 9:30 ~ 오후 10:00)에 연락해 주세요.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- RENTAL TEASER -->
+<section class="dark" id="rental" aria-labelledby="rt-title">
+  <div class="wrap">
+    <div class="sec-head"><div>
+      <p class="eyebrow">대관</p>
+      <h2 id="rt-title">당신의 행사를 이 무대에서</h2>
+      <p>연주회, 강연, 기업 행사까지. 조명과 음향, 400인치 LED가 갖춰진 무대를 빌려 드립니다.</p>
+    </div></div>
+    <div class="rent-grid">
+      <a class="rent" href="#location">
+        <img src="assets/img/trio-autumn.jpg" alt="" loading="lazy">
+        <h3>연주회 · 리사이틀</h3><p>그랜드 피아노와 공연용 음향·조명</p><span class="go">대관 문의 →</span>
+      </a>
+      <a class="rent" href="#location">
+        <img src="assets/img/lecture-wide.jpg" alt="" loading="lazy">
+        <h3>강연 · 세미나</h3><p>400인치 LED에 발표 자료를 크게</p><span class="go">대관 문의 →</span>
+      </a>
+      <a class="rent feature" href="yearend.html">
+        <img src="assets/img/event-ceremony.jpg" alt="" loading="lazy">
+        <span class="flag">접수 중</span>
+        <h3>기업 송년회 · 행사</h3><p>시상식, 작은 음악회, 출장 뷔페까지 한 곳에서</p><span class="go">송년회 대관 안내 →</span>
+      </a>
+    </div>
+    <div class="rent-cta">
+      <div><p>대관 담당 정승민 · 오전 9:30 ~ 오후 10:00</p><a class="phone num" href="tel:15338771">1533-8771</a></div>
+      <button class="btn btn-gold" type="button" id="copy-phone">번호 복사</button>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" aria-labelledby="lc-title">
+  <div class="wrap loc">
+    <div class="sec-head" style="margin:0"><div>
+      <p class="eyebrow">오시는 길</p>
+      <h2 id="lc-title">신불당 한가운데</h2>
+      <div class="maplinks">
+        <a class="btn btn-ink" href="https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도</a>
+        <a class="btn btn-line" href="https://map.kakao.com/?q=%EC%B2%9C%EC%95%88%20%EB%B6%88%EB%8B%B934%EA%B8%B8%203-16" target="_blank" rel="noopener">카카오맵</a>
+      </div>
+    </div></div>
+    <dl class="num">
+      <dt>주소</dt><dd>충남 천안시 서북구 불당34길 3-16 신불당아트센터 1층</dd>
+      <dt>주차</dt><dd>건물 주차장 30대, 2시간 무료</dd>
+      <dt>운영</dt><dd>오전 9:30 ~ 오후 10:00</dd>
+      <dt>문의</dt><dd>1533-8771</dd>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap num">
+    <span>신불당아트센터 아트홀 · 충남 천안시 서북구 불당34길 3-16</span>
+    <span>문의 1533-8771 · <a href="yearend.html">기업 송년회 대관</a></span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-gold num" href="tel:15338771">☎ 1533-8771</a>
+  <a class="btn btn-line" href="#program">공연·행사</a>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <button type="button" id="lb-close" aria-label="닫기">×</button>
+  <figure style="margin:0"><img id="lb-img" alt=""><p id="lb-cap"></p></figure>
+</div>
+
+<script>
+(function(){
+  // 배경 영상: 모션 줄이기 설정이면 멈춘 사진으로
+  var v=document.getElementById('hero-video'),ctl=document.getElementById('vctl');
+  function setBtn(){var p=v.paused;ctl.textContent=p?'▶ 재생':'❚❚ 일시정지';ctl.setAttribute('aria-label',p?'배경 영상 재생':'배경 영상 일시정지');}
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}
+  v.addEventListener('play',setBtn);v.addEventListener('pause',setBtn);
+  ctl.addEventListener('click',function(){v.paused?v.play().catch(function(){}):v.pause();});
+  var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){setBtn();});
+
+  // 공연 목록 펼치기
+  document.querySelectorAll('.row').forEach(function(r){
+    r.addEventListener('click',function(){
+      var open=r.getAttribute('aria-expanded')==='true';
+      r.setAttribute('aria-expanded',String(!open));
+      document.getElementById(r.getAttribute('aria-controls')).hidden=open;
+    });
+  });
+  // 필터
+  var tabs=document.querySelectorAll('.tabs button');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.setAttribute('aria-pressed',String(x===t));});
+      var f=t.dataset.f;
+      document.querySelectorAll('#prog > li').forEach(function(li){
+        li.hidden=!(f==='all'||li.dataset.k.split(' ').indexOf(f)>-1);
+      });
+    });
+  });
+
+  // 사진 크게 보기
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),last=null;
+  document.querySelectorAll('.strip button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var img=b.querySelector('img');last=b;
+      lbImg.src=img.src;lbImg.alt=img.alt;lbCap.textContent=b.dataset.cap||img.alt;
+      lb.hidden=false;document.getElementById('lb-close').focus();
+    });
+  });
+  function close(){lb.hidden=true;lbImg.src='';if(last)last.focus();}
+  document.getElementById('lb-close').addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});
+
+  // 번호 복사
+  document.getElementById('copy-phone').addEventListener('click',function(){
+    var b=this;
+    function done(ok){b.textContent=ok?'복사했습니다':'1533-8771';setTimeout(function(){b.textContent='번호 복사';},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText('1533-8771').then(function(){done(true);},function(){done(false);});}
+    else done(false);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아트홀 송년회 대관</title>
+<meta name="description" content="천안 불당동 신불당아트센터 1층 아트홀. 약 150석 공연장에서 여는 기업 송년회, 연주회, 강연 대관 문의 1533-8771.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* Layout: 무대 쪽을 향한 한 줄 동선. 어두운 무대(히어로·형식·실적) ↔ 밝은 로비(비교·시설·절차)를 번갈아 걷고, 전화 버튼은 어디서나 보인다. */
+:root{
+  --stage:#1a0d10;        /* 조명 꺼진 무대 */
+  --stage-2:#26131a;
+  --oxblood:#7a1522;      /* 아트홀 정면 벽 */
+  --oxblood-hi:#a11d2e;
+  --gold:#d6ae5c;         /* 샹들리에 */
+  --gold-soft:#e9d3a2;
+  --neon:#c9a6ff;         /* M 로고 네온 */
+  --lobby:#f3f0ec;        /* 테라조 바닥 */
+  --lobby-2:#e7e1da;
+  --ink:#1f1a1a;
+  --ink-2:#5b5150;
+  --line-dark:rgba(233,211,162,.18);
+  --line-light:#d6cdc4;
+  --on-stage:#f4ece6;
+  --on-stage-2:#bfb0aa;
+
+  --f-display:"Hahmlet","Noto Serif KR","Nanum Myeongjo",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+
+  --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.0625rem; --s-lg:1.375rem;
+  --s-xl:clamp(1.6rem,3.2vw,2.25rem); --s-2xl:clamp(2.2rem,5.6vw,4rem);
+  --gutter:clamp(16px,4vw,48px);
+  --wrap:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--stage);color:var(--on-stage);font-family:var(--f-body);font-size:var(--s-md);line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.25;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:var(--s-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+.lobby .eyebrow{color:var(--oxblood)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(26,13,16,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand svg{width:44px;height:20px;color:var(--gold-soft)}
+.brand b{font-family:var(--f-display);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
+.brand small{display:block;font-size:.625rem;letter-spacing:.28em;color:var(--on-stage-2);line-height:1}
+.nav{display:flex;gap:22px;margin-left:auto;font-size:var(--s-sm)}
+.nav a{text-decoration:none;color:var(--on-stage-2);transition:color .2s}
+.nav a:hover{color:var(--on-stage)}
+.call{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--gold);color:var(--stage);text-decoration:none;font-weight:600;font-size:var(--s-sm);white-space:nowrap}
+.call:hover{background:var(--gold-soft)}
+@media (max-width:860px){.nav{display:none}.top .call{margin-left:auto}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(26,13,16,.94) 0%,rgba(26,13,16,.78) 42%,rgba(26,13,16,.25) 100%),linear-gradient(0deg,var(--stage) 0%,transparent 30%)}
+.hero .wrap{padding-block:clamp(72px,12vw,150px) clamp(48px,7vw,80px)}
+.hero-copy{max-width:620px;display:grid;gap:22px}
+.hero h1{font-size:var(--s-2xl);font-weight:300}
+.hero h1 em{font-style:normal;font-weight:700;color:var(--gold-soft)}
+.hero-lead{font-size:var(--s-lg);color:var(--on-stage-2);line-height:1.6}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:6px;text-decoration:none;font-weight:600;font-size:var(--s-md);border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-gold{background:var(--gold);color:var(--stage)}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-ghost{border-color:var(--line-dark);color:var(--on-stage)}
+.btn-ghost:hover{border-color:var(--gold)}
+.facts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--line-dark)}
+.fact{padding:18px 16px 0 0;display:grid;gap:2px}
+.fact b{font-family:var(--f-display);font-size:clamp(1.25rem,2.4vw,1.9rem);white-space:nowrap;font-weight:500;color:var(--gold-soft);line-height:1.1}
+.fact span{font-size:var(--s-xs);color:var(--on-stage-2)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:8px}.hero::after{background:linear-gradient(0deg,rgba(26,13,16,.97) 30%,rgba(26,13,16,.6) 100%)}}
+
+/* ---------- season ribbon ---------- */
+.ribbon{background:var(--oxblood);color:var(--on-stage)}
+.ribbon .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-block:14px;font-size:var(--s-sm)}
+.ribbon strong{color:var(--gold-soft);font-weight:600}
+.dday{padding:3px 10px;border-radius:4px;background:var(--gold);color:var(--stage);font-weight:700;font-size:var(--s-xs);letter-spacing:.04em}
+.ribbon a{margin-left:auto;font-weight:600;text-underline-offset:4px}
+@media (max-width:640px){.ribbon a{margin-left:0}}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(64px,9vw,120px)}
+.lobby{background:var(--lobby);color:var(--ink)}
+.lobby.alt{background:var(--lobby-2)}
+.sec-head{display:grid;gap:14px;max-width:720px;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head h2{font-size:var(--s-xl)}
+.sec-head p{color:var(--on-stage-2)}
+.lobby .sec-head p{color:var(--ink-2)}
+
+/* compare */
+.compare-wrap{overflow-x:auto;border:1px solid var(--line-light);border-radius:8px;background:#fff}
+.compare{width:100%;border-collapse:collapse;min-width:620px;font-size:var(--s-sm)}
+.compare th,.compare td{padding:16px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-light)}
+.compare tr:last-child td{border-bottom:0}
+.compare thead th{font-size:var(--s-xs);letter-spacing:.08em;color:var(--ink-2);font-weight:600;background:var(--lobby)}
+.compare thead th.us{color:var(--oxblood)}
+.compare td:first-child{font-weight:600;white-space:nowrap;width:150px}
+.compare td.them{color:var(--ink-2)}
+.compare td.us{background:#fbf6ef;color:var(--ink);font-weight:500}
+.compare-note{margin-top:20px;color:var(--ink-2);font-size:var(--s-sm)}
+
+/* formats */
+.formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.format{display:grid;grid-template-rows:auto 1fr;background:var(--stage-2);border:1px solid var(--line-dark);border-radius:10px;overflow:hidden}
+.format figure{margin:0;aspect-ratio:4/3;overflow:hidden}
+.format figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.format:hover figure img{transform:scale(1.04)}
+.format-body{padding:22px 22px 26px;display:grid;gap:12px;align-content:start}
+.format h3{font-size:var(--s-lg)}
+.format ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.format li{font-size:var(--s-xs);padding:4px 10px;border:1px solid var(--line-dark);border-radius:999px;color:var(--on-stage-2)}
+.format .fit{font-size:var(--s-sm);color:var(--on-stage-2)}
+.format .fit b{color:var(--gold-soft);font-weight:500}
+.formats-note{margin-top:24px;color:var(--on-stage-2);font-size:var(--s-sm)}
+@media (max-width:900px){.formats{grid-template-columns:1fr}.format{grid-template-columns:minmax(0,2fr) minmax(0,3fr);grid-template-rows:none}.format figure{aspect-ratio:auto;height:100%}}
+@media (max-width:560px){.format{grid-template-columns:1fr}.format figure{aspect-ratio:16/10}}
+
+/* timeline */
+.timeline-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,80px);align-items:start}
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:68px;top:10px;bottom:10px;width:1px;background:var(--line-light)}
+.timeline li{display:grid;grid-template-columns:56px 25px minmax(0,1fr);gap:0 0;align-items:baseline;padding-block:12px}
+.timeline time{font-family:var(--f-display);font-weight:700;font-size:var(--s-md);color:var(--oxblood);font-variant-numeric:tabular-nums}
+.timeline .dot{width:9px;height:9px;border-radius:50%;background:var(--lobby);border:2px solid var(--oxblood);justify-self:center;transform:translateX(-1px)}
+.timeline li.key .dot{background:var(--oxblood)}
+.timeline li span{font-size:var(--s-md)}
+.timeline li small{display:block;color:var(--ink-2);font-size:var(--s-xs)}
+.timeline-photo{position:sticky;top:96px;display:grid;gap:12px}
+.timeline-photo img{border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.timeline-photo p{font-size:var(--s-xs);color:var(--ink-2)}
+@media (max-width:860px){.timeline-grid{grid-template-columns:1fr}.timeline-photo{position:static}}
+
+/* track record */
+.record{display:grid;gap:clamp(48px,7vw,88px)}
+.show{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:center}
+.show.flip{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.show.flip .show-text{order:2}
+.show-text{display:grid;gap:14px}
+.show-text .date{font-family:var(--f-display);color:var(--gold);font-size:var(--s-sm);letter-spacing:.06em}
+.show-text h3{font-size:var(--s-xl);font-weight:300}
+.show-text p{color:var(--on-stage-2)}
+.tag{justify-self:start;font-size:var(--s-xs);padding:4px 12px;border-radius:999px;background:var(--oxblood);color:var(--on-stage)}
+.mosaic{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(70px,9vw,120px);gap:8px}
+.mosaic button{all:unset;cursor:zoom-in;border-radius:6px;overflow:hidden;position:relative}
+.mosaic button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .3s}
+.mosaic button:hover img{transform:scale(1.05)}
+.mosaic button{display:block}
+.mosaic .m-a{grid-column:span 4;grid-row:span 3}.mosaic .m-b{grid-column:span 2;grid-row:span 2}.mosaic .m-c{grid-column:span 2;grid-row:span 1}
+.mosaic .m-d{grid-column:span 3;grid-row:span 2}.mosaic .m-e{grid-column:span 3;grid-row:span 2}
+.mosaic .m-f{grid-column:span 2;grid-row:span 3}.mosaic .m-g{grid-column:span 4;grid-row:span 3}
+@media (max-width:860px){.show,.show.flip{grid-template-columns:1fr}.show.flip .show-text{order:0}}
+
+.more-shows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.mini{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--stage-2);border:1px solid var(--line-dark);border-radius:10px;overflow:hidden}
+.mini button{all:unset;cursor:zoom-in;display:block}
+.mini img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1}
+.mini div{padding:22px;display:grid;gap:8px;align-content:center}
+.mini h3{font-size:var(--s-lg)}
+.mini p{font-size:var(--s-sm);color:var(--on-stage-2)}
+@media (max-width:760px){.more-shows{grid-template-columns:1fr}}
+
+/* videos */
+/* 가로 영상(16:9)과 세로 영상(9:16)을 비율대로 나눠 한 줄 높이를 맞춘다 */
+.videos{display:grid;gap:12px}
+.vrow{display:flex;gap:12px}
+.videos figure{margin:0;display:grid;gap:8px;min-width:0}
+.videos figure.w{flex:1.7778}
+.videos figure.t{flex:.5625}
+.videos video{width:100%;background:#000;border-radius:8px}
+.videos .w video{aspect-ratio:16/9}
+.videos .t video{aspect-ratio:9/16}
+.videos figcaption{font-size:var(--s-xs);color:var(--on-stage-2)}
+@media (max-width:640px){.vrow{flex-direction:column}.videos figure.t{width:62%;align-self:center}}
+
+/* spaces */
+.spaces-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:start}
+.building{margin:0;display:grid;gap:10px}
+.building img{border-radius:8px;width:100%;aspect-ratio:3/4;object-fit:cover}
+.building figcaption{font-size:var(--s-xs);color:var(--ink-2)}
+.flow{list-style:none;margin:0 0 20px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.flow li.opt{border-style:dashed;background:transparent}
+.eventhall{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:12px 32px;align-items:start;margin:0 0 clamp(36px,5vw,56px);padding:22px 24px;border-radius:8px;background:var(--stage);color:var(--on-stage)}
+.eventhall .eyebrow{color:var(--gold)}
+.eventhall h3{font-size:var(--s-lg);margin-top:4px}
+.eventhall > *{min-width:0}
+.eventhall > p{font-size:var(--s-sm);color:var(--on-stage-2);overflow-wrap:anywhere}
+@media (max-width:1000px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.flow li::after{display:none}}
+@media (max-width:640px){.eventhall{grid-template-columns:1fr}}
+.flow li{position:relative;display:grid;gap:4px;padding:18px 20px;background:#fff;border:1px solid var(--line-light);border-radius:8px}
+.flow li:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translate(50%,-50%);color:var(--oxblood);font-weight:700;z-index:1}
+.flow .fl{font-size:var(--s-xs);letter-spacing:.08em;color:var(--oxblood);font-weight:600}
+.flow b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg)}
+.flow span:last-child{font-size:var(--s-sm);color:var(--ink-2)}
+@media (max-width:760px){.flow{grid-template-columns:1fr}.flow li:not(:last-child)::after{display:block;content:"↓";right:50%;top:auto;bottom:-14px;transform:translateX(50%)}}
+.floors{list-style:none;margin:0 0 36px;padding:0;border-top:1px solid var(--ink)}
+.floors li{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line-light)}
+.floors .fl{font-family:var(--f-display);font-weight:700;font-size:var(--s-lg);color:var(--oxblood)}
+.floors .nm{font-weight:600}
+.floors .ds{font-size:var(--s-sm);color:var(--ink-2)}
+.floors li.here{background:linear-gradient(90deg,rgba(122,21,34,.07),transparent)}
+.spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line-light);border-radius:8px;overflow:hidden;background:#fff}
+.spec div{padding:16px 18px;border-bottom:1px solid var(--line-light);display:grid;gap:2px}
+.spec div:nth-child(odd){border-right:1px solid var(--line-light)}
+.spec div:nth-last-child(-n+2){border-bottom:0}
+.spec dt{font-size:var(--s-xs);color:var(--ink-2);letter-spacing:.04em}
+.spec dd{margin:0;font-weight:500}
+.todo{display:inline-block;padding:0 6px;border-radius:3px;background:#fff1c9;color:#7a5200;font-size:var(--s-xs);font-weight:600}
+@media (max-width:860px){.spaces-grid{grid-template-columns:1fr}.building img{aspect-ratio:4/3}}
+@media (max-width:520px){.spec{grid-template-columns:1fr}.spec div:nth-child(odd){border-right:0}.spec div:nth-last-child(2){border-bottom:1px solid var(--line-light)}}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+.services li{list-style:none;padding:22px 20px 22px 0;border-bottom:1px solid var(--line-light);display:grid;gap:4px}
+.services b{font-weight:600}
+.services span{font-size:var(--s-sm);color:var(--ink-2)}
+.services-wrap ul{margin:0;padding:0}
+.services-note{margin-top:18px;font-size:var(--s-sm);color:var(--ink-2)}
+@media (max-width:860px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.services{grid-template-columns:1fr}}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;counter-reset:s}
+.steps li{counter-increment:s;padding:22px 18px;background:#fff;border:1px solid var(--line-light);border-radius:8px;display:grid;gap:8px;align-content:start}
+.steps li::before{content:counter(s);font-family:var(--f-display);font-weight:700;font-size:var(--s-xl);color:var(--oxblood);line-height:1}
+.steps b{font-weight:600}
+.steps span{font-size:var(--s-sm);color:var(--ink-2)}
+@media (max-width:960px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--oxblood);background-image:radial-gradient(ellipse at 80% 0%,rgba(214,174,92,.22),transparent 55%)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,80px);align-items:start}
+.contact h2{font-size:var(--s-2xl);font-weight:300}
+.bignum{font-family:var(--f-display);font-weight:700;font-size:clamp(2.4rem,6vw,3.8rem);color:var(--gold-soft);letter-spacing:.01em;text-decoration:none;display:inline-block;line-height:1.1}
+.contact-info{display:grid;gap:18px}
+.contact-info dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 20px;font-size:var(--s-sm)}
+.contact-info dt{color:var(--gold-soft)}
+.contact-info dd{margin:0}
+.copyrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.contact .btn-ghost{border-color:rgba(244,236,230,.35)}
+
+.planner{background:var(--stage);border-radius:12px;padding:clamp(22px,3vw,32px);display:grid;gap:16px;border:1px solid var(--line-dark)}
+.planner h3{font-size:var(--s-lg)}
+.planner p.help{font-size:var(--s-sm);color:var(--on-stage-2)}
+.field{display:grid;gap:6px}
+.field label,.field legend{font-size:var(--s-xs);color:var(--on-stage-2);letter-spacing:.04em}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+input,select,textarea{font:inherit;font-size:var(--s-sm);color:var(--on-stage);background:var(--stage-2);border:1px solid var(--line-dark);border-radius:6px;padding:10px 12px;width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-block;padding:8px 14px;border:1px solid var(--line-dark);border-radius:999px;font-size:var(--s-sm);color:var(--on-stage-2)}
+.chips input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--stage);font-weight:600}
+.chips input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.summary{white-space:pre-wrap;font-size:var(--s-sm);background:var(--stage-2);border:1px dashed var(--line-dark);border-radius:6px;padding:14px;color:var(--on-stage);min-height:4em}
+.status{font-size:var(--s-xs);color:var(--gold-soft);min-height:1.2em}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.row3{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+/* map */
+.visit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.visit-grid div{display:grid;gap:6px;align-content:start;padding-top:16px;border-top:1px solid var(--ink)}
+.visit-grid b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg)}
+.visit-grid p{font-size:var(--s-sm);color:var(--ink-2)}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn-ink{background:var(--ink);color:var(--lobby)}
+.btn-line{border-color:var(--line-light);color:var(--ink)}
+@media (max-width:760px){.visit-grid{grid-template-columns:1fr}}
+
+footer{background:var(--stage);color:var(--on-stage-2);font-size:var(--s-xs);padding-block:40px 110px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+
+/* mobile call bar */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(26,13,16,.96);border-top:1px solid var(--line-dark)}
+.callbar a{flex:1;justify-content:center;padding:13px 10px;font-size:var(--s-sm)}
+@media (max-width:860px){.callbar{display:flex}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,5,6,.94);display:grid;place-items:center;padding:24px}
+.lb img{max-height:86vh;width:auto;border-radius:6px}
+.lb p{color:var(--on-stage-2);font-size:var(--s-sm);text-align:center;margin-top:12px}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:none;border:1px solid var(--line-dark);color:var(--on-stage);border-radius:999px;width:44px;height:44px;font-size:1.3rem;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="신불당아트센터 아트홀 홈으로">
+      <svg viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 17h12l6-15 4 11 4-11 6 15h12"/></svg>
+      <span><b>신불당아트센터</b><small>ART HALL</small></span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="index.html">← 아트홀 홈</a>
+      <a href="#yearend">송년회 구성</a>
+      <a href="#program">진행 예시</a>
+      <a href="#stage">공연·강연</a>
+      <a href="#spaces">공간 안내</a>
+      <a href="#process">대관 절차</a>
+      <a href="#visit">오시는 길</a>
+    </nav>
+    <a class="call num" href="tel:15338771">☎ 1533-8771</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" style="padding:0" aria-labelledby="hero-title">
+  <div class="hero-img"><img src="assets/img/hall-wide.jpg" alt="2층에서 내려다본 아트홀. 샹들리에 아래 투명 의자 객석과 붉은 벽 무대, 그랜드 피아노와 대형 LED 전광판" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">2026 기업 송년회 · 천안 불당동</p>
+      <h1 id="hero-title">올해 송년회는<br><em>무대가 있는 곳</em>에서</h1>
+      <p class="hero-lead">밥과 술 대신, 공연장에서 여는 문화 송년회. 대표 인사와 시상식, 작은 음악회와 강연을 한 무대에서 진행하고, 출장 뷔페 저녁까지 자리를 옮기지 않고 마칩니다.</p>
+      <div class="ctas">
+        <a class="btn btn-gold num" href="#contact">12월 날짜 문의하기</a>
+        <a class="btn btn-ghost" href="#yearend">송년회 구성 보기</a>
+      </div>
+    </div>
+    <div class="facts num" role="list">
+      <div class="fact" role="listitem"><b>약 150석</b><span>2층 관람석 포함</span></div>
+      <div class="fact" role="listitem"><b>400인치</b><span>대형 LED 전광판</span></div>
+      <div class="fact" role="listitem"><b>그랜드 피아노</b><span>공연용 음향·조명</span></div>
+      <div class="fact" role="listitem"><b>30대 · 2시간</b><span>무료 주차</span></div>
+      <div class="fact" role="listitem"><b>1층</b><span>계단 없이 바로 입장</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon">
+  <div class="wrap">
+    <span class="dday num" id="dday" hidden></span>
+    <span><strong>12월 평일 저녁과 주말</strong>은 송년 행사가 몰리는 시기입니다. 후보 날짜를 두세 개 정해 먼저 문의해 주세요.</span>
+    <a href="#contact">후보 날짜 정리하기 →</a>
+  </div>
+</div>
+
+<!-- WHY / COMPARE -->
+<section class="lobby" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">왜 아트홀 송년회인가</p>
+      <h2 id="why-title">식당이나 연회장에서는 어려운, 무대가 있는 송년회</h2>
+      <p>신불당 한가운데 1층 공연장에 무료 주차와 400인치 LED 전광판까지 갖췄습니다. 같은 송년회라도 장소가 바뀌면 이렇게 달라집니다.</p>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead><tr><th scope="col">항목</th><th scope="col">일반 식당·연회장</th><th scope="col" class="us">신불당아트센터 아트홀</th></tr></thead>
+        <tbody>
+          <tr><td>오시는 길</td><td class="them">장소마다 다름</td><td class="us">신불당 중심, 퇴근길에 바로 들르기 좋음</td></tr>
+          <tr><td>주차</td><td class="them">주차비나 자리 걱정</td><td class="us num">30대, 2시간 무료</td></tr>
+          <tr><td>입장</td><td class="them">엘리베이터나 계단 이동</td><td class="us">1층이라 바로 입장</td></tr>
+          <tr><td>시상식·대표 인사</td><td class="them">테이블 사이에서 마이크로 진행</td><td class="us">조명이 있는 무대에서 진행</td></tr>
+          <tr><td>발표 자료·영상</td><td class="them">작은 화면이나 TV</td><td class="us">400인치 대형 LED 전광판</td></tr>
+          <tr><td>공연</td><td class="them">행사 업체를 따로 불러야 함</td><td class="us">그랜드 피아노와 공연용 음향·조명</td></tr>
+          <tr><td>교류</td><td class="them">같은 자리에서 식사만</td><td class="us">출장 뷔페로 식사까지, 같은 건물 1층 카페와 2층 갤러리에서 교류</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">저녁 식사는 출장 뷔페를 불러 행사장 안에서 함께 할 수 있습니다. 자리를 옮길 필요 없이 한 곳에서 송년회를 마칩니다.</p>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section id="yearend" aria-labelledby="fmt-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">송년회 구성</p>
+      <h2 id="fmt-title">회사 분위기에 맞춰 세 가지 형식 중 고르거나 섞으세요</h2>
+      <p>세 형식 모두 이 무대에서 실제로 열렸던 공연·강연·행사 사진입니다.</p>
+    </div>
+    <div class="formats">
+      <article class="format">
+        <figure><img src="assets/img/trio-red.jpg" alt="피아노 삼중주 연주. 붉은 영상이 흐르는 LED 앞의 피아노, 바이올린, 첼로" loading="lazy"></figure>
+        <div class="format-body">
+          <h3>음악회형</h3>
+          <ul><li>대표 인사</li><li>시상식</li><li>클래식·재즈 작은 연주회</li></ul>
+          <p class="fit"><b>어울리는 회사</b> · 품격 있는 감사의 자리를 원하는 회사</p>
+        </div>
+      </article>
+      <article class="format">
+        <figure><img src="assets/img/lecture-hall.jpg" alt="LED 화면에 슬라이드를 띄우고 강연하는 모습과 객석, 카페 테이블의 청중" loading="lazy"></figure>
+        <div class="format-body">
+          <h3>강연형</h3>
+          <ul><li>한 해 돌아보기</li><li>시상식</li><li>인문·예술 강연</li></ul>
+          <p class="fit"><b>어울리는 회사</b> · 내년 방향을 함께 나누고 싶은 회사</p>
+        </div>
+      </article>
+      <article class="format">
+        <figure><img src="assets/img/event-ceremony.jpg" alt="단체 행사 개회사. 무대 위 진행자와 LED 화면, 깃발, 객석을 채운 참가자들" loading="lazy"></figure>
+        <div class="format-body">
+          <h3>참여형</h3>
+          <ul><li>시상식</li><li>부서별 장기자랑</li><li>공연</li><li>추첨</li></ul>
+          <p class="fit"><b>어울리는 회사</b> · 구성원이 직접 무대에 오르는 활기찬 회사</p>
+        </div>
+      </article>
+    </div>
+    <p class="formats-note">연주자·강사 섭외가 필요하시면 별도로 상담해 드립니다.</p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="lobby alt" id="program" aria-labelledby="tl-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">진행 예시 · 평일 저녁, 음악회형</p>
+      <h2 id="tl-title">퇴근 후 바로 시작해, 세 시간 반 안에 마칩니다</h2>
+      <p>실제 시간은 회사 일정에 맞춰 조정합니다.</p>
+    </div>
+    <div class="timeline-grid">
+      <ol class="timeline">
+        <li><time>18:00</time><i class="dot"></i><span>입장, 웰컴 음료<small>1층 멜버른커피하우스</small></span></li>
+        <li class="key"><time>18:30</time><i class="dot"></i><span>개회, 대표 인사</span></li>
+        <li class="key"><time>18:45</time><i class="dot"></i><span>한 해 돌아보기 영상, 시상식<small>400인치 LED 전광판</small></span></li>
+        <li><time>19:30</time><i class="dot"></i><span>출장 뷔페 저녁 식사</span></li>
+        <li class="key"><time>20:30</time><i class="dot"></i><span>송년 음악회<small>그랜드 피아노 · 공연용 음향·조명</small></span></li>
+        <li><time>21:10</time><i class="dot"></i><span>추첨, 단체 사진</span></li>
+        <li><time>21:30</time><i class="dot"></i><span>폐회</span></li>
+      </ol>
+      <figure class="timeline-photo" style="margin:0">
+        <img src="assets/img/opening-group.jpg" alt="재개관 기념 강연 무대에서 LED 화면 앞에 선 관계자 단체 사진" loading="lazy">
+        <p>무대 위 단체 사진. 400인치 LED에 회사 로고와 행사명을 띄울 수 있습니다.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section id="stage" aria-labelledby="stage-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">이런 무대를 열었습니다</p>
+      <h2 id="stage-title">리뉴얼 후 연주회와 강연, 두 번의 무대 모두 객석이 가득 찼습니다</h2>
+      <p>송년회의 음악회형과 강연형을 이미 운영해 본 무대입니다. 사진을 누르면 크게 볼 수 있습니다.</p>
+    </div>
+
+    <div class="record">
+      <div class="show">
+        <div class="show-text">
+          <p class="date num">2026. 10. 1. THU 19:30</p>
+          <h3>재개관 기념 강연<br>「예술이란 무엇인가?」</h3>
+          <p>문학·음악·미술을 중심으로 예술을 이야기하고 피아노 선율로 함께 채워 간 저녁. 강연 나성남(철학박사), 연주 곽원섭(피아니스트).</p>
+          <span class="tag">강연 + 피아노 연주</span>
+        </div>
+        <div class="mosaic">
+          <button class="m-a" data-cap="강연 중 2층에서 본 아트홀 전경"><img src="assets/img/lecture-wide.jpg" alt="강연 중 2층에서 본 아트홀 전경" loading="lazy"></button>
+          <button class="m-b" data-cap="재개관 기념 강연 포스터"><img src="assets/img/poster-art.jpg" alt="재개관 기념 강연 포스터" loading="lazy"></button>
+          <button class="m-c" data-cap="LED 전광판에 띄운 강연 슬라이드"><img src="assets/img/lecture-close.jpg" alt="LED 전광판에 띄운 강연 슬라이드" loading="lazy"></button>
+          <button class="m-d" data-cap="그랜드 피아노 연주와 LED 영상"><img src="assets/img/piano-led.jpg" alt="그랜드 피아노 연주와 LED 영상" loading="lazy"></button>
+          <button class="m-e" data-cap="객석 정면에서 본 무대"><img src="assets/img/seats-piano.jpg" alt="투명 의자 객석 너머 피아노 무대" loading="lazy"></button>
+        </div>
+      </div>
+
+      <div class="show flip">
+        <div class="show-text">
+          <p class="date num">2026. 9. 17. THU 19:30</p>
+          <h3>트리오판테온 제4회 정기연주회<br>「트리오판테온이 당신에게 가을이었다」</h3>
+          <p>2026 아트홀 공모 선정 공연. 곡마다 400인치 LED 영상을 바꿔 가며 무대 분위기를 연출한 피아노 삼중주 연주회입니다.</p>
+          <span class="tag">피아노 삼중주</span>
+        </div>
+        <div class="mosaic">
+          <button class="m-g" data-cap="곡에 맞춘 가을 거리 영상과 삼중주"><img src="assets/img/trio-autumn.jpg" alt="가을 거리 영상 앞 피아노 삼중주" loading="lazy"></button>
+          <button class="m-f" data-cap="공연 중 2층에서 본 전경"><img src="assets/img/hall-wide.jpg" alt="공연 중 2층에서 본 전경" loading="lazy"></button>
+          <button class="m-d" data-cap="도시 야경 영상과 함께한 연주"><img src="assets/img/trio-night.jpg" alt="도시 야경 영상과 함께한 연주" loading="lazy"></button>
+          <button class="m-e" data-cap="곡 소개 중인 연주자들"><img src="assets/img/trio-talk.jpg" alt="공연 타이틀 화면 앞에서 곡을 소개하는 연주자들" loading="lazy"></button>
+        </div>
+      </div>
+
+      <div class="more-shows">
+        <article class="mini">
+          <button data-cap="바이올린 리사이틀 무대"><img src="assets/img/stage-piano.jpg" alt="장미 영상이 띄워진 LED 앞 그랜드 피아노 무대" loading="lazy"></button>
+          <div><p class="eyebrow">리사이틀</p><h3>바이올린 리사이틀</h3><p>장미 영상으로 무대를 꾸민 독주회. 공연 전 진행자 소개와 함께 시작했습니다.</p></div>
+        </article>
+        <article class="mini">
+          <button data-cap="단체 행사 준비 중인 아트홀"><img src="assets/img/event-setup.jpg" alt="행사 시작 전 객석과 백월, 접수 테이블을 설치한 아트홀" loading="lazy"></button>
+          <div><p class="eyebrow">단체 행사</p><h3>대회·개회식 대관</h3><p>객석 배치, 포토월, 접수 테이블까지. 공연이 아닌 단체 행사도 이 공간에서 열렸습니다.</p></div>
+        </article>
+      </div>
+
+      <div>
+        <div class="sec-head" style="margin-bottom:24px">
+          <p class="eyebrow">현장 영상</p>
+          <h2 style="font-size:var(--s-lg)">아트홀의 소리와 분위기</h2>
+        </div>
+        <div class="videos">
+          <div class="vrow">
+            <figure class="w"><video src="assets/video/video1.mp4" controls preload="metadata" playsinline></video><figcaption>현장 영상 1</figcaption></figure>
+            <figure class="t"><video src="assets/video/video3.mp4" controls preload="metadata" playsinline></video><figcaption>현장 영상 3</figcaption></figure>
+          </div>
+          <div class="vrow">
+            <figure class="t"><video src="assets/video/video4.mp4" controls preload="metadata" playsinline></video><figcaption>현장 영상 4</figcaption></figure>
+            <figure class="w"><video src="assets/video/video2.mp4" controls preload="metadata" playsinline></video><figcaption>현장 영상 2</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACES -->
+<section class="lobby" id="spaces" aria-labelledby="sp-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">공간 안내</p>
+      <h2 id="sp-title">공연장, 카페, 갤러리가 한 건물에</h2>
+      <p>1층 아트홀에서 행사를 하고, 같은 층 카페와 2층 갤러리에서 자연스럽게 교류합니다.</p>
+    </div>
+    <ol class="flow">
+      <li><span class="fl">1F 카페</span><b>웰컴 음료로 맞이하기</b><span>멜버른커피하우스에서 입장 대기와 접수</span></li>
+      <li><span class="fl">1F 아트홀</span><b>무대에서 인사·시상·공연</b><span>조명과 400인치 LED가 있는 정면 무대</span></li>
+      <li><span class="fl">2F 갤러리</span><b>전시 보며 교류</b><span>M갤러리 관람, 2층 관람석에서 내려다보기</span></li>
+      <li class="opt"><span class="fl">5F 이벤트홀 · 선택</span><b>연회와 2부 파티</b><span>100석 규모 연회·파티 공간에서 식사와 뒤풀이</span></li>
+    </ol>
+    <div class="eventhall">
+      <div>
+        <p class="eyebrow">함께 쓰면 좋은 공간</p>
+        <h3>5층 이벤트홀</h3>
+      </div>
+      <p>100석 규모로 세미나·강연부터 연회와 파티까지 열 수 있는 공간입니다. 1층 아트홀에서 시상식과 공연을 마치고, 식사와 2부 파티는 5층 이벤트홀에서 따로 여는 구성도 가능합니다. 함께 쓸 경우 상담 때 안내해 드립니다.</p>
+    </div>
+    <div class="spaces-grid">
+      <figure class="building">
+        <img src="assets/img/building.jpg" alt="신불당아트센터 건물 외관. 세로 간판에 1층 아트홀, 2층 M갤러리, 3층 세미나홀, 5층 이벤트홀" loading="lazy">
+        <figcaption>충남 천안시 서북구 불당34길 3-16 · 건물 1층 주차장 입구</figcaption>
+      </figure>
+      <div>
+        <ul class="floors">
+          <li><span class="fl">5F</span><span class="nm">이벤트홀</span><span class="ds num">100석 · 연회·파티·강연</span></li>
+          <li><span class="fl">3F</span><span class="nm">세미나홀</span><span class="ds num">세미나실 M1·M2·M3·VIP</span></li>
+          <li><span class="fl">2F</span><span class="nm">M갤러리</span><span class="ds">전시 관람 · 2층 관람석</span></li>
+          <li class="here"><span class="fl">1F</span><span class="nm">아트홀 · 멜버른커피하우스</span><span class="ds">공연장 · 웰컴 음료</span></li>
+        </ul>
+        <dl class="spec">
+          <div><dt>객석</dt><dd>약 150석 (2층 관람석 포함)</dd></div>
+          <div><dt>면적</dt><dd>공연장 약 70평 · 카페 포함 1층 약 100평</dd></div>
+          <div><dt>무대</dt><dd>높은 층고의 정면 무대, 그랜드 피아노</dd></div>
+          <div><dt>영상</dt><dd>400인치 대형 LED 전광판</dd></div>
+          <div><dt>음향·조명</dt><dd>행사 성격과 규모에 맞춰 구성</dd></div>
+          <div><dt>마이크</dt><dd class="num">무선 4개 · 유선 6개</dd></div>
+          <div><dt>주차</dt><dd>30대, 2시간 무료</dd></div>
+          <div><dt>운영 시간</dt><dd class="num">오전 9:30 ~ 오후 10:00</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="lobby alt services-wrap" aria-labelledby="sv-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">공간과 함께 준비하는 것</p>
+      <h2 id="sv-title">상담에 따라 함께 준비할 수 있습니다</h2>
+    </div>
+    <ul class="services">
+      <li><b>행사 순서·무대 연출</b><span>사전 협의로 큐시트와 무대 동선 정리</span></li>
+      <li><b>출장 뷔페 반입</b><span>행사장 안에서 저녁 식사까지</span></li>
+      <li><b>웰컴 음료·다과</b><span>멜버른커피하우스 케이터링</span></li>
+      <li><b>연주자·강연자 섭외</b><span>송년 음악회, 인문·예술 강연</span></li>
+      <li><b>로고·현수막 디자인</b><span>LED 스크린용 회사 로고, 현수막</span></li>
+      <li><b>포토존·사진·영상</b><span>로비 포토존, 행사 사진·영상 촬영</span></li>
+      <li><b>M갤러리 전시 관람</b><span>2층 갤러리에서 쉬는 시간 교류</span></li>
+      <li><b>5층 이벤트홀 연회</b><span>100석 규모 공간에서 식사와 2부 파티</span></li>
+    </ul>
+    <p class="services-note">포함 여부와 비용은 상담 때 안내해 드립니다.</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="lobby" id="process" aria-labelledby="pr-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">대관 절차</p>
+      <h2 id="pr-title">전화 한 통에서 행사 당일까지</h2>
+    </div>
+    <ol class="steps">
+      <li><b>전화 문의</b><span>후보 날짜, 참석 인원, 원하는 형식을 알려주세요</span></li>
+      <li><b>공간 답사</b><span>담당자님이 직접 무대와 객석, 카페를 확인하세요</span></li>
+      <li><b>견적 안내</b><span>대관료·이용 시간·부대시설·케이터링 비용을 행사 내용에 맞춰 안내</span></li>
+      <li><b>계약</b><span>계약과 계약금 입금으로 날짜 확정</span></li>
+      <li><b>최종 협의</b><span>행사 2주 전 순서·연출 최종 협의</span></li>
+    </ol>
+    <p class="services-note">세금계산서 발행과 법인카드 결제 모두 가능합니다.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" aria-labelledby="ct-title">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow" style="color:var(--gold-soft)">대관 문의</p>
+      <h2 id="ct-title">날짜부터 먼저 잡아 두세요</h2>
+      <a class="bignum num" href="tel:15338771">1533-8771</a>
+      <div class="copyrow">
+        <button class="btn btn-ghost" type="button" id="copy-phone">번호 복사</button>
+      </div>
+      <dl>
+        <dt>주소</dt><dd>충남 천안시 서북구 불당34길 3-16 신불당아트센터 1층</dd>
+        <dt>운영</dt><dd class="num">오전 9:30 ~ 오후 10:00</dd>
+        <dt>담당</dt><dd class="num">정승민 · 1533-8771</dd>
+      </dl>
+    </div>
+
+    <form class="planner" id="planner" novalidate>
+      <h3>전화 전에 정리해 두면 빠릅니다</h3>
+      <p class="help">아래를 채우면 문의 내용이 한 번에 정리됩니다. 복사해 두었다가 통화할 때 읽어 주세요.</p>
+      <div class="field">
+        <label for="company">회사명</label>
+        <input id="company" name="company" autocomplete="organization" placeholder="예: ○○주식회사">
+      </div>
+      <fieldset>
+        <legend>후보 날짜 (두세 개)</legend>
+        <div class="row3">
+          <input type="date" id="d1" aria-label="후보 날짜 1" value="2026-12-17">
+          <input type="date" id="d2" aria-label="후보 날짜 2" value="2026-12-18">
+          <input type="date" id="d3" aria-label="후보 날짜 3">
+        </div>
+        <div class="chips"><label><input type="checkbox" id="flex" value="1"><span>위 날짜 외에도 협의 가능</span></label></div>
+      </fieldset>
+      <div class="row2">
+        <div class="field">
+          <label for="people">참석 인원</label>
+          <input id="people" type="number" min="1" max="300" inputmode="numeric" value="80">
+        </div>
+        <div class="field">
+          <label for="start">시작 시간</label>
+          <select id="start"><option>17:30</option><option selected>18:00</option><option>18:30</option><option>19:00</option><option>상담 후 결정</option></select>
+        </div>
+      </div>
+      <fieldset>
+        <legend>원하는 형식</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="fmt" value="음악회형" id="f1" checked><span>음악회형</span></label>
+          <label><input type="checkbox" name="fmt" value="강연형" id="f2"><span>강연형</span></label>
+          <label><input type="checkbox" name="fmt" value="참여형" id="f3"><span>참여형</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>함께 상담할 것</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="opt" value="출장 뷔페" id="o1" checked><span>출장 뷔페</span></label>
+          <label><input type="checkbox" name="opt" value="웰컴 음료·다과" id="o2"><span>웰컴 음료·다과</span></label>
+          <label><input type="checkbox" name="opt" value="연주자·강연자 섭외" id="o3"><span>연주자·강연자 섭외</span></label>
+          <label><input type="checkbox" name="opt" value="로고·현수막" id="o4"><span>로고·현수막</span></label>
+          <label><input type="checkbox" name="opt" value="사진·영상 촬영" id="o5"><span>사진·영상 촬영</span></label>
+          <label><input type="checkbox" name="opt" value="5층 이벤트홀 연회·파티" id="o6"><span>5층 이벤트홀 연회·파티</span></label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <span style="font-size:var(--s-xs);color:var(--on-stage-2)">정리된 문의 내용</span>
+        <div class="summary" id="summary" aria-live="polite"></div>
+      </div>
+      <div class="copyrow">
+        <button class="btn btn-gold" type="submit">문의 내용 복사</button>
+        <span class="status" id="status" role="status"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="lobby alt" id="visit" aria-labelledby="vs-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">오시는 길</p>
+      <h2 id="vs-title">신불당 한가운데, 퇴근길에 바로</h2>
+    </div>
+    <div class="visit-grid">
+      <div><b>주소</b><p>충남 천안시 서북구 불당34길 3-16<br>신불당아트센터 1층 아트홀</p></div>
+      <div><b>주차</b><p>건물 주차장 30대, 2시간 무료.<br>행사 인원이 많으면 상담 때 함께 안내해 드립니다.</p></div>
+      <div><b>운영 시간</b><p class="num">오전 9:30 ~ 오후 10:00<br>1층 멜버른커피하우스 · 2층 M갤러리</p></div>
+    </div>
+    <div class="maplinks">
+      <a class="btn btn-ink" href="https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+      <a class="btn btn-line" href="https://map.kakao.com/?q=%EC%B2%9C%EC%95%88%20%EB%B6%88%EB%8B%B934%EA%B8%B8%203-16" target="_blank" rel="noopener">카카오맵에서 보기</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>신불당아트센터 아트홀 · 충남 천안시 서북구 불당34길 3-16</span>
+    <span class="num">대관 문의 1533-8771 · 오전 9:30 ~ 오후 10:00</span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-gold num" href="tel:15338771">☎ 전화 문의</a>
+  <a class="btn btn-ghost" href="#contact">날짜 정리하기</a>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <button type="button" id="lb-close" aria-label="닫기">×</button>
+  <figure style="margin:0"><img id="lb-img" alt=""><p id="lb-cap"></p></figure>
+</div>
+
+<script>
+(function(){
+  // lightbox
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),last=null;
+  document.querySelectorAll('.mosaic button,.mini button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var img=b.querySelector('img');last=b;
+      lbImg.src=img.src;lbImg.alt=img.alt;lbCap.textContent=b.dataset.cap||img.alt;
+      lb.hidden=false;document.getElementById('lb-close').focus();
+    });
+  });
+  function close(){lb.hidden=true;lbImg.src='';if(last)last.focus();}
+  document.getElementById('lb-close').addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});
+
+  // copy helper
+  function copy(text,statusEl,okMsg){
+    function fallback(){
+      var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+      var ok=false;try{ok=document.execCommand('copy');}catch(e){}
+      document.body.removeChild(ta);
+      if(statusEl)statusEl.textContent=ok?okMsg:'복사가 막혀 있습니다. 내용을 길게 눌러 직접 복사해 주세요.';
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){if(statusEl)statusEl.textContent=okMsg;},fallback);
+    }else fallback();
+  }
+
+  // planner
+  var f=document.getElementById('planner'),out=document.getElementById('summary'),status=document.getElementById('status');
+  var days=['일','월','화','수','목','금','토'];
+  function fmtDate(v){
+    if(!v)return null;var p=v.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);
+    return (+p[1])+'월 '+(+p[2])+'일('+days[d.getDay()]+')';
+  }
+  function build(){
+    var c=document.getElementById('company').value.trim();
+    var ds=['d1','d2','d3'].map(function(id){return fmtDate(document.getElementById(id).value);}).filter(Boolean);
+    var n=document.getElementById('people').value;
+    var st=document.getElementById('start').value;
+    var fm=[].slice.call(f.querySelectorAll('input[name=fmt]:checked')).map(function(i){return i.value;});
+    var op=[].slice.call(f.querySelectorAll('input[name=opt]:checked')).map(function(i){return i.value;});
+    var lines=['[신불당아트센터 아트홀 송년회 대관 문의]'];
+    lines.push('회사: '+(c||'(회사명)'));
+    lines.push('후보 날짜: '+(ds.length?ds.join(', '):'(날짜를 골라 주세요)')+(document.getElementById('flex').checked?' (다른 날짜도 협의 가능)':''));
+    lines.push('참석 인원: '+(n?n+'명':'(인원)')+(n&&+n>150?'  ※ 객석 약 150석 기준, 배치 상담 필요':''));
+    lines.push('시작 시간: '+st);
+    lines.push('형식: '+(fm.length?fm.join(' + '):'상담 후 결정'));
+    if(op.length)lines.push('함께 상담: '+op.join(', '));
+    out.textContent=lines.join('\n');
+    return out.textContent;
+  }
+  f.addEventListener('input',build);f.addEventListener('change',build);
+  f.addEventListener('submit',function(e){e.preventDefault();copy(build(),status,'복사했습니다. 1533-8771 통화 때 읽어 주시면 됩니다.');});
+  build();
+  // 송년 시즌(12월 1일)까지 남은 날
+  (function(){
+    var now=new Date(),y=now.getMonth()===11?null:now.getFullYear();
+    if(y===null)return;
+    var left=Math.ceil((new Date(y,11,1)-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+    var el=document.getElementById('dday');el.textContent='송년 시즌까지 D-'+left;el.hidden=false;
+  })();
+  document.getElementById('copy-phone').addEventListener('click',function(){
+    var b=this;copy('1533-8771',null,'');b.textContent='복사했습니다';setTimeout(function(){b.textContent='번호 복사';},1800);
+  });
+})();
+</script>
+</body>
+</html>
