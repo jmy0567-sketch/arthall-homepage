@@ -216,6 +216,19 @@ section{padding-block:clamp(64px,9vw,112px)}
 .maplinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 @media (max-width:760px){.loc{grid-template-columns:1fr}}
 
+/* ---------- instagram ---------- */
+.ig-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ig-grid a{position:relative;display:block;aspect-ratio:1;border-radius:6px;overflow:hidden;background:var(--lobby-2)}
+.ig-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ig-grid a:hover img{transform:scale(1.05)}
+.ig-grid a::after{content:attr(data-cap);position:absolute;inset:auto 0 0;padding:28px 12px 10px;font-size:var(--s-xs);line-height:1.5;color:var(--on-stage);background:linear-gradient(180deg,transparent,rgba(26,13,16,.88));opacity:0;transition:opacity .3s;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ig-grid a:hover::after,.ig-grid a:focus-visible::after{opacity:1}
+.ig-grid .vid{position:absolute;top:8px;right:8px;z-index:1;font-size:.7rem;padding:2px 7px;border-radius:999px;background:rgba(26,13,16,.7);color:var(--on-stage)}
+.ig-empty{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;padding:26px 28px;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+.ig-empty b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg);display:block}
+.ig-empty p{font-size:var(--s-sm);color:var(--ink-2)}
+@media (max-width:760px){.ig-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ig-grid a:nth-child(n+7){display:none}}
+
 footer{background:var(--stage);color:var(--on-stage-2);font-size:var(--s-xs);padding-block:40px 110px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
 footer a{color:var(--on-stage)}
@@ -244,6 +257,7 @@ footer a{color:var(--on-stage)}
       <a href="#spaces">공간</a>
       <a href="#visit">방문 안내</a>
       <a href="#rental">대관</a>
+      <a href="#news">소식</a>
       <a href="#location">오시는 길</a>
     </nav>
     <a class="btn btn-gold num" href="#rental">대관 문의</a>
@@ -408,6 +422,24 @@ footer a{color:var(--on-stage)}
   </div>
 </section>
 
+<!-- INSTAGRAM: data-feed에 Behold(behold.so) 피드 ID를 넣으면 최신 게시물이 자동으로 표시됩니다 -->
+<section class="alt" id="news" aria-labelledby="ig-title">
+  <div class="wrap">
+    <div class="sec-head"><div>
+      <p class="eyebrow">인스타그램</p>
+      <h2 id="ig-title">아트홀 소식</h2>
+      <p>공연 예고와 현장 사진을 인스타그램에 먼저 올립니다.</p>
+    </div>
+      <a class="btn btn-ink" href="https://www.instagram.com/shinbuldang_artcenter/" target="_blank" rel="noopener">@shinbuldang_artcenter 팔로우</a>
+    </div>
+    <div class="ig-grid" id="ig-grid" data-feed="" data-count="8" hidden></div>
+    <div class="ig-empty" id="ig-empty">
+      <div><b>@shinbuldang_artcenter</b><p>최신 공연 소식과 무대 사진은 인스타그램에서 확인하세요.</p></div>
+      <a class="btn btn-line" href="https://www.instagram.com/shinbuldang_artcenter/" target="_blank" rel="noopener">인스타그램 열기 ↗</a>
+    </div>
+  </div>
+</section>
+
 <!-- FLOORS -->
 <section id="spaces" aria-labelledby="sp-title">
   <div class="wrap">
@@ -530,7 +562,7 @@ footer a{color:var(--on-stage)}
 <footer>
   <div class="wrap num">
     <span>신불당아트센터 아트홀 · 충남 천안시 서북구 불당34길 3-16</span>
-    <span>문의 1533-8771 · <a href="yearend.html">기업 송년회 대관</a></span>
+    <span>문의 1533-8771 · <a href="yearend.html">기업 송년회 대관</a> · <a href="https://www.instagram.com/shinbuldang_artcenter/" target="_blank" rel="noopener">인스타그램</a></span>
   </div>
 </footer>
 
@@ -597,5 +629,35 @@ footer a{color:var(--on-stage)}
   });
 })();
 </script>
+<script>
+// 인스타그램 피드: Behold JSON(https://feeds.behold.so/{id})을 읽어 그리드로 표시. 실패하거나 ID가 없으면 안내 카드 유지.
+(function(){
+  var g=document.getElementById('ig-grid'),empty=document.getElementById('ig-empty');
+  var id=(g&&g.dataset.feed||'').trim();if(!id||!window.fetch)return;
+  var n=parseInt(g.dataset.count,10)||8;
+  fetch('https://feeds.behold.so/'+encodeURIComponent(id))
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(function(d){
+      var posts=(Array.isArray(d)?d:d.posts||[]).slice(0,n);
+      if(!posts.length)return;
+      posts.forEach(function(p){
+        var src=(p.sizes&&p.sizes.medium&&p.sizes.medium.mediaUrl)||(p.mediaType==='VIDEO'?p.thumbnailUrl:p.mediaUrl);
+        if(!src||!/^https:\/\/(www\.)?instagram\.com\//.test(p.permalink||''))return;
+        var cap=(p.prunedCaption||p.caption||'').replace(/\s+/g,' ').trim();
+        var a=document.createElement('a');a.href=p.permalink;a.target='_blank';a.rel='noopener';
+        a.setAttribute('data-cap',cap.slice(0,120));
+        a.setAttribute('aria-label',(cap?cap.slice(0,60):'인스타그램 게시물')+' (새 창)');
+        var img=document.createElement('img');img.src=src;img.alt='';img.loading='lazy';
+        img.onerror=function(){a.remove();};
+        a.appendChild(img);
+        if(p.mediaType==='VIDEO'){var t=document.createElement('span');t.className='vid';t.textContent='▶ 릴스';a.appendChild(t);}
+        g.appendChild(a);
+      });
+      if(g.children.length){g.hidden=false;empty.hidden=true;}
+    })
+    .catch(function(){/* 안내 카드 유지 */});
+})();
+</script>
+
 </body>
 </html>
