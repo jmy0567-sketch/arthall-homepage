@@ -206,6 +206,54 @@ section{padding-block:clamp(64px,9vw,112px)}
 .rent-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--line-dark)}
 .rent-cta .phone{font-family:var(--f-display);font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--gold-soft);text-decoration:none}
 .rent-cta p{color:var(--on-stage-2);font-size:var(--s-sm)}
+
+/* ---------- fees ---------- */
+.fee-base{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:24px}
+.fb{display:grid;gap:4px;align-content:start;padding:20px 22px;background:var(--paper);border:1px solid var(--line);border-radius:10px;min-width:0}
+.fb.main{background:var(--stage);border-color:var(--stage);color:var(--on-stage)}
+.fb-k{font-size:var(--s-xs);letter-spacing:.06em;color:var(--oxblood);font-weight:600}
+.fb.main .fb-k{color:var(--gold)}
+.fb b{font-family:var(--f-display);font-weight:700;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.2}
+.fb.main b{color:var(--gold-soft)}
+.fb-d{font-size:var(--s-sm);color:var(--ink-2)}
+.fb.main .fb-d{color:var(--on-stage-2)}
+.fee-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(24px,4vw,48px);align-items:start}
+.fee-table-wrap{min-width:0;overflow-x:auto}
+.fee-table{width:100%;border-collapse:collapse;font-size:var(--s-sm);background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.fee-table caption{text-align:left;font-family:var(--f-display);font-weight:500;font-size:var(--s-lg);padding-bottom:12px}
+.fee-table th,.fee-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.fee-table thead th{font-size:var(--s-xs);color:var(--ink-2);font-weight:600;letter-spacing:.06em;background:var(--lobby)}
+.fee-table tbody th{font-weight:600}
+.fee-table tbody th small{font-weight:400;color:var(--ink-2)}
+.fee-table td:nth-child(2){white-space:nowrap}
+.fee-table td:last-child{color:var(--ink-2);font-size:var(--s-xs)}
+.fee-table tr:last-child th,.fee-table tr:last-child td{border-bottom:0}
+.fee-table tr.off th,.fee-table tr.off td:nth-child(2){color:var(--ink-2);text-decoration:line-through;text-decoration-color:var(--line)}
+.fee-table tr.off td:last-child{color:var(--oxblood);font-weight:600}
+.fee-notes{margin:16px 0 0;padding-left:1.1em;display:grid;gap:4px;font-size:var(--s-sm);color:var(--ink-2)}
+.calc{position:sticky;top:88px;display:grid;gap:12px;padding:clamp(20px,3vw,28px);background:var(--paper);border:1px solid var(--ink);border-radius:12px}
+.calc h3{font-size:var(--s-lg)}
+.calc .help{font-size:var(--s-xs);color:var(--ink-2)}
+.seg{border:0;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px}
+.seg legend{font-size:var(--s-xs);color:var(--ink-2);margin-bottom:6px}
+.seg label,.checks label{cursor:pointer}
+.seg input,.checks input{position:absolute;opacity:0;width:1px;height:1px}
+.seg span,.checks span{display:block;text-align:center;padding:9px 10px;border:1px solid var(--line);border-radius:6px;font-size:var(--s-sm)}
+.seg input:checked+span,.checks input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--paper);font-weight:600}
+.seg input:focus-visible+span,.checks input:focus-visible+span{outline:2px solid var(--oxblood);outline-offset:2px}
+.crow{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:var(--s-sm);padding-block:2px}
+.step{display:flex;align-items:center;gap:6px}
+.step input{width:72px;font:inherit;font-variant-numeric:tabular-nums;text-align:right;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--lobby);color:var(--ink)}
+.step input:focus{outline:none;border-color:var(--oxblood)}
+.step i{font-style:normal;color:var(--ink-2);font-size:var(--s-xs);width:2.2em}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px}
+.total{margin:4px 0 0;padding-top:14px;border-top:1px solid var(--line);display:grid;gap:4px}
+.total div{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.total dt{font-size:var(--s-sm);color:var(--ink-2);white-space:nowrap}
+.total dd{margin:0;font-family:var(--f-display);font-weight:700;font-size:var(--s-xl);color:var(--oxblood)}
+.total .vat dd{font-size:var(--s-md);color:var(--ink)}
+@media (max-width:900px){.fee-base{grid-template-columns:1fr}.fee-grid{grid-template-columns:1fr}.calc{position:static}}
+@media (max-width:420px){.checks{grid-template-columns:1fr}.seg{grid-template-columns:1fr}}
 @media (max-width:860px){.rent-grid{grid-template-columns:1fr}.rent{min-height:240px}}
 
 /* ---------- location ---------- */
@@ -257,6 +305,7 @@ footer a{color:var(--on-stage)}
       <a href="#spaces">공간</a>
       <a href="#visit">방문 안내</a>
       <a href="#rental">대관</a>
+      <a href="#fees">대관료</a>
       <a href="#news">소식</a>
       <a href="#location">오시는 길</a>
     </nav>
@@ -537,6 +586,84 @@ footer a{color:var(--on-stage)}
   </div>
 </section>
 
+<!-- FEES -->
+<section class="alt" id="fees" aria-labelledby="fee-title">
+  <div class="wrap">
+    <div class="sec-head"><div>
+      <p class="eyebrow">대관료</p>
+      <h2 id="fee-title">아트홀 사용료 기준</h2>
+      <p>기본 대관료에 필요한 부대시설만 더하는 방식입니다. 모든 금액은 부가세 별도입니다.</p>
+    </div></div>
+
+    <div class="fee-base num">
+      <div class="fb main">
+        <span class="fb-k">기본 대관료 · 4시간</span>
+        <b>700,000원</b>
+        <span class="fb-d">정규 시간 오전 11:00~15:00 / 오후 17:00~21:00</span>
+      </div>
+      <div class="fb">
+        <span class="fb-k">2시간 이내 행사</span>
+        <b>600,000원</b>
+        <span class="fb-d">1시간 주차권 30매 포함</span>
+      </div>
+      <div class="fb">
+        <span class="fb-k">이용 시간 1시간 추가</span>
+        <b>150,000원 / 100,000원</b>
+        <span class="fb-d">정규 시간 외 사용은 협의하여 조정</span>
+      </div>
+    </div>
+
+    <div class="fee-grid">
+      <div class="fee-table-wrap">
+        <table class="fee-table num">
+          <caption>부대시설 사용료</caption>
+          <thead><tr><th scope="col">항목</th><th scope="col">요금</th><th scope="col">비고</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">종합조명 <small>(16개)</small></th><td>1시간 30,000원</td><td></td></tr>
+            <tr><th scope="row">무선마이크 <small>(4개)</small></th><td>추가 1대당 10,000원</td><td>기본 1대 포함</td></tr>
+            <tr><th scope="row">유선마이크 <small>(6개)</small></th><td>추가 1대당 10,000원</td><td>기본 1대 포함</td></tr>
+            <tr><th scope="row">400인치 LED 전광판</th><td>1회 100,000원</td><td></td></tr>
+            <tr><th scope="row">모니터 스피커 <small>(4개)</small></th><td>1대당 10,000원</td><td></td></tr>
+            <tr><th scope="row">중앙 카메라 기본 녹화</th><td>100,000원</td><td></td></tr>
+            <tr class="off"><th scope="row">풀 녹화</th><td>300,000원</td><td>현재 이용 불가</td></tr>
+            <tr><th scope="row">그랜드 피아노</th><td>1회 50,000원</td><td></td></tr>
+            <tr><th scope="row">냉난방</th><td>1시간 30,000원</td><td></td></tr>
+          </tbody>
+        </table>
+        <ul class="fee-notes">
+          <li>2시간 주차권 30매를 드립니다. 남은 주차권은 반납해 주세요.</li>
+          <li>사용할 부대시설과 수량을 알려 주시면 사용료 총액을 산정해 계약서를 작성합니다.</li>
+        </ul>
+      </div>
+
+      <form class="calc" id="calc" novalidate>
+        <h3>예상 사용료 계산</h3>
+        <p class="help">쓸 시설을 고르면 참고용 금액이 바로 나옵니다. 실제 금액은 계약 때 확정됩니다.</p>
+        <fieldset class="seg">
+          <legend>기본 대관</legend>
+          <label><input type="radio" name="base" value="700000" id="c-base4" checked><span>4시간 · 700,000</span></label>
+          <label><input type="radio" name="base" value="600000" id="c-base2"><span>2시간 이내 · 600,000</span></label>
+        </fieldset>
+        <div class="crow"><label for="c-light">종합조명 사용 시간</label><span class="step"><input id="c-light" type="number" min="0" max="12" value="0" inputmode="numeric"><i>시간</i></span></div>
+        <div class="crow"><label for="c-wl">무선마이크 추가</label><span class="step"><input id="c-wl" type="number" min="0" max="3" value="0" inputmode="numeric"><i>대</i></span></div>
+        <div class="crow"><label for="c-wd">유선마이크 추가</label><span class="step"><input id="c-wd" type="number" min="0" max="5" value="0" inputmode="numeric"><i>대</i></span></div>
+        <div class="crow"><label for="c-mon">모니터 스피커</label><span class="step"><input id="c-mon" type="number" min="0" max="4" value="0" inputmode="numeric"><i>대</i></span></div>
+        <div class="crow"><label for="c-air">냉난방 사용 시간</label><span class="step"><input id="c-air" type="number" min="0" max="12" value="0" inputmode="numeric"><i>시간</i></span></div>
+        <div class="checks">
+          <label><input type="checkbox" id="c-led" value="100000"><span>LED 전광판</span></label>
+          <label><input type="checkbox" id="c-piano" value="50000"><span>그랜드 피아노</span></label>
+          <label><input type="checkbox" id="c-rec" value="100000"><span>기본 녹화</span></label>
+        </div>
+        <dl class="total num" aria-live="polite">
+          <div><dt>합계 (부가세 별도)</dt><dd id="c-sum">700,000원</dd></div>
+          <div class="vat"><dt>부가세 10% 포함</dt><dd id="c-vat">770,000원</dd></div>
+        </dl>
+        <p class="help">정규 시간을 넘기는 추가 시간 요금은 포함하지 않았습니다. 문의 1533-8771</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- LOCATION -->
 <section id="location" aria-labelledby="lc-title">
   <div class="wrap loc">
@@ -605,6 +732,23 @@ footer a{color:var(--on-stage)}
       });
     });
   });
+
+  // 대관료 계산 (사용료 기준표 금액, 부가세 별도)
+  var calc=document.getElementById('calc');
+  if(calc){
+    var won=function(n){return n.toLocaleString('ko-KR')+'원';};
+    var num=function(id){var el=document.getElementById(id),v=Math.floor(+el.value||0),mx=+el.max;v=Math.max(0,Math.min(v,mx));return v;};
+    var recalc=function(){
+      var s=+calc.querySelector('input[name=base]:checked').value;
+      s+=num('c-light')*30000+num('c-wl')*10000+num('c-wd')*10000+num('c-mon')*10000+num('c-air')*30000;
+      ['c-led','c-piano','c-rec'].forEach(function(id){var c=document.getElementById(id);if(c.checked)s+=+c.value;});
+      document.getElementById('c-sum').textContent=won(s);
+      document.getElementById('c-vat').textContent=won(Math.round(s*1.1));
+    };
+    calc.addEventListener('input',recalc);calc.addEventListener('change',recalc);
+    calc.addEventListener('submit',function(e){e.preventDefault();});
+    recalc();
+  }
 
   // 사진 크게 보기
   var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),last=null;
