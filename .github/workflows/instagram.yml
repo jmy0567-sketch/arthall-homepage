@@ -28,6 +28,8 @@ jobs:
         run: node scripts/fetch-instagram.mjs
       - name: 바뀐 내용 커밋
         run: |
+          # 키가 없어 건너뛴 날은 폴더가 없을 수 있음
+          if [ ! -d assets/instagram ]; then echo "저장할 게시물 없음"; exit 0; fi
           git add assets/instagram
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git config user.name "github-actions[bot]"
