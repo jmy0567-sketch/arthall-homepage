@@ -19,10 +19,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - name: Apify로 게시물 가져오기
         env:
-          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          # 저장소 비밀(APIFY_TOKEN) 우선, 흔한 실수(다른 이름·변수 탭)도 받아 준다
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN || secrets.APIFY_API_TOKEN || vars.APIFY_TOKEN }}
+          KEY_FROM: ${{ secrets.APIFY_TOKEN != '' && 'secret' || (secrets.APIFY_API_TOKEN != '' && 'secret-alt' || (vars.APIFY_TOKEN != '' && 'variable' || 'none')) }}
         run: node scripts/fetch-instagram.mjs
       - name: 바뀐 내용 커밋
         run: |

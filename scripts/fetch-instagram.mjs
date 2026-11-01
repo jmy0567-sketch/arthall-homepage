@@ -10,7 +10,23 @@ const LIMIT = parseInt(process.env.IG_LIMIT || '12', 10);
 const TOKEN = process.env.APIFY_TOKEN;
 const OUT = path.resolve('assets/instagram');
 
-if (!TOKEN) { console.error('APIFY_TOKEN 이 없습니다. GitHub 저장소 Secrets에 등록하세요.'); process.exit(1); }
+// 키를 어디서 찾았는지 기록에 남긴다(값은 출력하지 않음). 키가 없으면 실패 대신 건너뛰어 알림 메일을 막는다.
+const KEY_FROM = process.env.KEY_FROM || (TOKEN ? 'env' : 'none');
+const FROM_LABEL = {
+  secret: '저장소 비밀 APIFY_TOKEN',
+  'secret-alt': '저장소 비밀 APIFY_API_TOKEN (이름이 달라도 사용함)',
+  variable: '변수(Variables) 탭 APIFY_TOKEN',
+  env: '환경 변수 APIFY_TOKEN',
+  none: '찾지 못함',
+}[KEY_FROM] || KEY_FROM;
+console.log(`Apify 키 위치: ${FROM_LABEL}`);
+if (!TOKEN) {
+  console.log('::notice title=Apify 키 없음::건너뜀. 저장소 Settings → Secrets and variables → Actions → Secrets 탭 → "Repository secrets"에 이름 APIFY_TOKEN 으로 등록하세요. (Environment secrets, Dependabot·Codespaces 비밀은 읽지 못합니다)');
+  process.exit(0);
+}
+if (KEY_FROM === 'variable') {
+  console.log('::warning title=키가 변수 탭에 있음::작동은 하지만 변수는 암호화되지 않습니다. Secrets 탭의 Repository secrets로 옮기고 변수는 삭제하세요.');
+}
 
 const api = 'https://api.apify.com/v2/acts/apify~instagram-scraper/run-sync-get-dataset-items';
 const res = await fetch(api, {
