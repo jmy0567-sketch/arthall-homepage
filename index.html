@@ -14,6 +14,7 @@
   --stage:#1a0d10;
   --stage-2:#26131a;
   --oxblood:#7a1522;
+  --must:#e02334;
   --gold:#d6ae5c;
   --gold-soft:#e9d3a2;
   --lobby:#f4f1ed;
@@ -146,6 +147,13 @@ section{padding-block:clamp(64px,9vw,112px)}
 .next{background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:22px 24px;margin-bottom:28px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
 .next b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg)}
 .next p{font-size:var(--s-sm);color:var(--ink-2)}
+/* 예약 필수 배지: 빨강↔흰색으로 1초마다 깜빡임 (움직임 줄이기 설정이면 위 규칙으로 멈춤) */
+.must{display:inline-block;padding:.12em .62em;border-radius:999px;background:var(--must);color:#fff;font-weight:700;font-style:normal;letter-spacing:.02em;line-height:1.45;box-shadow:inset 0 0 0 2px var(--must);animation:must 1s steps(1,end) infinite}
+.must-lg{font-size:var(--s-lg);padding:.2em .8em;margin-left:.3em;vertical-align:middle}
+@keyframes must{50%{background:#fff;color:var(--must)}}
+.next.hot{border:2px solid var(--must)}
+.btn-must{background:var(--must);color:#fff}
+.btn-must:hover{background:#b81b2a}
 @media (max-width:820px){
   .row{grid-template-columns:92px minmax(0,1fr) 28px;gap:16px}
   .row .kind{display:none}
@@ -341,7 +349,7 @@ footer a{color:var(--on-stage)}
       </a>
       <a class="hcard" href="#program">
         <img src="assets/img/poster-artmsingers-1112.jpg" alt="">
-        <span><small class="num">다음 공연 · 11. 12. THU 19:30</small><b>「오페라 아리아와 가곡의 밤」 전석 초대 · 예약 필수</b></span>
+        <span><small class="num">다음 공연 · 11. 12. THU 19:30</small><b>「오페라 아리아와 가곡의 밤」 전석 초대 <em class="must">예약 필수</em></b></span>
         <i aria-hidden="true">→</i>
       </a>
     </div>
@@ -374,12 +382,12 @@ footer a{color:var(--on-stage)}
       </div>
     </div>
 
-    <div class="next">
+    <div class="next hot">
       <div>
-        <b>다음 공연 · 11. 12. (목) 저녁 7:30</b>
-        <p>아트엠싱어즈 특별기획 2인 음악회 「오페라 아리아와 가곡의 밤」 · 소프라노 이선영 · 바리톤 박재명 · 피아노 염성현 · 전석 초대 · <b>예약 필수</b></p>
+        <b>다음 공연 · 11. 12. (목) 저녁 7:30</b> <em class="must must-lg">예약 필수</em>
+        <p>아트엠싱어즈 특별기획 2인 음악회 「오페라 아리아와 가곡의 밤」 · 소프라노 이선영 · 바리톤 박재명 · 피아노 염성현 · 전석 초대 (관람료 0원) · 전화로 예약해 주세요</p>
       </div>
-      <a class="btn btn-line num" href="tel:15338771">예약 1533-8771</a>
+      <a class="btn btn-must num" href="tel:15338771">예약 전화 1533-8771</a>
     </div>
 
     <ul class="prog" id="prog">
@@ -387,19 +395,19 @@ footer a{color:var(--on-stage)}
         <button class="row" type="button" aria-expanded="true" aria-controls="d0">
           <span class="when num"><b>11. 12.</b><span>2026 · THU 19:30</span></span>
           <span class="what"><h3>아트엠싱어즈 특별기획 2인 음악회 「오페라 아리아와 가곡의 밤」</h3><p>소프라노 이선영 · 바리톤 박재명 · 피아노 염성현 · 주최 신불당아트센터 · 주관 아트엠싱어즈</p></span>
-          <span class="kind">예정 · 예약 필수</span>
+          <span class="kind must">예정 · 예약 필수</span>
           <span class="chev" aria-hidden="true">▾</span>
         </button>
         <div class="detail" id="d0">
           <div class="strip">
-            <button data-cap="「오페라 아리아와 가곡의 밤」 포스터"><img src="assets/img/poster-artmsingers-1112.jpg" alt="아트엠싱어즈 특별기획 2인 음악회 「오페라 아리아와 가곡의 밤」 포스터" loading="lazy"></button>
+            <button data-cap="「오페라 아리아와 가곡의 밤」 포스터"><img src="assets/img/poster-artmsingers-1112-must.jpg" alt="아트엠싱어즈 특별기획 2인 음악회 「오페라 아리아와 가곡의 밤」 포스터" loading="lazy"></button>
             <button data-cap="샹들리에 아래 1층 아트홀"><img src="assets/img/hall-wide.jpg" alt="2층에서 내려다본 1층 아트홀과 샹들리에" loading="lazy"></button>
           </div>
           <dl>
             <dt>일시</dt><dd>2026년 11월 12일 (목) 오후 7시 30분</dd>
             <dt>장소</dt><dd>신불당아트센터 1층 아트홀</dd>
             <dt>출연</dt><dd>소프라노 이선영 · 바리톤 박재명 · 피아노 염성현</dd>
-            <dt>입장</dt><dd>전석 초대 · <b>예약 필수</b> (예약 <a href="tel:15338771">1533-8771</a>)</dd>
+            <dt>입장</dt><dd>전석 초대 · <em class="must">예약 필수</em> (예약 <a href="tel:15338771">1533-8771</a>)</dd>
           </dl>
         </div>
       </li>
