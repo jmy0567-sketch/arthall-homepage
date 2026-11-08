@@ -2,7 +2,7 @@
 (function () {
   var PHONE = '1533-8771';
   var TALK = 'https://talk.naver.com/w4maya';   // 네이버 톡톡 (공식 홈페이지와 같은 창구)
-  var KAKAO = '';                                // 카카오톡 채널 링크가 생기면 여기에 (예: https://pf.kakao.com/_xxxx/chat)
+  var KAKAO = 'https://pf.kakao.com/_vaDxeX/chat';                                // 카카오톡 채널 링크가 생기면 여기에 (예: https://pf.kakao.com/_xxxx/chat)
 
   function el(html) { var d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstChild; }
 
