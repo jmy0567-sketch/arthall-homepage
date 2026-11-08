@@ -13,6 +13,10 @@ W = json.load(open(os.path.join(HERE, 'works.json'), encoding='utf-8'))
 DIMS = json.load(open(os.path.join(HERE, 'dims.json'), encoding='utf-8'))
 BASE = 'https://jmy0567-sketch.github.io/arthall-homepage/mgallery/'
 OFFICIAL = 'http://www.xn--ok1b63rk1c60br1eixzmoc.com/'
+# 아트시(해외 판매) 작가 페이지. 박상국·고성희는 아트시에 올라가면 주소 추가. 가격이 달러로 보여서 외국어 페이지에만 링크
+ARTSY = {'kong': 'https://www.artsy.net/artist/eunjee-kong', 'yi': 'https://www.artsy.net/artist/jeongsik-yi'}
+ARTSY_GAL = 'https://www.artsy.net/partner/shinbuldang-art-center'
+ARTSY_T = {'en': 'View & buy on Artsy', 'ja': 'Artsyで作品を見る・購入する', 'zh': '在 Artsy 查看与购买'}
 KAKAO = 'https://pf.kakao.com/_vaDxeX'
 NAVER_MAP = 'https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0'
 KAKAO_MAP = 'https://map.kakao.com/?q=%EC%B2%9C%EC%95%88%20%EB%B6%88%EB%8B%B934%EA%B8%B8%203-16'
@@ -200,7 +204,7 @@ def index():
     ld = {"@context": "https://schema.org", "@type": "ArtGallery", "name": "신불당아트센터 M갤러리", "alternateName": "M Gallery at Shinbuldang Art Center",
           "url": BASE, "telephone": "+82-1533-8771", "isAccessibleForFree": True, "openingHours": "Mo-Su 10:00-20:00",
           "address": {"@type": "PostalAddress", "streetAddress": "불당34길 3-16 2층", "addressLocality": "천안시 서북구", "addressRegion": "충청남도", "addressCountry": "KR"},
-          "sameAs": [KAKAO, "https://www.instagram.com/shinbuldang_artcenter/"]}
+          "sameAs": [KAKAO, "https://www.instagram.com/shinbuldang_artcenter/", ARTSY_GAL]}
     s = head(T('t_home'), T('d_home'), '', ld=ld)
     date = now[3].rstrip(' ~')
     when = f"From {date}" if L == 'en' else f"{date}{T('from_')}"
@@ -257,6 +261,8 @@ def artist_page(a):
     side = f'<p class="faint">{E(afield(aid))}</p>'
     if a['insta']: side += f'<p class="faint">{E(T("insta_l"))} <a href="https://www.instagram.com/{a["insta"]}/" target="_blank" rel="noopener">@{a["insta"]}</a></p>'
     side += f'<div class="btns" style="margin-top:6px"><button class="btn" type="button" data-ask="{E(nm)}">{E(T("ask_artist"))}</button></div>'
+    if L != 'ko' and aid in ARTSY:
+        side += f'<p style="margin-top:10px"><a class="btn line" href="{ARTSY[aid]}" target="_blank" rel="noopener">{E(ARTSY_T[L])} ↗</a></p>'
     second_intro = f'<p class="en">{E(ARTIST_T[aid]["en"][2])}</p>' if L == 'ko' else ''
     s += f'<section class="about" id="about" style="scroll-margin-top:140px"><div style="display:grid;gap:14px"><p>{E(aintro(aid))}</p>{second_intro}</div><div class="side">{side}</div></section>'
     if works:
