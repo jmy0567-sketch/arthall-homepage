@@ -102,7 +102,7 @@ p{margin:0}
 .a-head{padding-block:34px 0}
 .a-head h1{font-size:clamp(2rem,6vw,3rem);font-weight:300}
 .a-head h1 span{font-size:.38em;color:var(--faint);margin-left:10px;letter-spacing:.06em}
-.subnav{position:sticky;top:58px;z-index:30;background:var(--wall);border-bottom:1px solid var(--line);margin-top:18px}
+.subnav{position:sticky;top:88px;z-index:30;background:var(--wall);border-bottom:1px solid var(--line);margin-top:18px}
 .subnav .wrap{display:flex;gap:22px;font-size:.9rem;color:var(--soft);overflow-x:auto;white-space:nowrap}
 .subnav a{padding-block:12px;display:inline-block}
 .subnav a:hover{color:var(--ink)}
@@ -186,3 +186,9 @@ dialog.viewer .dlg{height:100%;grid-template-rows:auto 1fr auto;padding:12px var
 .vcap .t{font-size:1.02rem}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (min-width:860px){.feature img{max-height:68vh}}
+
+/* 언어 버튼 줄 (한국어 / EN / 日本語 / 中文) */
+.langs{border-top:1px solid var(--line)}
+.langs .wrap{display:flex;justify-content:flex-end;gap:16px;min-height:29px;align-items:center;font-size:.78rem;color:var(--faint)}
+.langs a[aria-current="true"]{color:var(--ink);font-weight:600}
+.langs a:hover{color:var(--ink)}
