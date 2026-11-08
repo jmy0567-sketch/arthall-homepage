@@ -4,7 +4,7 @@
 #     + PKM식(작품 한 점씩 크게 넘겨 보기 + 작품마다 문의, 한·영 소개, 작가별 전시 목록)
 # 작품 목록 = works.json (작가별 [제목, 재료, 크기, 연도]), 사진 = img/<작가>-NN.jpg 순서대로, 크기 = dims.json
 # 번역 = i18n.py. 사실은 공식 홈페이지(신불당아트센터.com /310 /311 /389)와 대표님 확인값만 쓴다.
-import json, os, html, sys
+import json, os, html, sys, hashlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n import LANGS, LANG_LABEL, HTML_LANG, OG_LOCALE, UI, ARTIST_T, CV_HEAD, CV_EN, EX_T, WHO_T, WHERE_T
 
@@ -18,6 +18,8 @@ NAVER_MAP = 'https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84
 KAKAO_MAP = 'https://map.kakao.com/?q=%EC%B2%9C%EC%95%88%20%EB%B6%88%EB%8B%B934%EA%B8%B8%203-16'
 NOINDEX = False  # 11/08 대표님 OK로 검색 공개. 다시 숨기려면 True
 E = html.escape
+def ver(f):  # 파일이 바뀌면 주소 끝 숫자가 바뀌어 휴대폰이 옛 파일을 안 씀
+    return hashlib.md5(open(os.path.join(HERE, 'assets', f), 'rb').read()).hexdigest()[:8]
 
 ARTISTS = [
   dict(id='kong', ko='공은지', en='Eunjee Kong', field='판화 · 회화', rep=23,
@@ -127,7 +129,7 @@ def head(title, desc, page, cur='', image='img/install-room.jpg', ld=None):
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
 <meta property="og:image" content="{BASE}{image}"><meta property="og:locale" content="{OG_LOCALE[L]}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="{P()}assets/style.css">
+<link rel="stylesheet" href="{P()}assets/style.css?v={ver('style.css')}">
 {f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' if ld else ''}
 </head><body>
 <header class="top"><div class="wrap">
@@ -145,7 +147,7 @@ def foot():
 <p>{E(T('foot_note'))}</p>
 </div></footer>
 <nav class="bar" aria-label="quick"><button class="main" type="button" data-ask="">{E(b[0])}</button><a href="tel:15338771">{E(b[1])}</a><a href="{NAVER_MAP}" target="_blank" rel="noopener">{E(b[2])}</a></nav>
-<script src="{P()}assets/site.js" defer></script>
+<script src="{P()}assets/site.js?v={ver('site.js')}" defer></script>
 </body></html>
 '''
 
