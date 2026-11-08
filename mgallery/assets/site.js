@@ -25,7 +25,6 @@
     '<a class="btn" href="' + KAKAO + '" target="_blank" rel="noopener" data-copy>' + X.kakao + '</a>' +
     '<a class="btn line" href="tel:15338771">' + X.tel + PHONE + '</a>' +
     '<a class="btn line" href="' + TALK + '" target="_blank" rel="noopener" data-copy>' + X.talk + '</a>' +
-    '<a class="btn line" id="askSms" href="sms:15338771">' + X.sms + '</a>' +
     '</div>' +
     '<p class="tip">' + X.tip + '</p>' +
     '</div></dialog>');
@@ -45,7 +44,6 @@
   function openAsk(work) {
     current = work || '';
     $('askWhat').textContent = current || X.general;
-    $('askSms').href = 'sms:15338771?&body=' + encodeURIComponent(msg(current));
     if (viewer.open) viewer.close();
     ask.showModal();
   }

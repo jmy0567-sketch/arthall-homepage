@@ -16,7 +16,7 @@ OFFICIAL = 'http://www.xn--ok1b63rk1c60br1eixzmoc.com/'
 KAKAO = 'https://pf.kakao.com/_vaDxeX'
 NAVER_MAP = 'https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0'
 KAKAO_MAP = 'https://map.kakao.com/?q=%EC%B2%9C%EC%95%88%20%EB%B6%88%EB%8B%B934%EA%B8%B8%203-16'
-NOINDEX = True   # 대표님 OK 받으면 False로 바꾸고 다시 만들기 (검색 공개)
+NOINDEX = False  # 11/08 대표님 OK로 검색 공개. 다시 숨기려면 True
 E = html.escape
 
 ARTISTS = [
