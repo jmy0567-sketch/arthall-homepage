@@ -239,6 +239,27 @@ section{padding-block:clamp(64px,9vw,112px)}
 .rent-cta .phone{font-family:var(--f-display);font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--gold-soft);text-decoration:none}
 .rent-cta p{color:var(--on-stage-2);font-size:var(--s-sm)}
 
+/* ---------- short rental ---------- */
+.short-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:16px}
+.sp{display:grid;grid-template-rows:auto 1fr;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.sp img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.sp-b{padding:18px 20px 22px;display:grid;gap:8px;align-content:start}
+.sp-k{font-size:var(--s-xs);letter-spacing:.06em;font-weight:600;color:var(--oxblood)}
+.sp h3{font-size:var(--s-lg)}
+.sp ul{margin:0;padding-left:1.1em;display:grid;gap:3px;font-size:var(--s-sm);color:var(--ink-2)}
+.sp ul b{color:var(--ink)}
+.sp a{font-size:var(--s-sm);font-weight:600;color:var(--oxblood);text-underline-offset:4px}
+.sp.main{border-color:var(--ink)}
+.sp.noimg{grid-template-rows:1fr;grid-template-columns:1fr;background:var(--lobby-2);border-color:transparent}
+.fit-for{margin-top:28px;display:grid;gap:12px}
+.fit-for ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.fit-for li{padding:7px 14px;border-radius:999px;background:var(--lobby-2);font-size:var(--s-sm)}
+.short-cta{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between}
+.short-cta p{max-width:52ch;color:var(--ink-2);font-size:var(--s-sm)}
+@media (max-width:900px){.short-grid{grid-template-columns:1fr}.sp{grid-template-columns:minmax(0,2fr) minmax(0,3fr);grid-template-rows:none}.sp img{aspect-ratio:auto;height:100%}}
+@media (max-width:900px){.sp.noimg{grid-template-columns:1fr}}
+@media (max-width:560px){.sp{grid-template-columns:1fr}.sp img{aspect-ratio:16/10;height:auto}}
+
 /* ---------- fees ---------- */
 .fee-base{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:24px}
 .fb{display:grid;gap:4px;align-content:start;padding:20px 22px;background:var(--paper);border:1px solid var(--line);border-radius:10px;min-width:0}
@@ -647,9 +668,9 @@ footer a{color:var(--on-stage)}
         <img src="assets/img/trio-autumn.jpg" alt="" loading="lazy">
         <h3>연주회 · 리사이틀</h3><p>그랜드 피아노와 공연용 음향·조명</p><span class="go">대관 문의 →</span>
       </a>
-      <a class="rent" href="#location">
+      <a class="rent" href="#short">
         <img src="assets/img/lecture-wide.jpg" alt="" loading="lazy">
-        <h3>강연 · 세미나</h3><p>400인치 LED에 발표 자료를 크게</p><span class="go">대관 문의 →</span>
+        <h3>강연 · 세미나</h3><p>2시간이면 충분한 설명회·강연·교육</p><span class="go">짧은 대관 보기 →</span>
       </a>
       <a class="rent feature" href="yearend.html">
         <img src="assets/img/event-ceremony.jpg" alt="" loading="lazy">
@@ -660,6 +681,72 @@ footer a{color:var(--on-stage)}
     <div class="rent-cta">
       <div><p>대관 담당 정승민 · 오전 9:30 ~ 오후 10:00</p><a class="phone num" href="tel:15338771">1533-8771</a></div>
       <button class="btn btn-gold" type="button" id="copy-phone">번호 복사</button>
+    </div>
+  </div>
+</section>
+
+<!-- SHORT RENTAL -->
+<section id="short" aria-labelledby="sh-title">
+  <div class="wrap">
+    <div class="sec-head"><div>
+      <p class="eyebrow">짧은 대관</p>
+      <h2 id="sh-title">2시간이면 충분한 모임</h2>
+      <p>세미나, 강연, 설명회, 발표회처럼 길지 않은 행사도 받습니다. 인원에 맞는 공간을 골라 드립니다.</p>
+    </div></div>
+
+    <div class="short-grid">
+      <article class="sp main">
+        <img src="assets/img/lecture-hall.jpg" alt="LED 화면에 슬라이드를 띄운 아트홀 강연" loading="lazy">
+        <div class="sp-b num">
+          <span class="sp-k">1층 아트홀 · 약 150석</span>
+          <h3>2시간 이내 행사</h3>
+          <ul>
+            <li>기본시설 사용료 <b>600,000원</b> <small>(부가세 별도)</small></li>
+            <li>1시간 주차권 30매 포함</li>
+            <li>400인치 LED, 무선·유선 마이크, 그랜드 피아노</li>
+          </ul>
+          <a href="#fees">사용료 기준 보기 →</a>
+        </div>
+      </article>
+      <article class="sp noimg">
+        <div class="sp-b num">
+          <span class="sp-k">3층 세미나홀 · 20~50명</span>
+          <h3>세미나실 4곳</h3>
+          <ul>
+            <li>M1 50석 · M2 35석 · M3 20석 · VIP실</li>
+            <li>교육, 워크숍, 소모임에 맞는 크기</li>
+            <li>이용 시간과 요금은 상담으로 안내</li>
+          </ul>
+        </div>
+      </article>
+      <article class="sp noimg">
+        <div class="sp-b num">
+          <span class="sp-k">5층 이벤트홀 · 100석</span>
+          <h3>강연·연회 겸용</h3>
+          <ul>
+            <li>세미나·강연부터 연회와 파티까지</li>
+            <li>강연 뒤 식사까지 한 공간에서</li>
+            <li>이용 시간과 요금은 상담으로 안내</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="fit-for">
+      <p class="eyebrow">이런 모임에 맞아요</p>
+      <ul>
+        <li>학원·음악학원 발표회</li>
+        <li>병원·보험·금융 고객 설명회</li>
+        <li>분양·창업 설명회</li>
+        <li>협회·동호회 월례 모임</li>
+        <li>사내 교육·워크숍</li>
+        <li>북토크·작가와의 만남</li>
+      </ul>
+    </div>
+
+    <div class="short-cta">
+      <p>정규 시간(오전 11~15시, 오후 17~21시) 밖의 시간도 협의해 드립니다. 날짜와 인원, 쓰실 시간만 알려 주세요.</p>
+      <a class="btn btn-ink num" href="tel:15338771">짧은 대관 상담 1533-8771</a>
     </div>
   </div>
 </section>
