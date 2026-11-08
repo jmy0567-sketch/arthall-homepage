@@ -1,10 +1,11 @@
-// 신불당아트센터 M갤러리 — 작품 문의 창과 크게 보기
+// 신불당아트센터 M갤러리 — 작품 크게 넘겨 보기(PKM식)와 작품 문의 창
 (function () {
   var PHONE = '1533-8771';
-  var TALK = 'https://talk.naver.com/w4maya';   // 네이버 톡톡 (공식 홈페이지와 같은 창구)
-  var KAKAO = 'https://pf.kakao.com/_vaDxeX/chat';                                // 카카오톡 채널 링크가 생기면 여기에 (예: https://pf.kakao.com/_xxxx/chat)
+  var TALK = 'https://talk.naver.com/w4maya';          // 네이버 톡톡 (공식 홈페이지와 같은 창구)
+  var KAKAO = 'https://pf.kakao.com/_vaDxeX/chat';      // 카카오톡 채널 「신불당M갤러리」
 
   function el(html) { var d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstChild; }
+  function $(id) { return document.getElementById(id); }
 
   var ask = el(
     '<dialog id="askDlg" aria-labelledby="askTitle"><div class="dlg">' +
@@ -12,22 +13,21 @@
     '<h2 id="askTitle">작품 문의</h2>' +
     '<p class="what" id="askWhat"></p>' +
     '<div class="opts">' +
-    '<a class="btn" id="askTel" href="tel:15338771">전화로 문의 ' + PHONE + '</a>' +
-    (KAKAO ? '<a class="btn line" id="askKakao" target="_blank" rel="noopener" href="' + KAKAO + '">카카오톡으로 문의</a>' : '') +
-    '<a class="btn line" id="askTalk" target="_blank" rel="noopener" href="' + TALK + '">네이버 톡톡으로 문의</a>' +
+    '<a class="btn" href="' + KAKAO + '" target="_blank" rel="noopener" data-copy>카카오톡으로 문의</a>' +
+    '<a class="btn line" href="tel:15338771">전화로 문의 ' + PHONE + '</a>' +
+    '<a class="btn line" href="' + TALK + '" target="_blank" rel="noopener" data-copy>네이버 톡톡으로 문의</a>' +
     '<a class="btn line" id="askSms" href="sms:15338771">문자로 문의</a>' +
     '</div>' +
-    '<p class="tip" id="askTip">톡톡·카톡을 누르면 작품 이름이 복사돼요. 채팅창에 붙여 넣어 주세요.</p>' +
+    '<p class="tip">카톡·톡톡을 누르면 작품 이름이 복사돼요. 채팅창에 붙여 넣어 주세요.</p>' +
     '</div></dialog>');
-  var view = el(
-    '<dialog class="view" id="viewDlg" aria-label="작품 크게 보기"><div class="dlg">' +
-    '<button class="x" type="button" data-close>닫기 ✕</button>' +
-    '<img id="viewImg" alt="">' +
-    '<p class="cap" id="viewCap"></p>' +
-    '<button class="ask" type="button" id="viewAsk">이 작품 문의 →</button>' +
+  var viewer = el(
+    '<dialog class="viewer" id="viewDlg" aria-label="작품 크게 보기"><div class="dlg">' +
+    '<div class="vtop"><span id="vCount"></span><button class="x" type="button" data-close>닫기 ✕</button></div>' +
+    '<div class="vimg"><img id="vImg" alt=""><button class="vnav prev" type="button" id="vPrev" aria-label="이전 작품">‹</button><button class="vnav next" type="button" id="vNext" aria-label="다음 작품">›</button></div>' +
+    '<div class="vcap"><p id="vCap"></p><button class="btn" type="button" id="vAsk">이 작품 문의</button></div>' +
     '</div></dialog>');
   document.body.appendChild(ask);
-  document.body.appendChild(view);
+  document.body.appendChild(viewer);
 
   var current = '';
   function msg(w) { return w ? '[M갤러리 작품 문의] ' + w + ' — 이 작품 문의드려요.' : '[M갤러리 작품 문의] 작품 구입 상담 부탁드려요.'; }
@@ -35,28 +35,49 @@
 
   function openAsk(work) {
     current = work || '';
-    document.getElementById('askWhat').textContent = current ? current : '작품 구입·대여·선물용 그림 상담 (예산과 걸 공간을 알려 주시면 골라 드려요)';
-    var body = encodeURIComponent(msg(current));
-    document.getElementById('askSms').href = 'sms:15338771?&body=' + body;
-    if (view.open) view.close();
+    $('askWhat').textContent = current || '작품 구입·대여·선물용 그림 상담 (예산과 걸 공간을 알려 주시면 골라 드려요)';
+    $('askSms').href = 'sms:15338771?&body=' + encodeURIComponent(msg(current));
+    if (viewer.open) viewer.close();
     ask.showModal();
   }
-  ['askTalk', 'askKakao'].forEach(function (id) {
-    var a = document.getElementById(id); if (a) a.addEventListener('click', function () { copy(msg(current)); });
+
+  // 같은 묶음(data-set)의 작품을 차례로 넘겨 본다
+  var list = [], idx = 0;
+  function show(i) {
+    idx = (i + list.length) % list.length;
+    var b = list[idx];
+    $('vImg').src = b.getAttribute('data-src');
+    $('vImg').alt = b.getAttribute('data-alt') || '';
+    $('vCap').innerHTML = b.getAttribute('data-caphtml') || '';
+    $('vCount').textContent = (idx + 1) + ' / ' + list.length;
+    var one = list.length < 2;
+    $('vPrev').hidden = one; $('vNext').hidden = one;
+  }
+  $('vPrev').addEventListener('click', function () { show(idx - 1); });
+  $('vNext').addEventListener('click', function () { show(idx + 1); });
+  $('vAsk').addEventListener('click', function () { openAsk(list[idx].getAttribute('data-work')); });
+  document.addEventListener('keydown', function (e) {
+    if (!viewer.open) return;
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+  var sx = null;
+  viewer.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  viewer.addEventListener('touchend', function (e) {
+    if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
   });
 
   document.addEventListener('click', function (e) {
+    var c = e.target.closest('[data-copy]'); if (c) { copy(msg(current)); return; }
     var t = e.target.closest('[data-ask]');
     if (t) { e.preventDefault(); openAsk(t.getAttribute('data-ask')); return; }
-    var p = e.target.closest('[data-view]');
-    if (p) {
-      var img = p.querySelector('img');
-      var vi = document.getElementById('viewImg');
-      vi.src = p.getAttribute('data-view'); vi.alt = img ? img.alt : '';
-      document.getElementById('viewCap').textContent = p.getAttribute('data-cap') || '';
-      var w = p.getAttribute('data-work');
-      document.getElementById('viewAsk').onclick = function () { openAsk(w); };
-      view.showModal(); return;
+    var v = e.target.closest('[data-src]');
+    if (v) {
+      var set = v.getAttribute('data-set');
+      list = Array.prototype.slice.call(document.querySelectorAll('[data-src][data-set="' + set + '"]'));
+      show(list.indexOf(v));
+      viewer.showModal(); return;
     }
     if (e.target.closest('[data-close]')) { var d = e.target.closest('dialog'); if (d) d.close(); return; }
     if (e.target.tagName === 'DIALOG') e.target.close();

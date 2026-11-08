@@ -1,155 +1,188 @@
-/* 신불당아트센터 M갤러리 — 흰 벽 갤러리. 작품이 주인공이라 색은 아끼고, 붉은 점 하나만 강조로 */
+/* 신불당아트센터 M갤러리
+   구조: 갤러리현대식(메뉴 4개, 첫 화면 전시 사진 크게, 이름만 있는 작가 목록, 정사각 회색 칸 작품)
+   + PKM식(작품 한 점씩 크게 넘겨 보기 + 작품마다 문의, 한·영 소개, 작가별 전시 목록)
+   색은 흰 벽과 먹색, 붉은 점 하나만 강조 */
 :root{
-  --wall:#fbfbf9; --paper:#ffffff; --ink:#141414; --soft:#55575b; --faint:#8b8d91;
-  --line:#e4e4df; --shade:#f1f1ec; --dot:#c8241b;
-  --display:"Gowun Batang","Noto Serif KR",serif;
-  --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  --gut:max(18px,env(safe-area-inset-left,0px));
-  --max:1180px;
+  --wall:#ffffff; --tile:#f2f2f0; --ink:#222222; --soft:#666666; --faint:#9a9a9a;
+  --line:#e6e6e6; --dot:#c8241b;
+  --sans:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --gut:max(20px,env(safe-area-inset-left,0px));
+  --gutr:max(20px,env(safe-area-inset-right,0px));
+  --max:1280px;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--wall);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;word-break:keep-all;padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
-@media (min-width:900px){body{padding-bottom:0}}
+body{margin:0;background:var(--wall);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:15px;line-height:1.65;letter-spacing:-.005em;word-break:keep-all;padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))}
+@media (min-width:900px){body{padding-bottom:0;font-size:16px}}
 img{max-width:100%;display:block}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--dot);outline-offset:3px}
-.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:max(18px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.3;text-wrap:balance;margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
+h1,h2,h3{font-weight:400;line-height:1.25;margin:0;text-wrap:balance}
 p{margin:0}
-.label{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.muted{color:var(--soft)}
+.faint{color:var(--faint);font-size:.86rem}
 
-/* header */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--wall) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
-.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.15}
-.brand b{font-family:var(--display);font-size:1.32rem;letter-spacing:.02em}
-.brand b i{font-style:normal;color:var(--dot)}
-.brand span{font-size:.7rem;color:var(--soft);letter-spacing:.06em}
-.nav{display:flex;gap:18px;font-size:.92rem}
-.nav a{text-decoration:none;color:var(--soft)}
-.nav a:hover,.nav a[aria-current]{color:var(--ink)}
-@media (max-width:640px){.nav{gap:12px;font-size:.84rem}.nav .hide-s{display:none}}
+/* 머리: 로고 + 메뉴 4개 */
+.top{position:sticky;top:0;z-index:40;background:var(--wall);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;min-height:58px}
+.logo{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.logo b{font-weight:300;font-size:1.18rem;letter-spacing:.02em}
+.logo b strong{font-weight:700}
+.logo b i{font-style:normal;color:var(--dot)}
+.logo span{font-size:.72rem;color:var(--faint)}
+.nav{display:flex;gap:26px;font-size:.93rem;color:var(--soft);margin-left:auto}
+.nav a[aria-current="page"],.nav a:hover{color:var(--ink)}
+@media (max-width:700px){.top .wrap{gap:12px}.logo span{display:none}.nav{gap:15px;font-size:.88rem}}
+@media (max-width:360px){.nav{gap:11px;font-size:.84rem}}
 
-/* sections */
-section{padding-block:56px}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:26px;flex-wrap:wrap}
-.sec-head h2{font-size:clamp(1.45rem,3.6vw,2rem)}
-.sec-head a{font-size:.88rem;color:var(--soft)}
+/* 첫 화면 큰 사진 (전시) */
+.hero{position:relative;display:block;height:min(78vh,760px);min-height:420px;background:#111;overflow:hidden;color:#fff}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:.92}
+.hero .over{position:absolute;inset:auto 0 0 0;padding-block:28px 34px;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hero .over .wrap{display:grid;gap:4px}
+.hero .state{font-size:.78rem;letter-spacing:.08em;display:flex;align-items:center;gap:8px}
+.hero .state::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--dot)}
+.hero h1{font-size:clamp(1.8rem,5.4vw,3rem);font-weight:300}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero .when{font-size:.92rem;opacity:.9}
 
-/* hero: 지금 하는 전시 */
-.now{display:grid;grid-template-columns:1fr;gap:26px;padding-block:28px 48px}
-@media (min-width:860px){.now{grid-template-columns:1.1fr .9fr;align-items:end;gap:48px;padding-block:48px 64px}}
-.now figure{margin:0;background:var(--shade);padding:clamp(14px,3vw,34px)}
-.now figure img{margin:0 auto;max-height:46vh;width:auto;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
-@media (min-width:860px){.now figure img{max-height:72vh}}
-.now .txt{display:flex;flex-direction:column;gap:14px}
-.now .live{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.12em;color:var(--soft)}
-.now .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dot)}
-.now h1{font-size:clamp(2rem,6vw,3.3rem)}
-.now h1 small{display:block;font-family:var(--body);font-weight:400;font-size:.36em;letter-spacing:.14em;color:var(--soft);margin-top:8px}
-.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:.95rem;margin:4px 0}
-.facts dt{color:var(--faint)}
-.facts dd{margin:0}
-.btns{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:46px;padding:0 20px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;font:inherit;font-size:.95rem;font-weight:500;cursor:pointer}
+/* 구역 */
+.block{padding-block:56px 8px}
+.block h2{font-size:1.45rem;margin-bottom:22px}
+.block h2 a.more{float:right;font-size:.85rem;color:var(--soft);margin-top:.5em}
+
+/* 전시 카드 (상태 · 작가 · 제목 · 기간 · 장소) */
+.ex-grid{display:grid;grid-template-columns:1fr;gap:34px 26px}
+@media (min-width:760px){.ex-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ex-card{display:grid;gap:12px}
+.ex-card .ph{aspect-ratio:4/3;background:var(--tile);overflow:hidden;max-width:100%}
+.ex-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ex-card:hover .ph img{transform:scale(1.02)}
+.ex-card .ph.art{display:flex;align-items:center;justify-content:center;gap:8%;padding:10%}
+.ex-card .ph.art img{width:auto;height:auto;max-height:100%;max-width:44%;object-fit:contain;box-shadow:0 8px 18px -12px rgba(0,0,0,.45)}
+.ex-card .ph.art img:only-child{max-width:80%}
+.ex-card .ph.empty{display:grid;place-items:center;color:var(--faint);font-size:.85rem}
+.ex-meta{display:grid;gap:1px;font-size:.92rem}
+.ex-meta .st{font-size:.78rem;color:var(--faint)}
+.ex-meta .ar{font-size:1.05rem}
+.ex-meta .ti{font-style:italic}
+.ex-meta .dt{font-size:.84rem;color:var(--soft)}
+
+/* 작가 이름 목록 (갤러리현대식) */
+.names{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px}
+@media (min-width:760px){.names{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.name-card{display:grid;gap:10px}
+.name-card{min-width:0}
+.name-card .ph{aspect-ratio:1;background:var(--tile);overflow:hidden;position:relative;max-width:100%}
+.name-card .ph.empty{display:grid;place-items:center}
+.name-card .ph img{position:absolute;inset:14%;width:72%;height:72%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
+.name-card .ph.empty{font-size:2.4rem;color:#c9c9c6;font-weight:300}
+.name-card b{font-weight:500;font-size:1rem}
+.name-card span{display:block;font-size:.8rem;color:var(--faint)}
+
+/* 현장 사진 줄 */
+.strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:760px){.strip{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.strip a{aspect-ratio:1;overflow:hidden;background:var(--tile);max-width:100%}
+.strip img{width:100%;height:100%;object-fit:cover}
+
+/* 작품 구입 띠 */
+.collect{margin-top:56px;background:var(--tile)}
+.collect .wrap{padding-block:44px;display:grid;gap:18px}
+@media (min-width:860px){.collect .wrap{grid-template-columns:1fr auto;align-items:center}}
+.collect h2{font-size:1.5rem}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border:1px solid var(--ink);background:var(--ink);color:#fff;font:inherit;font-size:.92rem;cursor:pointer}
 .btn.line{background:transparent;color:var(--ink)}
-.btn:hover{opacity:.86}
+.btn:hover{opacity:.85}
 
-/* artists */
-.artists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}
-@media (min-width:860px){.artists{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}}
-.artist-card{text-decoration:none;display:flex;flex-direction:column;gap:10px}
-.artist-card .ph{aspect-ratio:1;background:var(--shade);overflow:hidden;max-width:100%}
-.artist-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.artist-card:hover .ph img{transform:scale(1.03)}
-.artist-card .ph.mono{display:grid;place-items:center;font-family:var(--display);font-size:3rem;color:var(--faint)}
-.artist-card h3{font-size:1.15rem}
-.artist-card h3 span{font-family:var(--body);font-weight:400;font-size:.72rem;color:var(--faint);letter-spacing:.06em;margin-left:6px}
-.artist-card p{font-size:.86rem;color:var(--soft)}
+/* 작가 페이지 */
+.a-head{padding-block:34px 0}
+.a-head h1{font-size:clamp(2rem,6vw,3rem);font-weight:300}
+.a-head h1 span{font-size:.38em;color:var(--faint);margin-left:10px;letter-spacing:.06em}
+.subnav{position:sticky;top:58px;z-index:30;background:var(--wall);border-bottom:1px solid var(--line);margin-top:18px}
+.subnav .wrap{display:flex;gap:22px;font-size:.9rem;color:var(--soft);overflow-x:auto;white-space:nowrap}
+.subnav a{padding-block:12px;display:inline-block}
+.subnav a:hover{color:var(--ink)}
+.feature{background:var(--tile);margin-top:26px;padding:clamp(18px,4vw,48px);display:grid;place-items:center}
+.feature img{max-height:52vh;width:auto;box-shadow:0 18px 40px -24px rgba(0,0,0,.5)}
+.about{display:grid;gap:22px;padding-block:34px 0}
+@media (min-width:860px){.about{grid-template-columns:1fr 1fr;gap:56px}}
+.about p{font-size:1rem;line-height:1.85}
+.about .en{color:var(--soft);font-size:.92rem}
+.about .side{display:grid;gap:10px;align-content:start}
 
-/* works grid (masonry by columns) */
-.works{columns:2;column-gap:16px}
-@media (min-width:860px){.works{columns:3;column-gap:28px}}
-.work{break-inside:avoid;margin:0 0 30px;display:flex;flex-direction:column;gap:10px}
-.work button.pic{all:unset;cursor:zoom-in;display:block;background:var(--shade);padding:10px}
-.work button.pic:focus-visible{outline:2px solid var(--dot)}
-.work img{width:100%;height:auto}
-.cap{font-size:.82rem;line-height:1.55;color:var(--soft)}
-.cap .t{color:var(--ink);font-weight:500;font-size:.9rem}
-.cap .by{color:var(--faint)}
-.ask{all:unset;cursor:pointer;color:var(--dot);font-size:.84rem;font-weight:700;align-self:flex-start;border-bottom:1px solid currentColor;line-height:1.4}
+/* 작품: 정사각 회색 칸 4열 (갤러리현대식) */
+.viewbar{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.viewbar h2{margin:0}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 14px}
+@media (min-width:760px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:34px 22px}}
+.tile{display:grid;gap:9px;align-content:start}
+.tile{min-width:0}
+.tile button.sq{all:unset;box-sizing:border-box;cursor:zoom-in;position:relative;display:block;width:100%;aspect-ratio:1;background:var(--tile);overflow:hidden}
+.tile button.sq:focus-visible{outline:2px solid var(--dot)}
+.tile button.sq img{position:absolute;inset:12%;width:76%;height:76%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
+.tile .cap{font-size:.84rem;line-height:1.45}
+.tile .cap i{font-style:italic}
+.tile .cap .y{color:var(--faint)}
+.ask{all:unset;cursor:pointer;color:var(--dot);font-size:.8rem;font-weight:600;justify-self:start}
 .ask:focus-visible{outline:2px solid var(--dot)}
 
-/* buy */
-.buy{background:var(--ink);color:var(--paper)}
-.buy .wrap{display:grid;gap:22px}
-@media (min-width:860px){.buy .wrap{grid-template-columns:1.2fr 1fr;align-items:center;gap:56px}}
-.buy h2{font-size:clamp(1.5rem,4vw,2.2rem)}
-.buy p{color:#c9cacd}
-.buy ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:.95rem}
-.buy li{display:grid;grid-template-columns:22px 1fr;gap:8px}
-.buy li::before{content:"·";color:var(--dot);font-weight:700;font-size:1.3rem;line-height:1.2}
-.buy .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.buy .btn.line{background:transparent;color:var(--paper)}
+/* 작가 전시 목록 · 전시 기록 */
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.list li{display:grid;grid-template-columns:1fr;gap:2px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+@media (min-width:700px){.list li{grid-template-columns:210px 1fr}}
+.list time{color:var(--faint);font-size:.85rem;font-variant-numeric:tabular-nums}
+.list a:hover{text-decoration:underline}
+.cv{display:grid;gap:24px}
+@media (min-width:860px){.cv{grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 40px}}
+.cv h3{font-size:.8rem;color:var(--faint);margin-bottom:6px;letter-spacing:.04em}
+.cv ul{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:.88rem}
+.cv details summary{cursor:pointer;color:var(--soft);font-size:.84rem;margin-top:4px}
 
-/* archive */
-.archive{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.archive li{display:grid;grid-template-columns:1fr;gap:2px;padding:14px 0;border-bottom:1px solid var(--line)}
-@media (min-width:700px){.archive li{grid-template-columns:200px 1fr;gap:24px}}
-.archive time{font-size:.85rem;color:var(--faint);font-variant-numeric:tabular-nums}
-.archive a{text-decoration:none}
-.archive a:hover{text-decoration:underline}
+/* 탭 (전시: 지금·예정 / 지난 전시) */
+.tabs{display:flex;gap:22px;font-size:.92rem;color:var(--soft);border-bottom:1px solid var(--line);margin:28px 0 30px}
+.tabs a{padding-block:10px;border-bottom:1px solid transparent;margin-bottom:-1px}
+.tabs a[aria-current="page"]{color:var(--ink);border-color:var(--ink)}
 
-/* visit */
-.visit{display:grid;gap:26px}
+/* 오시는 길 · 바닥 */
+.visit{display:grid;gap:24px;padding-block:56px 10px}
 @media (min-width:860px){.visit{grid-template-columns:1fr 1fr;gap:56px}}
-.visit dl{display:grid;grid-template-columns:5.5em 1fr;gap:10px 16px;margin:0}
-.visit dt{color:var(--faint);font-size:.9rem}
+.visit dl{display:grid;grid-template-columns:4.5em 1fr;gap:8px 16px;margin:0;font-size:.93rem}
+.visit dt{color:var(--faint)}
 .visit dd{margin:0}
-
-/* artist page */
-.ahead{display:grid;gap:22px;padding-block:30px 10px}
-@media (min-width:860px){.ahead .ph{max-width:300px}.ahead{grid-template-columns:300px 1fr;gap:48px;align-items:end;padding-block:56px 20px}}
-.ahead .ph{aspect-ratio:1;max-width:min(220px,60vw);background:var(--shade);overflow:hidden}
-.ahead .ph img{width:100%;height:100%;object-fit:cover}
-.ahead .ph.mono{display:grid;place-items:center;font-family:var(--display);font-size:4rem;color:var(--faint)}
-.ahead h1{font-size:clamp(2.1rem,6vw,3.2rem)}
-.ahead h1 span{display:block;font-family:var(--body);font-weight:400;font-size:.32em;letter-spacing:.16em;color:var(--soft);margin-top:6px}
-.ahead .intro{max-width:36em;color:var(--soft);margin-top:12px}
-.cv{display:grid;gap:26px}
-@media (min-width:860px){.cv{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 56px}}
-.cv h3{font-family:var(--body);font-size:.8rem;letter-spacing:.14em;color:var(--faint);font-weight:500;margin-bottom:8px}
-.cv ul{margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:.92rem}
-.cv details summary{cursor:pointer;color:var(--soft);font-size:.88rem;margin-top:6px}
-.note{font-size:.85rem;color:var(--faint)}
-.crumb{font-size:.84rem;color:var(--faint);padding-top:18px}
-.crumb a{color:var(--soft)}
-
-/* footer */
-footer{border-top:1px solid var(--line);padding-block:34px 40px;font-size:.86rem;color:var(--soft)}
-footer .wrap{display:grid;gap:10px}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-block:30px 36px;font-size:.82rem;color:var(--soft)}
+footer .wrap{display:grid;gap:6px}
 footer a{color:var(--ink)}
 
-/* sticky bar (phone) */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1.3fr 1fr 1fr;background:var(--paper);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
-.bar a,.bar button{all:unset;cursor:pointer;text-align:center;padding:16px 4px;font-size:.92rem;font-weight:700}
+/* 휴대폰 아래 고정 버튼 */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1.3fr 1fr 1fr;background:var(--wall);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.bar a,.bar button{all:unset;cursor:pointer;text-align:center;padding:15px 4px;font-size:.9rem;font-weight:600}
 .bar > * + *{border-left:1px solid var(--line)}
-.bar .main{background:var(--ink);color:var(--paper)}
+.bar .main{background:var(--ink);color:#fff}
 @media (min-width:900px){.bar{display:none}}
 
-/* dialog: 문의 · 크게 보기 */
-dialog{border:0;padding:0;max-width:min(560px,calc(100vw - 24px));width:100%;background:var(--paper);color:var(--ink)}
-dialog::backdrop{background:rgba(10,10,10,.6)}
-.dlg{padding:24px 22px 22px;display:grid;gap:14px}
-.dlg h2{font-size:1.3rem}
-.dlg .what{background:var(--shade);padding:12px 14px;font-size:.92rem}
-.dlg .opts{display:grid;gap:10px}
+/* 작품 한 점씩 크게 넘겨 보기 (PKM식) · 문의 창 */
+dialog{border:0;padding:0;background:var(--wall);color:var(--ink);max-width:min(540px,calc(100vw - 24px));width:100%}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.dlg{padding:22px;display:grid;gap:14px}
+.dlg h2{font-size:1.25rem}
+.dlg .what{background:var(--tile);padding:12px 14px;font-size:.9rem}
+.dlg .opts{display:grid;gap:8px}
 .dlg .opts .btn{width:100%}
-.dlg .x{all:unset;cursor:pointer;justify-self:end;font-size:.9rem;color:var(--soft);padding:4px}
-.dlg .tip{font-size:.8rem;color:var(--faint)}
-dialog.view{max-width:min(1100px,calc(100vw - 16px));background:var(--wall)}
-dialog.view .dlg{padding:14px}
-dialog.view img{max-height:74vh;width:auto;margin:0 auto}
+.dlg .tip{font-size:.78rem;color:var(--faint)}
+.x{all:unset;cursor:pointer;justify-self:end;font-size:.88rem;color:var(--soft);padding:4px}
+dialog.viewer{max-width:100vw;max-height:100vh;width:100vw;height:100%;margin:0}
+dialog.viewer .dlg{height:100%;grid-template-rows:auto 1fr auto;padding:12px var(--gutr) calc(16px + env(safe-area-inset-bottom,0px)) var(--gut);gap:10px}
+.vtop{display:flex;justify-content:space-between;align-items:center;font-size:.84rem;color:var(--soft)}
+.vimg{display:grid;place-items:center;min-height:0;background:var(--tile);position:relative}
+.vimg img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;padding:14px}
+.vnav{all:unset;position:absolute;z-index:2;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1.5rem;line-height:1;color:var(--ink);background:rgba(255,255,255,.85);width:40px;height:40px;display:grid;place-items:center;border-radius:50%}
+.vnav.prev{left:8px}.vnav.next{right:8px}
+.vcap{display:grid;gap:8px;font-size:.9rem}
+@media (min-width:860px){.vcap{grid-template-columns:1fr auto;align-items:end}}
+.vcap .t{font-size:1.02rem}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (min-width:860px){.feature img{max-height:68vh}}
