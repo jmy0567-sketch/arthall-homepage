@@ -14,7 +14,7 @@ DIMS = json.load(open(os.path.join(HERE, 'dims.json'), encoding='utf-8'))
 BASE = 'https://jmy0567-sketch.github.io/arthall-homepage/mgallery/'
 OFFICIAL = 'http://www.xn--ok1b63rk1c60br1eixzmoc.com/'
 # 아트시(해외 판매) 작가 페이지. 박상국·고성희는 아트시에 올라가면 주소 추가. 가격이 달러로 보여서 외국어 페이지에만 링크
-ARTSY = {'kong': 'https://www.artsy.net/artist/eunjee-kong', 'yi': 'https://www.artsy.net/artist/jeongsik-yi'}
+ARTSY = {'kong': 'https://www.artsy.net/artist/eunjee-kong', 'yi': 'https://www.artsy.net/artist/jeongsik-yi', 'park': 'https://www.artsy.net/artist/park-sang-kuk'}
 ARTSY_GAL = 'https://www.artsy.net/partner/shinbuldang-art-center'
 ARTSY_T = {'en': 'View & buy on Artsy', 'ja': 'Artsyで作品を見る・購入する', 'zh': '在 Artsy 查看与购买'}
 KAKAO = 'https://pf.kakao.com/_vaDxeX'
