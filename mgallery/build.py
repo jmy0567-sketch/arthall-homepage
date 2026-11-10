@@ -64,7 +64,7 @@ A = {a['id']: a for a in ARTISTS}
 
 # 전시: (상태, 작가 표시, 제목, 기간, 장소, 관련 작가 id들, 사진, 공식 페이지)
 EXHIBITIONS = [
-  ('now', 'M갤러리 전속 작가', '공은지 기획전시', '2026. 11. 6 ~', '2층 M갤러리 · 무료 관람 · 매일 10:00–20:00', ['kong'], 'install-wide', None),
+  ('now', 'M갤러리 전속 작가', '공은지 기획전시', '2026. 11. 6 – 11. 12', '2층 M갤러리 · 무료 관람 · 매일 10:00–20:00', ['kong'], 'install-wide', None),
   ('past', '그룹전', '다시 모이다: 네 번째 모임', '2026. 10. 1 – 10. 10', 'M갤러리', [], None, 'galleryPast'),
   ('past', 'park', '박상국 초대전', '2026. 9. 16 – 9. 28', 'M갤러리', ['park'], None, 'galleryPast'),
   ('past', 'park', '박상국 초대전', '2026. 6. 17 – 6. 30', 'M갤러리', ['park'], None, 'galleryPast'),
@@ -207,7 +207,7 @@ def index():
           "sameAs": [KAKAO, "https://www.instagram.com/shinbuldang_artcenter/", ARTSY_GAL]}
     s = head(T('t_home'), T('d_home'), '', ld=ld)
     date = now[3].rstrip(' ~')
-    when = f"From {date}" if L == 'en' else f"{date}{T('from_')}"
+    when = date if '–' in date else (f"From {date}" if L == 'en' else f"{date}{T('from_')}")
     hero_t = '공은지 <em>기획전시</em>' if L == 'ko' else E(ex_title(now[2]))
     s += f'''<a class="hero" href="kong.html">
 <picture><source media="(max-width:700px)" srcset="{P()}img/install-hands.jpg"><img src="{P()}img/install-room.jpg" alt="{E(ex_title(now[2]))}"></picture>
