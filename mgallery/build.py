@@ -16,6 +16,14 @@ OFFICIAL = 'http://www.xn--ok1b63rk1c60br1eixzmoc.com/'
 # 아트시(해외 판매) 작가 페이지. 박상국·고성희는 아트시에 올라가면 주소 추가. 가격이 달러로 보여서 외국어 페이지에만 링크
 ARTSY = {'kong': 'https://www.artsy.net/artist/eunjee-kong', 'yi': 'https://www.artsy.net/artist/jeongsik-yi', 'park': 'https://www.artsy.net/artist/park-sang-kuk'}
 ARTSY_GAL = 'https://www.artsy.net/partner/shinbuldang-art-center'
+ARTSY_KONG_SHOW = 'https://www.artsy.net/show/shinbuldang-art-center-eunjee-kong-online-viewing-room'
+# 11/11 대표님: 공은지 전시 끝난 뒤 아트시 온라인 전시(~12/31) 안내
+HERO_ONLINE = {
+ 'ko': ('온라인 전시 중', '2층 전시 2026. 11. 6 – 11. 12 · 아트시 온라인 전시 12. 31까지', '아트시에서 작품 27점 보기 →'),
+ 'en': ('Online Viewing Room', 'Gallery show Nov 6 – 12, 2026 · Online on Artsy through Dec 31', 'View all 27 works on Artsy →'),
+ 'ja': ('オンライン展示中', '2階展示 2026. 11. 6 – 11. 12 · Artsyオンライン展示 12. 31まで', 'Artsyで全27点を見る →'),
+ 'zh': ('线上展览中', '2楼展览 2026. 11. 6 – 11. 12 · Artsy线上展览至12. 31', '在Artsy查看全部27件作品 →'),
+}
 ARTSY_T = {'en': 'View & buy on Artsy', 'ja': 'Artsyで作品を見る・購入する', 'zh': '在 Artsy 查看与购买'}
 KAKAO = 'https://pf.kakao.com/_vaDxeX'
 NAVER_MAP = 'https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0'
@@ -211,7 +219,8 @@ def index():
     hero_t = '공은지 <em>기획전시</em>' if L == 'ko' else E(ex_title(now[2]))
     s += f'''<a class="hero" href="kong.html">
 <picture><source media="(max-width:700px)" srcset="{P()}img/install-hands.jpg"><img src="{P()}img/install-room.jpg" alt="{E(ex_title(now[2]))}"></picture>
-<div class="over"><div class="wrap"><span class="state">{E(T('now'))}</span><h1>{hero_t}</h1><span class="when">{E(when)} · {E(T('hero_where'))}</span></div></div></a>
+<div class="over"><div class="wrap"><span class="state">{E(HERO_ONLINE[L][0])}</span><h1>{hero_t}</h1><span class="when">{E(HERO_ONLINE[L][1])}</span></div></div></a>
+<div class="wrap" style="margin-top:14px"><a class="btn" href="{ARTSY_KONG_SHOW}" target="_blank" rel="noopener">{E(HERO_ONLINE[L][2])}</a></div>
 <div class="wrap">
 <section class="block"><h2>{E(T('exh'))} <a class="more" href="exhibitions.html">{E(T('more'))}</a></h2>
 <div class="ex-grid">{ex_card(EXHIBITIONS[0])}{ex_card(EXHIBITIONS[4])}</div></section>
