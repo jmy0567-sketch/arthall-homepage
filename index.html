@@ -201,6 +201,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .floor .body{display:grid;gap:8px;min-width:0}
 .floor .pics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:6px}
 .floor .pics img{border-radius:6px;aspect-ratio:16/10;object-fit:cover;width:100%}
+.floor .pics img:only-child{grid-column:1/-1}
 .spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px;margin:6px 0 0;font-size:var(--s-sm)}
 .spec div{display:grid;gap:0}
 .spec dt{font-size:var(--s-xs);color:var(--gold);letter-spacing:.04em}
@@ -588,9 +589,9 @@ footer a{color:var(--on-stage)}
     <div class="sec-head"><div>
       <p class="eyebrow">인스타그램</p>
       <h2 id="ig-title">아트홀 소식</h2>
-      <p>공연 예고와 현장 사진을 인스타그램에 먼저 올립니다.</p>
+      <p>공연 예고와 현장 사진을 인스타그램에 먼저 올립니다. 다음 공연 소식은 카카오톡 채널로도 받아 보실 수 있어요.</p>
     </div>
-      <a class="btn btn-ink" href="https://www.instagram.com/shinbuldang_artcenter/" target="_blank" rel="noopener">@shinbuldang_artcenter 팔로우</a>
+      <div style="display:flex;flex-wrap:wrap;gap:8px"><a class="btn btn-ink" href="https://www.instagram.com/shinbuldang_artcenter/" target="_blank" rel="noopener">@shinbuldang_artcenter 팔로우</a><a class="btn btn-gold" href="https://pf.kakao.com/_vaDxeX/friend" target="_blank" rel="noopener">카카오톡 채널 친구 추가</a></div>
     </div>
     <div class="ig-grid" id="ig-grid" data-feed="" data-count="8" hidden></div>
     <div class="ig-empty" id="ig-empty">
@@ -616,7 +617,7 @@ footer a{color:var(--on-stage)}
       <ol class="stack" reversed>
         <li class="floor"><span class="lv">5F</span><div class="body"><h3>이벤트홀</h3><p class="num">100석 규모. 세미나·강연부터 연회와 파티까지 열 수 있는 공간입니다. 2시간 500,000원.</p></div></li>
         <li class="floor"><span class="lv">3F</span><div class="body"><h3>세미나홀</h3><p class="num">규모별 세미나실 4개. M1 48석 · M2 40석 · M3 20석 · VIP실 13석. 2시간 130,000원부터</p></div></li>
-        <li class="floor"><span class="lv">2F</span><div class="body"><h3>M갤러리 · 2층 관람석</h3><p>여러 작가의 전시가 이어서 열리는 갤러리입니다(무료 관람, 매일 오전 10시~오후 8시). 공은지 작가 작품 27점은 아트시 온라인 전시로 12월 31일까지 볼 수 있습니다. 전시를 보고, 2층 관람석에서 아트홀 무대를 내려다볼 수 있습니다. <a href="mgallery/">M갤러리 홈페이지에서 작품 보기 →</a></p></div></li>
+        <li class="floor"><span class="lv">2F</span><div class="body"><h3>M갤러리 · 2층 관람석</h3><p><b>지금 2층 · 고영환 개인전 「공존의 삶」 11. 13.(금) – 11. 19.(목)</b> 나무와 돌로 만든 조각 전시입니다. 여러 작가의 전시가 이어서 열리는 갤러리로, 무료 관람(매일 오전 10시~오후 8시)입니다. 공은지 작가 작품 27점은 아트시 온라인 전시로 12월 31일까지 볼 수 있습니다. 전시를 보고, 2층 관람석에서 아트홀 무대를 내려다볼 수 있습니다. <a href="mgallery/">M갤러리 홈페이지에서 작품 보기 →</a></p><div class="pics"><img src="assets/img/goyh-hall-43.jpg" alt="2층 M갤러리 고영환 개인전 「공존의 삶」 나무 조각 전시 모습" loading="lazy"></div></div></li>
         <li class="floor main"><span class="lv">1F</span>
           <div class="body">
             <h3>아트홀 · 멜버른커피하우스</h3>
@@ -630,6 +631,8 @@ footer a{color:var(--on-stage)}
             <div class="pics">
               <img src="assets/img/hall-wide.jpg" alt="2층에서 본 아트홀과 카페" loading="lazy">
               <img src="assets/img/stage-piano.jpg" alt="그랜드 피아노가 놓인 무대" loading="lazy">
+              <img src="assets/img/cafe-window-seats.jpg" alt="1층 멜버른커피하우스 아치형 창가 자리" loading="lazy">
+              <img src="assets/img/cafe-art-wall.jpg" alt="1층 멜버른커피하우스 안쪽, 그림이 걸린 벽과 테이블" loading="lazy">
             </div>
           </div>
         </li>

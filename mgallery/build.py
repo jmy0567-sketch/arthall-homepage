@@ -26,6 +26,7 @@ HERO_ONLINE = {
 }
 ARTSY_T = {'en': 'View & buy on Artsy', 'ja': 'Artsyで作品を見る・購入する', 'zh': '在 Artsy 查看与购买'}
 KAKAO = 'https://pf.kakao.com/_vaDxeX'
+FRIEND = {'ko': '카카오톡 채널 친구 추가 · 새 전시 소식 받기', 'en': 'Add us on KakaoTalk for new exhibitions', 'ja': 'カカオトークで友だち追加 · 新しい展示のお知らせ', 'zh': '添加KakaoTalk好友 · 获取新展讯'}
 NAVER_MAP = 'https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0'
 KAKAO_MAP = 'https://map.kakao.com/?q=%EC%B2%9C%EC%95%88%20%EB%B6%88%EB%8B%B934%EA%B8%B8%203-16'
 NOINDEX = False  # 11/08 대표님 OK로 검색 공개. 다시 숨기려면 True
@@ -73,6 +74,7 @@ A = {a['id']: a for a in ARTISTS}
 # 전시: (상태, 작가 표시, 제목, 기간, 장소, 관련 작가 id들, 사진, 공식 페이지)
 EXHIBITIONS = [
   # 11/17: 2층 전시는 11/12에 끝남 → 아트시 온라인 전시(~12/31)를 '지금'으로, 2층 전시는 지난 전시로
+  ('now', '+고영환', '공존의 삶', '2026. 11. 13 – 11. 19', '2층 M갤러리 · 무료 관람 · 매일 10:00–20:00', [], 'goyh-hall-43', None),  # 11/20에 past로
   ('now', 'M갤러리 전속 작가', '공은지 기획전시', '~ 2026. 12. 31', '아트시 온라인 전시 · 작품 27점', ['kong'], 'install-wide', None),
   ('past', 'kong', '공은지 기획전시', '2026. 11. 6 – 11. 12', 'M갤러리', ['kong'], None, None),
   ('past', '그룹전', '다시 모이다: 네 번째 모임', '2026. 10. 1 – 10. 10', 'M갤러리', [], None, 'galleryPast'),
@@ -173,6 +175,7 @@ def foot():
 <footer><div class="wrap">
 <p><b>{E(T('foot1'))}</b></p>
 <p>{E(T('contact'))} +82 1533-8771 · KakaoTalk <a href="{KAKAO}" target="_blank" rel="noopener">신불당M갤러리</a> · {E(T('insta_l'))} <a href="https://www.instagram.com/shinbuldang_artcenter/" target="_blank" rel="noopener">@shinbuldang_artcenter</a> · <a href="{OFFICIAL}" target="_blank" rel="noopener">{E(T('center'))}</a> · <a href="{P()}../">{E(T('arthall'))}</a></p>
+<p><a class="btn" href="{KAKAO}/friend" target="_blank" rel="noopener">{E(FRIEND[L])}</a></p>
 <p>{E(T('foot_note'))}</p>
 </div></footer>
 <nav class="bar" aria-label="quick"><button class="main" type="button" data-ask="">{E(b[0])}</button><a href="tel:15338771">{E(b[1])}</a><a href="{NAVER_MAP}" target="_blank" rel="noopener">{E(b[2])}</a></nav>

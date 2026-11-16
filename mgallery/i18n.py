@@ -152,7 +152,7 @@ CV_EN = {
 }
 
 # 전시 제목 (한국어 원문 → 언어별)
-EX_T = {
+EX_T = {'공존의 삶': {'en': 'Gongjon-ui Sam (공존의 삶)', 'ja': '「공존의 삶」', 'zh': '「공존의 삶」'}, 
  '공은지 기획전시': {'en': 'Kong Eunjee', 'ja': 'コン・ウンジ企画展', 'zh': 'Kong Eunjee 策划展'},
  '다시 모이다: 네 번째 모임': {'en': 'Together Again: The Fourth Gathering', 'ja': '再び集う：四回目の集い', 'zh': '再次相聚：第四次聚会'},
  '박상국 초대전': {'en': 'Park Sang Kuk Invitational', 'ja': 'パク・サングク招待展', 'zh': 'Park Sang Kuk 邀请展'},
