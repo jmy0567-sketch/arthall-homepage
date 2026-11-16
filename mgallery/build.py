@@ -158,6 +158,7 @@ def head(title, desc, page, cur='', image='img/install-room.jpg', ld=None):
 <meta property="og:image" content="{BASE}{og_image}"><meta property="og:image:width" content="{og_w}"><meta property="og:image:height" content="{og_h}"><meta property="og:locale" content="{OG_LOCALE[L]}"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="{P()}assets/style.css?v={ver('style.css')}">
+<link rel="icon" href="{P()}../assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{P()}../assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="{P()}../assets/apple-touch-icon.png">
 {f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' if ld else ''}
 </head><body>
 <header class="top"><div class="wrap">
