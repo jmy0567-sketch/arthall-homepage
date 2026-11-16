@@ -1,0 +1,32 @@
+name: 네이버 블로그 새 글 반영
+
+on:
+  schedule:
+    - cron: '7 0,9 * * *'   # 한국시간 오전 9:07, 오후 6:07
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-sync
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 블로그 RSS 읽어서 홈페이지 '블로그 소식' 바꾸기
+        run: python tools/update_blog.py .
+      - name: 바뀐 내용 커밋
+        run: |
+          git add index.html
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git commit -m "블로그 새 글 반영"
+          git push
