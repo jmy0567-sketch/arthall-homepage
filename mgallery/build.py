@@ -119,7 +119,21 @@ def tile(aid, n):
             f'<figcaption class="cap"><i>{E(t)}</i> <span class="y">{yr}</span><br><span class="y">{E(med)} · {E(size)}</span></figcaption>'
             f'<button class="ask" type="button" data-ask="{E(label(aid, n))}">{E(T("ask_work"))}</button></figure>')
 
+# 11/16 대표님: 링크 미리보기가 그냥 사진처럼 보임 → 한국어 페이지는 '톡톡!' 버튼 카드(tools/make_og_cards.py)
+OG_CARD = {'': 'og-index', 'artists.html': 'og-index', 'exhibitions.html': 'og-index', 'buy.html': 'og-buy',
+           'park.html': 'og-park', 'kong.html': 'og-kong', 'yi.html': 'og-yi'}
+
 def head(title, desc, page, cur='', image='img/install-room.jpg', ld=None):
+    og_image, og_title, og_w, og_h = image, title, 1200, 630
+    if L == 'ko' and page in OG_CARD and os.path.exists(os.path.join(HERE, 'img', 'og', OG_CARD[page] + '.jpg')):
+        og_image = f'img/og/{OG_CARD[page]}.jpg?v=1'
+        og_title = '👆 톡톡 · ' + title
+    else:
+        try:
+            from PIL import Image as _I
+            og_w, og_h = _I.open(os.path.join(HERE, image)).size
+        except Exception:
+            og_w, og_h = 1200, 630
     nav = list(zip(['artists.html', 'exhibitions.html', 'buy.html', 'visit.html'], T('nav')))
     navh = ''.join(f'<a href="{h}"' + (' aria-current="page"' if cur == h else '') + f'>{E(t)}</a>' for h, t in nav)
     def url(lg): return BASE + ('' if lg == 'ko' else lg + '/') + page
@@ -138,8 +152,8 @@ def head(title, desc, page, cur='', image='img/install-room.jpg', ld=None):
 <meta name="description" content="{E(desc)}">
 <link rel="canonical" href="{url(L)}">{alts}
 <meta property="og:type" content="website"><meta property="og:site_name" content="{E(T('sub'))}">
-<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}">
-<meta property="og:image" content="{BASE}{image}"><meta property="og:locale" content="{OG_LOCALE[L]}">
+<meta property="og:title" content="{E(og_title)}"><meta property="og:description" content="{E(desc)}">
+<meta property="og:image" content="{BASE}{og_image}"><meta property="og:image:width" content="{og_w}"><meta property="og:image:height" content="{og_h}"><meta property="og:locale" content="{OG_LOCALE[L]}"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="{P()}assets/style.css?v={ver('style.css')}">
 {f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' if ld else ''}
