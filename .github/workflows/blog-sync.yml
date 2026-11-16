@@ -29,4 +29,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
           git commit -m "블로그 새 글 반영"
-          git push
+          for i in 1 2 3; do git pull --rebase -q origin main && git push && break; sleep 10; done
