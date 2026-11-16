@@ -167,7 +167,7 @@ EX_T = {
 }
 WHO_T = {'M갤러리 전속 작가': {'en': 'Gallery Artist', 'ja': '所属作家', 'zh': '签约艺术家'}, '그룹전': {'en': 'Group exhibition', 'ja': 'グループ展', 'zh': '群展'},
          '기획전': {'en': 'Special exhibition', 'ja': '企画展', 'zh': '策划展'}}
-WHERE_T = {'M갤러리': {'en': 'M Gallery', 'ja': 'Mギャラリー', 'zh': 'M画廊'}, 'M갤러리 · 전속작가 2인전': {'en': 'M Gallery · two-person show', 'ja': 'Mギャラリー · 二人展', 'zh': 'M画廊 · 双人展'},
+WHERE_T = {'아트시 온라인 전시 · 작품 27점': {'en': 'Online Viewing Room on Artsy · 27 works', 'ja': 'Artsyオンライン展示 · 作品27点', 'zh': 'Artsy线上展览 · 作品27件'}, 'M갤러리': {'en': 'M Gallery', 'ja': 'Mギャラリー', 'zh': 'M画廊'}, 'M갤러리 · 전속작가 2인전': {'en': 'M Gallery · two-person show', 'ja': 'Mギャラリー · 二人展', 'zh': 'M画廊 · 双人展'},
            'M갤러리 · 조각 2인전': {'en': 'M Gallery · sculpture, two-person show', 'ja': 'Mギャラリー · 彫刻二人展', 'zh': 'M画廊 · 雕塑双人展'},
            'M갤러리 특별 기획전': {'en': 'M Gallery special exhibition', 'ja': 'Mギャラリー特別企画展', 'zh': 'M画廊特别策划展'},
            'M갤러리 · 개인전': {'en': 'M Gallery · solo show', 'ja': 'Mギャラリー · 個展', 'zh': 'M画廊 · 个展'}, 'M스테이션': {'en': 'M Station', 'ja': 'Mステーション', 'zh': 'M Station'},
