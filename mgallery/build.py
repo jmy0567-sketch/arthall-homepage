@@ -333,8 +333,22 @@ def buy_page():
 <div class="side"><p><b>{E(T('rec_h'))}</b></p><p class="muted">{E(T('rec_p'))}</p>
 <div class="btns" style="margin-top:6px"><a class="btn" href="{KAKAO}/chat" target="_blank" rel="noopener">{E(T('rec_btn'))}</a><button class="btn line" type="button" data-ask="">{E(T('other_btn'))}</button></div>
 </div></div></section>
+{GIFT_KO if L == 'ko' else ''}
 <section class="block"><h2>{E(T('by_artist'))}</h2><div class="names">{''.join(name_card(a) for a in ARTISTS)}</div></section></div>'''
     write('buy.html', s + foot())
+
+GIFT_KO = '''<section class="block" id="gift"><h2>개업·이사 선물로 그림 고르기</h2>
+<div class="about" style="padding-top:0"><div style="display:grid;gap:14px">
+<p>꽃이나 화분은 시들지만 그림은 오래 남아요. 개업한 가게, 새로 문을 연 병원·사무실, 이사한 집에 걸 그림을 M갤러리 작가 작품 중에서 골라 드려요.</p>
+<ul class="list">
+<li><time>개업 선물</time><span>카페·식당·가게 벽에 어울리는 밝은 색 작품</span></li>
+<li><time>개원 선물</time><span>병원·사무실 대기실처럼 오래 머무는 곳에 편안한 작품</span></li>
+<li><time>집들이</time><span>거실·현관 크기에 맞춘 작품</span></li>
+</ul>
+<p class="muted">걸 곳 사진 한 장, 벽 크기, 예산을 카톡으로 보내 주시면 어울리는 작품을 추려 드려요. 가격은 작품마다 달라 문의로 안내해 드려요.</p>
+</div>
+<div class="side"><p><b>직접 보고 고르기</b></p><p class="muted">2층 M갤러리는 무료로 매일 10:00–20:00 열려 있어요. 1층 멜버른커피하우스에서 커피 한 잔 하며 천천히 고르셔도 좋아요. 건물 지하주차장 무료.</p></div>
+</div></section>'''
 
 def visit_page():
     s = head(f"{T('t_visit')} | {T('t_suffix')}", T('d_visit'), 'visit.html', cur='visit.html', image='img/install-wide.jpg')
