@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>천안 가볼만한곳·데이트 코스 | 불당동 카페·무료 갤러리·공연 · 신불당아트센터</title>
+<meta name="description" content="천안 불당동 신불당아트센터: 1층 멜버른커피하우스, 2층 M갤러리 무료 전시, 샹들리에 아트홀 공연까지 한 건물에서. 천안 데이트·대형카페·가볼만한곳, 지하주차장 무료.">
+<link rel="canonical" href="https://jmy0567-sketch.github.io/arthall-homepage/date.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="신불당아트센터 아트홀">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://jmy0567-sketch.github.io/arthall-homepage/date.html">
+<meta property="og:title" content="천안 가볼만한곳·데이트 코스 | 신불당아트센터">
+<meta property="og:description" content="카페에서 커피, 2층 갤러리 무료 전시, 샹들리에 아래 공연까지. 불당동 한 건물에서 즐기는 반나절 코스.">
+<meta property="og:image" content="https://jmy0567-sketch.github.io/arthall-homepage/assets/img/hall-wide.jpg">
+<meta property="og:image:alt" content="2층에서 내려다본 샹들리에와 아트홀 무대, 1층 카페">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* Layout: 무대 쪽을 향한 한 줄 동선. 어두운 무대(히어로·형식·실적) ↔ 밝은 로비(비교·시설·절차)를 번갈아 걷고, 전화 버튼은 어디서나 보인다. */
+:root{
+  --stage:#1a0d10;        /* 조명 꺼진 무대 */
+  --stage-2:#26131a;
+  --oxblood:#7a1522;      /* 아트홀 정면 벽 */
+  --oxblood-hi:#a11d2e;
+  --gold:#d6ae5c;         /* 샹들리에 */
+  --gold-soft:#e9d3a2;
+  --neon:#c9a6ff;         /* M 로고 네온 */
+  --lobby:#f3f0ec;        /* 테라조 바닥 */
+  --lobby-2:#e7e1da;
+  --ink:#1f1a1a;
+  --ink-2:#5b5150;
+  --line-dark:rgba(233,211,162,.18);
+  --line-light:#d6cdc4;
+  --on-stage:#f4ece6;
+  --on-stage-2:#bfb0aa;
+
+  --f-display:"Hahmlet","Noto Serif KR","Nanum Myeongjo",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+
+  --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.0625rem; --s-lg:1.375rem;
+  --s-xl:clamp(1.6rem,3.2vw,2.25rem); --s-2xl:clamp(2.2rem,5.6vw,4rem);
+  --gutter:clamp(16px,4vw,48px);
+  --wrap:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--stage);color:var(--on-stage);font-family:var(--f-body);font-size:var(--s-md);line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.25;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:var(--s-xs);letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+.lobby .eyebrow{color:var(--oxblood)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(26,13,16,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-dark)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand svg{width:44px;height:20px;color:var(--gold-soft)}
+.brand b{font-family:var(--f-display);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
+.brand small{display:block;font-size:.625rem;letter-spacing:.28em;color:var(--on-stage-2);line-height:1}
+.nav{display:flex;gap:22px;margin-left:auto;font-size:var(--s-sm)}
+.nav a{text-decoration:none;color:var(--on-stage-2);transition:color .2s}
+.nav a:hover{color:var(--on-stage)}
+.call{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--gold);color:var(--stage);text-decoration:none;font-weight:600;font-size:var(--s-sm);white-space:nowrap}
+.call:hover{background:var(--gold-soft)}
+/* 모바일: 메뉴를 로고 아래 한 줄로, 옆으로 밀어서 보기 */
+@media (max-width:860px){
+  html{scroll-padding-top:112px}
+  .top .wrap{flex-wrap:wrap;height:auto;row-gap:0;column-gap:16px;padding-top:10px}
+  .top .call{margin-left:auto}
+  .nav{order:3;flex:0 0 calc(100% + 2*var(--gutter));margin:0 calc(-1*var(--gutter));padding:8px var(--gutter) 10px;gap:20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex-shrink:0;padding-block:4px}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(26,13,16,.94) 0%,rgba(26,13,16,.78) 42%,rgba(26,13,16,.25) 100%),linear-gradient(0deg,var(--stage) 0%,transparent 30%)}
+.hero .wrap{padding-block:clamp(72px,12vw,150px) clamp(48px,7vw,80px)}
+.hero-copy{max-width:620px;display:grid;gap:22px}
+.hero h1{font-size:var(--s-2xl);font-weight:300}
+.hero h1 em{font-style:normal;font-weight:700;color:var(--gold-soft)}
+.hero-lead{font-size:var(--s-lg);color:var(--on-stage-2);line-height:1.6}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:6px;text-decoration:none;font-weight:600;font-size:var(--s-md);border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-gold{background:var(--gold);color:var(--stage)}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-ghost{border-color:var(--line-dark);color:var(--on-stage)}
+.btn-ghost:hover{border-color:var(--gold)}
+.facts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--line-dark)}
+.fact{padding:18px 16px 0 0;display:grid;gap:2px}
+.fact b{font-family:var(--f-display);font-size:clamp(1.25rem,2.4vw,1.9rem);white-space:nowrap;font-weight:500;color:var(--gold-soft);line-height:1.1}
+.fact span{font-size:var(--s-xs);color:var(--on-stage-2)}
+@media (max-width:760px){.facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:8px}.hero::after{background:linear-gradient(0deg,rgba(26,13,16,.97) 30%,rgba(26,13,16,.6) 100%)}}
+
+/* ---------- season ribbon ---------- */
+.ribbon{background:var(--oxblood);color:var(--on-stage)}
+.ribbon .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-block:14px;font-size:var(--s-sm)}
+.ribbon strong{color:var(--gold-soft);font-weight:600}
+.dday{padding:3px 10px;border-radius:4px;background:var(--gold);color:var(--stage);font-weight:700;font-size:var(--s-xs);letter-spacing:.04em}
+.ribbon a{margin-left:auto;font-weight:600;text-underline-offset:4px}
+@media (max-width:640px){.ribbon a{margin-left:0}}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(64px,9vw,120px)}
+.lobby{background:var(--lobby);color:var(--ink)}
+.lobby.alt{background:var(--lobby-2)}
+.sec-head{display:grid;gap:14px;max-width:720px;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head h2{font-size:var(--s-xl)}
+.sec-head p{color:var(--on-stage-2)}
+.lobby .sec-head p{color:var(--ink-2)}
+
+/* compare */
+.compare-wrap{overflow-x:auto;border:1px solid var(--line-light);border-radius:8px;background:#fff}
+.compare{width:100%;border-collapse:collapse;min-width:620px;font-size:var(--s-sm)}
+.compare th,.compare td{padding:16px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-light)}
+.compare tr:last-child td{border-bottom:0}
+.compare thead th{font-size:var(--s-xs);letter-spacing:.08em;color:var(--ink-2);font-weight:600;background:var(--lobby)}
+.compare thead th.us{color:var(--oxblood)}
+.compare td:first-child{font-weight:600;white-space:nowrap;width:150px}
+.compare td.them{color:var(--ink-2)}
+.compare td.us{background:#fbf6ef;color:var(--ink);font-weight:500}
+.compare-note{margin-top:20px;color:var(--ink-2);font-size:var(--s-sm)}
+
+/* formats */
+.formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.format{display:grid;grid-template-rows:auto 1fr;background:var(--stage-2);border:1px solid var(--line-dark);border-radius:10px;overflow:hidden}
+.format figure{margin:0;aspect-ratio:4/3;overflow:hidden}
+.format figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.format:hover figure img{transform:scale(1.04)}
+.format-body{padding:22px 22px 26px;display:grid;gap:12px;align-content:start}
+.format h3{font-size:var(--s-lg)}
+.format ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.format li{font-size:var(--s-xs);padding:4px 10px;border:1px solid var(--line-dark);border-radius:999px;color:var(--on-stage-2)}
+.format .fit{font-size:var(--s-sm);color:var(--on-stage-2)}
+.format .fit b{color:var(--gold-soft);font-weight:500}
+.formats-note{margin-top:24px;color:var(--on-stage-2);font-size:var(--s-sm)}
+@media (max-width:900px){.formats{grid-template-columns:1fr}.format{grid-template-columns:minmax(0,2fr) minmax(0,3fr);grid-template-rows:none}.format figure{aspect-ratio:auto;height:100%}}
+@media (max-width:560px){.format{grid-template-columns:1fr}.format figure{aspect-ratio:16/10}}
+
+/* timeline */
+.timeline-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,80px);align-items:start}
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:68px;top:10px;bottom:10px;width:1px;background:var(--line-light)}
+.timeline li{display:grid;grid-template-columns:56px 25px minmax(0,1fr);gap:0 0;align-items:baseline;padding-block:12px}
+.timeline time{font-family:var(--f-display);font-weight:700;font-size:var(--s-md);color:var(--oxblood);font-variant-numeric:tabular-nums}
+.timeline .dot{width:9px;height:9px;border-radius:50%;background:var(--lobby);border:2px solid var(--oxblood);justify-self:center;transform:translateX(-1px)}
+.timeline li.key .dot{background:var(--oxblood)}
+.timeline li span{font-size:var(--s-md)}
+.timeline li small{display:block;color:var(--ink-2);font-size:var(--s-xs)}
+.timeline-photo{position:sticky;top:96px;display:grid;gap:12px}
+.timeline-photo img{border-radius:8px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.timeline-photo p{font-size:var(--s-xs);color:var(--ink-2)}
+@media (max-width:860px){.timeline-grid{grid-template-columns:1fr}.timeline-photo{position:static}}
+
+/* track record */
+.record{display:grid;gap:clamp(48px,7vw,88px)}
+.show{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:center}
+.show.flip{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.show.flip .show-text{order:2}
+.show-text{display:grid;gap:14px}
+.show-text .date{font-family:var(--f-display);color:var(--gold);font-size:var(--s-sm);letter-spacing:.06em}
+.show-text h3{font-size:var(--s-xl);font-weight:300}
+.show-text p{color:var(--on-stage-2)}
+.tag{justify-self:start;font-size:var(--s-xs);padding:4px 12px;border-radius:999px;background:var(--oxblood);color:var(--on-stage)}
+.mosaic{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(70px,9vw,120px);gap:8px}
+.mosaic button{all:unset;cursor:zoom-in;border-radius:6px;overflow:hidden;position:relative}
+.mosaic button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .3s}
+.mosaic button:hover img{transform:scale(1.05)}
+.mosaic button{display:block}
+.mosaic .m-a{grid-column:span 4;grid-row:span 3}.mosaic .m-b{grid-column:span 2;grid-row:span 2}.mosaic .m-c{grid-column:span 2;grid-row:span 1}
+.mosaic .m-d{grid-column:span 3;grid-row:span 2}.mosaic .m-e{grid-column:span 3;grid-row:span 2}
+.mosaic .m-f{grid-column:span 2;grid-row:span 3}.mosaic .m-g{grid-column:span 4;grid-row:span 3}
+@media (max-width:860px){.show,.show.flip{grid-template-columns:1fr}.show.flip .show-text{order:0}}
+
+.more-shows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.mini{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--stage-2);border:1px solid var(--line-dark);border-radius:10px;overflow:hidden}
+.mini button{all:unset;cursor:zoom-in;display:block}
+.mini img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1}
+.mini div{padding:22px;display:grid;gap:8px;align-content:center}
+.mini h3{font-size:var(--s-lg)}
+.mini p{font-size:var(--s-sm);color:var(--on-stage-2)}
+@media (max-width:760px){.more-shows{grid-template-columns:1fr}}
+
+/* videos */
+/* 가로 영상(16:9)과 세로 영상(9:16)을 비율대로 나눠 한 줄 높이를 맞춘다 */
+.videos{display:grid;gap:12px}
+.vrow{display:flex;gap:12px}
+.videos figure{margin:0;display:grid;gap:8px;min-width:0}
+.videos figure.w{flex:1.7778}
+.videos figure.t{flex:.5625}
+.videos video{width:100%;background:#000;border-radius:8px}
+.videos .w video{aspect-ratio:16/9}
+.videos .t video{aspect-ratio:9/16}
+.videos figcaption{font-size:var(--s-xs);color:var(--on-stage-2)}
+@media (max-width:640px){.vrow{flex-direction:column}.videos figure.t{width:62%;align-self:center}}
+
+/* spaces */
+.spaces-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:start}
+.building{margin:0;display:grid;gap:10px}
+.building img{border-radius:8px;width:100%;aspect-ratio:3/4;object-fit:cover}
+.building figcaption{font-size:var(--s-xs);color:var(--ink-2)}
+.flow{list-style:none;margin:0 0 20px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.flow li.opt{border-style:dashed;background:transparent}
+.eventhall{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:12px 32px;align-items:start;margin:0 0 clamp(36px,5vw,56px);padding:22px 24px;border-radius:8px;background:var(--stage);color:var(--on-stage)}
+.eventhall .eyebrow{color:var(--gold)}
+.eventhall h3{font-size:var(--s-lg);margin-top:4px}
+.eventhall > *{min-width:0}
+.eventhall > p{font-size:var(--s-sm);color:var(--on-stage-2);overflow-wrap:anywhere}
+@media (max-width:1000px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.flow li::after{display:none}}
+@media (max-width:640px){.eventhall{grid-template-columns:1fr}}
+.flow li{position:relative;display:grid;gap:4px;padding:18px 20px;background:#fff;border:1px solid var(--line-light);border-radius:8px}
+.flow li:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translate(50%,-50%);color:var(--oxblood);font-weight:700;z-index:1}
+.flow .fl{font-size:var(--s-xs);letter-spacing:.08em;color:var(--oxblood);font-weight:600}
+.flow b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg)}
+.flow span:last-child{font-size:var(--s-sm);color:var(--ink-2)}
+@media (max-width:760px){.flow{grid-template-columns:1fr}.flow li:not(:last-child)::after{display:block;content:"↓";right:50%;top:auto;bottom:-14px;transform:translateX(50%)}}
+.floors{list-style:none;margin:0 0 36px;padding:0;border-top:1px solid var(--ink)}
+.floors li{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line-light)}
+.floors .fl{font-family:var(--f-display);font-weight:700;font-size:var(--s-lg);color:var(--oxblood)}
+.floors .nm{font-weight:600}
+.floors .ds{font-size:var(--s-sm);color:var(--ink-2)}
+.floors li.here{background:linear-gradient(90deg,rgba(122,21,34,.07),transparent)}
+.spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line-light);border-radius:8px;overflow:hidden;background:#fff}
+.spec div{padding:16px 18px;border-bottom:1px solid var(--line-light);display:grid;gap:2px}
+.spec div:nth-child(odd){border-right:1px solid var(--line-light)}
+.spec div:nth-last-child(-n+2){border-bottom:0}
+.spec dt{font-size:var(--s-xs);color:var(--ink-2);letter-spacing:.04em}
+.spec dd{margin:0;font-weight:500}
+.todo{display:inline-block;padding:0 6px;border-radius:3px;background:#fff1c9;color:#7a5200;font-size:var(--s-xs);font-weight:600}
+@media (max-width:860px){.spaces-grid{grid-template-columns:1fr}.building img{aspect-ratio:4/3}}
+@media (max-width:520px){.spec{grid-template-columns:1fr}.spec div:nth-child(odd){border-right:0}.spec div:nth-last-child(2){border-bottom:1px solid var(--line-light)}}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
+.services li{list-style:none;padding:22px 20px 22px 0;border-bottom:1px solid var(--line-light);display:grid;gap:4px}
+.services b{font-weight:600}
+.services span{font-size:var(--s-sm);color:var(--ink-2)}
+.services-wrap ul{margin:0;padding:0}
+.services-note{margin-top:18px;font-size:var(--s-sm);color:var(--ink-2)}
+@media (max-width:860px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.services{grid-template-columns:1fr}}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;counter-reset:s}
+.steps li{counter-increment:s;padding:22px 18px;background:#fff;border:1px solid var(--line-light);border-radius:8px;display:grid;gap:8px;align-content:start}
+.steps li::before{content:counter(s);font-family:var(--f-display);font-weight:700;font-size:var(--s-xl);color:var(--oxblood);line-height:1}
+.steps b{font-weight:600}
+.steps span{font-size:var(--s-sm);color:var(--ink-2)}
+@media (max-width:960px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--oxblood);background-image:radial-gradient(ellipse at 80% 0%,rgba(214,174,92,.22),transparent 55%)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,80px);align-items:start}
+.contact h2{font-size:var(--s-2xl);font-weight:300}
+.bignum{font-family:var(--f-display);font-weight:700;font-size:clamp(2.4rem,6vw,3.8rem);color:var(--gold-soft);letter-spacing:.01em;text-decoration:none;display:inline-block;line-height:1.1}
+.contact-info{display:grid;gap:18px}
+.contact-info dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 20px;font-size:var(--s-sm)}
+.contact-info dt{color:var(--gold-soft)}
+.contact-info dd{margin:0}
+.copyrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.contact .btn-ghost{border-color:rgba(244,236,230,.35)}
+
+.planner{background:var(--stage);border-radius:12px;padding:clamp(22px,3vw,32px);display:grid;gap:16px;border:1px solid var(--line-dark)}
+.planner h3{font-size:var(--s-lg)}
+.planner p.help{font-size:var(--s-sm);color:var(--on-stage-2)}
+.field{display:grid;gap:6px}
+.field label,.field legend{font-size:var(--s-xs);color:var(--on-stage-2);letter-spacing:.04em}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+input,select,textarea{font:inherit;font-size:var(--s-sm);color:var(--on-stage);background:var(--stage-2);border:1px solid var(--line-dark);border-radius:6px;padding:10px 12px;width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-block;padding:8px 14px;border:1px solid var(--line-dark);border-radius:999px;font-size:var(--s-sm);color:var(--on-stage-2)}
+.chips input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--stage);font-weight:600}
+.chips input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.summary{white-space:pre-wrap;font-size:var(--s-sm);background:var(--stage-2);border:1px dashed var(--line-dark);border-radius:6px;padding:14px;color:var(--on-stage);min-height:4em}
+.status{font-size:var(--s-xs);color:var(--gold-soft);min-height:1.2em}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.row3{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+/* map */
+.visit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.visit-grid div{display:grid;gap:6px;align-content:start;padding-top:16px;border-top:1px solid var(--ink)}
+.visit-grid b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg)}
+.visit-grid p{font-size:var(--s-sm);color:var(--ink-2)}
+.maplinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn-ink{background:var(--ink);color:var(--lobby)}
+.btn-line{border-color:var(--line-light);color:var(--ink)}
+@media (max-width:760px){.visit-grid{grid-template-columns:1fr}}
+
+footer{background:var(--stage);color:var(--on-stage-2);font-size:var(--s-xs);padding-block:40px 110px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+
+/* mobile call bar */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(26,13,16,.96);border-top:1px solid var(--line-dark)}
+.callbar a{flex:1;justify-content:center;padding:13px 10px;font-size:var(--s-sm)}
+@media (max-width:860px){.callbar{display:flex}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,5,6,.94);display:grid;place-items:center;padding:24px}
+.lb img{max-height:86vh;width:auto;border-radius:6px}
+.lb p{color:var(--on-stage-2);font-size:var(--s-sm);text-align:center;margin-top:12px}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:none;border:1px solid var(--line-dark);color:var(--on-stage);border-radius:999px;width:44px;height:44px;font-size:1.3rem;cursor:pointer}
+.ftable{width:100%;border-collapse:collapse;font-size:var(--s-sm)}
+.ftable th,.ftable td{padding:12px 10px;border-bottom:1px solid var(--line, #ddd);text-align:left;vertical-align:top}
+.ftable thead th{font-weight:600;border-bottom:2px solid var(--ink)}
+.ftable-wrap{overflow-x:auto}
+.rooms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px}
+.rooms div{border:1px solid var(--line-dark);border-radius:10px;padding:16px}
+.rooms b{display:block;font-size:var(--s-lg);color:var(--gold-soft)}
+@media (max-width:760px){.rooms{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pics2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.pics2 img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+@media (max-width:560px){.pics2{grid-template-columns:1fr}}
+</style>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "TouristAttraction", "name": "신불당아트센터 (카페·M갤러리·아트홀)", "url": "https://jmy0567-sketch.github.io/arthall-homepage/date.html", "telephone": "1533-8771", "isAccessibleForFree": true, "address": {"@type": "PostalAddress", "streetAddress": "불당34길 3-16", "addressLocality": "천안시 서북구", "addressRegion": "충청남도", "addressCountry": "KR"}, "image": "https://jmy0567-sketch.github.io/arthall-homepage/assets/img/hall-wide.jpg", "description": "1층 멜버른커피하우스와 샹들리에 아트홀, 2층 M갤러리 무료 전시가 한 건물에 있는 천안 불당동 복합문화공간."}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "입장료가 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "2층 M갤러리 전시는 무료입니다. 1층 카페는 음료를 주문하시면 됩니다. 공연은 공연마다 다르며, 무료 공연은 예약이 필요한 경우가 많습니다."}}, {"@type": "Question", "name": "몇 시에 가면 좋나요?", "acceptedAnswer": {"@type": "Answer", "text": "카페는 매일 09:00~22:00, M갤러리는 매일 10:00~20:00입니다. 공연이 있는 날은 저녁 공연까지 함께 보실 수 있습니다."}}, {"@type": "Question", "name": "주차할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "건물 지하주차장을 무료로 쓰실 수 있습니다. 만차일 때는 옆 건물 지문사 주차장을 이용하실 수 있습니다."}}, {"@type": "Question", "name": "이번 주 공연과 전시는 어디서 보나요?", "acceptedAnswer": {"@type": "Answer", "text": "아트홀 홈페이지의 공연 소식과 M갤러리 전시 쪽에서 확인하실 수 있습니다. 공연 예약은 1533-8771로 하시면 됩니다."}}, {"@type": "Question", "name": "어디에 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "충남 천안시 서북구 불당34길 3-16, 신불당 한가운데 신불당아트센터 건물입니다."}}]}]}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="신불당아트센터 아트홀 홈으로">
+      <svg viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 17h12l6-15 4 11 4-11 6 15h12"/></svg>
+      <span><b>신불당아트센터</b><small>CAFE · GALLERY · HALL</small></span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="index.html">← 아트홀 홈</a>
+      <a href="#course">반나절 코스</a>
+      <a href="#cafe">카페</a>
+      <a href="#gallery">무료 갤러리</a>
+      <a href="#faq">자주 묻는 질문</a>
+      <a href="#visit">오시는 길</a>
+    </nav>
+    <a class="call num" href="tel:15338771">☎ 1533-8771</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" style="padding:0" aria-labelledby="hero-title">
+  <div class="hero-img"><img src="assets/img/hall-wide.jpg" alt="2층에서 내려다본 샹들리에와 아트홀 무대, 체크무늬 바닥의 1층 카페" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">천안 불당동 · 신불당아트센터</p>
+      <h1 id="hero-title">커피, 그림, 공연까지<br><em>한 건물에서</em></h1>
+      <p class="hero-lead">1층 카페에서 커피 한 잔, 2층 갤러리에서 무료 전시, 샹들리에 아래 무대에서 공연까지. 천안 데이트·가볼만한곳을 찾는다면 반나절이면 충분해요.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도로 길찾기</a>
+        <a class="btn btn-ghost" href="index.html#program">이번 공연 보기</a>
+      </div>
+    </div>
+    <div class="facts num" role="list">
+      <div class="fact" role="listitem"><b>무료 전시</b><span>2층 M갤러리</span></div>
+      <div class="fact" role="listitem"><b>09:00~22:00</b><span>1층 카페</span></div>
+      <div class="fact" role="listitem"><b>10:00~20:00</b><span>갤러리 매일</span></div>
+      <div class="fact" role="listitem"><b>샹들리에 무대</b><span>1층 아트홀</span></div>
+      <div class="fact" role="listitem"><b>무료 주차</b><span>건물 지하주차장</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="course" aria-labelledby="course-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">반나절 코스</p>
+      <h2 id="course-title">이렇게 둘러보세요</h2>
+    </div>
+    <ol class="steps">
+      <li><b>1층 멜버른커피하우스</b><span>붉은 벽 무대와 대형 샹들리에가 보이는 자리에서 커피 한 잔</span></li>
+      <li><b>2층 M갤러리</b><span>지금 열리는 전시를 무료로 관람</span></li>
+      <li><b>2층 관람석</b><span>샹들리에와 무대를 내려다보는 사진 명소</span></li>
+      <li><b>공연 있는 날 저녁</b><span>1층 아트홀 공연까지 (공연마다 예약 확인)</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="lobby" id="cafe" aria-labelledby="cafe-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">1층 · 멜버른커피하우스</p>
+      <h2 id="cafe-title">공연장 안에 있는 카페</h2>
+      <p>카페와 아트홀이 한 공간이라, 무대와 샹들리에, 벽에 걸린 대형 회화를 보며 쉬어 갈 수 있습니다. 시그니처는 롱블랙. 매일 09:00~22:00.</p>
+    </div>
+    <div class="pics2">
+      <img src="assets/img/cafe-window-seats.jpg" alt="멜버른커피하우스 아치형 창가 좌석" loading="lazy">
+      <img src="assets/img/cafe-art-wall.jpg" alt="대형 회화가 걸린 멜버른커피하우스 내부와 체크무늬 바닥" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="lobby alt" id="gallery" aria-labelledby="gal-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">2층 · 신불당아트센터 M갤러리</p>
+      <h2 id="gal-title">누구나 무료로 보는 전시</h2>
+      <p>작가 개인전과 기획전이 이어지는 갤러리입니다. 마음에 드는 작품은 구입 상담도 받을 수 있어요. 매일 10:00~20:00.</p>
+    </div>
+    <div class="pics2">
+      <img src="assets/img/mgallery-space-3.jpg" alt="신불당아트센터 M갤러리 전시 공간과 걸린 그림들" loading="lazy">
+      <img src="assets/img/mgallery-space-1.jpg" alt="M갤러리 입구" loading="lazy">
+    </div>
+    <p class="services-note"><a href="mgallery/exhibitions.html">지금 열리는 전시 보기 →</a></p>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="fq-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">자주 묻는 질문</p>
+      <h2 id="fq-title">가기 전에 확인하세요</h2>
+    </div>
+    <div style="display:grid;gap:10px">
+      <details style="border:1px solid var(--line-dark);border-radius:10px;padding:14px 18px"><summary style="cursor:pointer;font-weight:600">입장료가 있나요?</summary><p style="margin-top:10px">2층 M갤러리 전시는 무료입니다. 1층 카페는 음료를 주문하시면 됩니다. 공연은 공연마다 다르며, 무료 공연은 예약이 필요한 경우가 많습니다.</p></details>
+      <details style="border:1px solid var(--line-dark);border-radius:10px;padding:14px 18px"><summary style="cursor:pointer;font-weight:600">몇 시에 가면 좋나요?</summary><p style="margin-top:10px">카페는 매일 09:00~22:00, M갤러리는 매일 10:00~20:00입니다. 공연이 있는 날은 저녁 공연까지 함께 보실 수 있습니다.</p></details>
+      <details style="border:1px solid var(--line-dark);border-radius:10px;padding:14px 18px"><summary style="cursor:pointer;font-weight:600">주차할 수 있나요?</summary><p style="margin-top:10px">건물 지하주차장을 무료로 쓰실 수 있습니다. 만차일 때는 옆 건물 지문사 주차장을 이용하실 수 있습니다.</p></details>
+      <details style="border:1px solid var(--line-dark);border-radius:10px;padding:14px 18px"><summary style="cursor:pointer;font-weight:600">이번 주 공연과 전시는 어디서 보나요?</summary><p style="margin-top:10px">아트홀 홈페이지의 공연 소식과 M갤러리 전시 쪽에서 확인하실 수 있습니다. 공연 예약은 1533-8771로 하시면 됩니다.</p></details>
+      <details style="border:1px solid var(--line-dark);border-radius:10px;padding:14px 18px"><summary style="cursor:pointer;font-weight:600">어디에 있나요?</summary><p style="margin-top:10px">충남 천안시 서북구 불당34길 3-16, 신불당 한가운데 신불당아트센터 건물입니다.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="ct-title">
+  <div class="wrap">
+    <div class="contact-info">
+      <p class="eyebrow" style="color:var(--gold-soft)">공연 예약 · 문의</p>
+      <h2 id="ct-title">공연 예약은 전화 한 통으로</h2>
+      <a class="bignum num" href="tel:15338771">1533-8771</a>
+      <div class="copyrow">
+        <button class="btn btn-ghost" type="button" id="copy-phone">번호 복사</button>
+        <a class="btn btn-gold" href="https://www.instagram.com/shinbuldang_artcenter/" target="_blank" rel="noopener">인스타그램 소식</a>
+      </div>
+      <p style="margin-top:16px">이 공간에서 행사도 열 수 있어요: <a href="yearend.html" style="color:var(--gold-soft)">송년회</a> · <a href="family.html" style="color:var(--gold-soft)">돌잔치·가족 행사</a> · <a href="recital.html" style="color:var(--gold-soft)">발표회·연주회</a> · <a href="seminar.html" style="color:var(--gold-soft)">세미나실·회의실</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="lobby" id="visit" aria-labelledby="vs-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">오시는 길</p>
+      <h2 id="vs-title">신불당 한가운데, 지하주차장 무료</h2>
+    </div>
+    <div class="pics2" style="margin-bottom:20px"><img src="assets/img/building.jpg" alt="불당34길의 신불당아트센터 건물 외관" loading="lazy"></div>
+    <div class="visit-grid">
+      <div><b>주소</b><p>충남 천안시 서북구 불당34길 3-16<br>신불당아트센터</p></div>
+      <div><b>주차</b><p>건물 지하주차장 무료.<br>만차일 때는 옆 건물 지문사 주차장을 이용하실 수 있습니다.</p></div>
+      <div><b>시간</b><p class="num">카페 매일 09:00~22:00<br>M갤러리 매일 10:00~20:00</p></div>
+    </div>
+    <div class="maplinks">
+      <a class="btn btn-ink" href="https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+      <a class="btn btn-line" href="https://map.kakao.com/?q=%EC%B2%9C%EC%95%88%20%EB%B6%88%EB%8B%B934%EA%B8%B8%203-16" target="_blank" rel="noopener">카카오맵에서 보기</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>신불당아트센터 · 충남 천안시 서북구 불당34길 3-16</span>
+    <span class="num">대관 문의 1533-8771 · 오전 9:30 ~ 오후 10:00 · <a href="index.html">아트홀 홈</a> · <a href="https://www.instagram.com/shinbuldang_artcenter/" target="_blank" rel="noopener">인스타그램</a></span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-gold num" href="tel:15338771">☎ 전화 문의</a>
+  <a class="btn btn-ghost" href="https://pf.kakao.com/_vaDxeX/chat" target="_blank" rel="noopener">카톡 상담</a>
+  <a class="btn btn-ghost" href="#course">코스</a>
+</div>
+
+<script>
+document.getElementById('copy-phone').addEventListener('click',function(){
+  var b=this,t='1533-8771';
+  function done(){b.textContent='복사했습니다';setTimeout(function(){b.textContent='번호 복사';},1800);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,done);}else{done();}
+});
+</script>
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+<script type="text/javascript">if(!wcs_add) var wcs_add = {};wcs_add["wa"] = "88f1dc14c3c978";if(window.wcs){wcs_do();}</script>
+</body>
+</html>
