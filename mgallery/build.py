@@ -260,6 +260,7 @@ def index():
 
 def artists_page():
     s = head(f"{T('t_artists')} | {T('t_suffix')}", T('d_artists'), 'artists.html', cur='artists.html')
+    s += f'<div class="wrap a-head"><h1>{E(T('t_artists'))}</h1></div>'
     s += f'<div class="wrap"><section class="block"><h2>{E(T("exclusive"))}</h2><div class="names">{"".join(name_card(a) for a in ARTISTS)}</div></section></div>'
     write('artists.html', s + collect_band() + foot())
 
@@ -269,10 +270,12 @@ def exhibitions_pages():
         return (f'<nav class="tabs"><a href="exhibitions.html"' + (' aria-current="page"' if c == 1 else '') + f'>{E(T("tab_now"))}</a>'
                 f'<a href="exhibitions-past.html"' + (' aria-current="page"' if c == 2 else '') + f'>{E(T("tab_past"))}</a></nav>')
     s = head(f"{T('t_exh')} | {T('t_suffix')}", T('d_exh'), 'exhibitions.html', cur='exhibitions.html')
+    s += f'<div class="wrap a-head"><h1>{E(T('t_exh'))}</h1></div>'
     s += f'<div class="wrap">{tabs(1)}<div class="ex-grid">{"".join(ex_card(x) for x in cur)}</div></div>'
     write('exhibitions.html', s + foot())
     s = head(f"{T('t_past')} | {T('t_suffix')}", T('d_past'), 'exhibitions-past.html', cur='exhibitions.html')
     rows = ''.join(f'<li><time>{E(x[3])}</time><span>' + (f'<a href="{OFFICIAL}{x[7]}" target="_blank" rel="noopener">' if x[7] else '') + f'{E(who(x[1]))} · {E(ex_title(x[2]))}' + ('</a>' if x[7] else '') + f' <span class="faint">{E(ex_where(x[4]))}</span></span></li>' for x in past)
+    s += f'<div class="wrap a-head"><h1>{E(T('t_past'))}</h1></div>'
     s += f'<div class="wrap">{tabs(2)}<ul class="list">{rows}</ul><p class="faint" style="margin-top:14px"><a href="{OFFICIAL}galleryPast" target="_blank" rel="noopener">{E(T("all_past"))}</a></p></div>'
     write('exhibitions-past.html', s + foot())
 
@@ -282,6 +285,8 @@ def artist_page(a):
     ld = {"@context": "https://schema.org", "@type": "Person", "name": nm, "affiliation": {"@type": "ArtGallery", "name": "M Gallery, Shinbuldang Art Center"}}
     title = f"{nm} | {T('t_artist_suffix')}"
     desc = f"{T('t_artist_suffix')} {nm}. {afield(aid)}."
+    _i = aintro(aid).strip()
+    if _i: desc = (desc + ' ' + _i)[:150].rstrip() + ('…' if len(desc + ' ' + _i) > 150 else '')
     img = f'img/{aid}-{a["rep"]:02d}.jpg' if a['rep'] else 'img/install-room.jpg'
     s = head(title, desc, f'{aid}.html', cur='artists.html', image=img, ld=ld)
     mine = [x for x in EXHIBITIONS if aid in x[5]]
@@ -322,6 +327,7 @@ def artist_page(a):
 def buy_page():
     s = head(f"{T('t_buy')} | {T('t_suffix')}", T('d_buy'), 'buy.html', cur='buy.html')
     steps = ''.join(f'<li><time>{E(a)}</time><span>{E(b)}</span></li>' for a, b in T('steps'))
+    s += f'<div class="wrap a-head"><h1>{E(T('t_buy'))}</h1></div>'
     s += f'''<div class="wrap"><section class="block"><h2>{E(T('buy_h'))}</h2>
 <div class="about" style="padding-top:0"><div style="display:grid;gap:16px"><p>{E(T('buy_p'))}</p><ul class="list">{steps}</ul></div>
 <div class="side"><p><b>{E(T('rec_h'))}</b></p><p class="muted">{E(T('rec_p'))}</p>
@@ -332,6 +338,7 @@ def buy_page():
 
 def visit_page():
     s = head(f"{T('t_visit')} | {T('t_suffix')}", T('d_visit'), 'visit.html', cur='visit.html', image='img/install-wide.jpg')
+    s += f'<div class="wrap a-head"><h1>{E(T('t_visit'))}</h1></div>'
     s += f'<div class="wrap" style="padding-top:24px"><img src="{P()}img/install-wide.jpg" alt="{E(T("sub"))}" style="width:100%"></div>'
     write('visit.html', s + visit_block() + foot())
 
