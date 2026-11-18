@@ -25,7 +25,9 @@ HERO_ONLINE = {
  'zh': ('线上展览中', '2楼展览 2026. 11. 6 – 11. 12 · Artsy线上展览至12. 31', '在Artsy查看全部27件作品 →'),
 }
 ARTSY_T = {'en': 'View & buy on Artsy', 'ja': 'Artsyで作品を見る・購入する', 'zh': '在 Artsy 查看与购买'}
-VIDEO = {'park': ('park-docent-wide.mp4', 'park-docent-wide.jpg', '작품 해설 영상 · 〈뜻밖에 화성인을 만나다〉')}
+VIDEO = {'park': ('park-docent-wide.mp4', 'park-docent-wide.jpg', '작품 해설 영상 · 〈뜻밖에 화성인을 만나다〉'),
+         'kong': ('kong-docent-wide.mp4', 'kong-docent-wide.jpg', '작품 해설 영상 · 〈Fist of victory〉'),
+         'yi': ('yi-docent-wide.mp4', 'yi-docent-wide.jpg', '작품 해설 영상 · 〈길찾기〉')}
 KAKAO = 'https://pf.kakao.com/_vaDxeX'
 FRIEND = {'ko': '카카오톡 채널 친구 추가 · 새 전시 소식 받기', 'en': 'Add us on KakaoTalk for new exhibitions', 'ja': 'カカオトークで友だち追加 · 新しい展示のお知らせ', 'zh': '添加KakaoTalk好友 · 获取新展讯'}
 NAVER_MAP = 'https://map.naver.com/p/search/%EC%8B%A0%EB%B6%88%EB%8B%B9%EC%95%84%ED%8A%B8%EC%84%BC%ED%84%B0'
