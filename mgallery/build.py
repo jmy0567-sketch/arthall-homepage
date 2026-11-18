@@ -183,6 +183,8 @@ def foot():
 </div></footer>
 <nav class="bar" aria-label="quick"><button class="main" type="button" data-ask="">{E(b[0])}</button><a href="tel:15338771">{E(b[1])}</a><a href="{NAVER_MAP}" target="_blank" rel="noopener">{E(b[2])}</a></nav>
 <script src="{P()}assets/site.js?v={ver('site.js')}" defer></script>
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+<script type="text/javascript">if(!wcs_add) var wcs_add = {{}};wcs_add["wa"] = "88f1dc14c3c978";if(window.wcs){{wcs_do();}}</script>
 </body></html>
 '''
 
