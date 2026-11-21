@@ -48,7 +48,7 @@ footer{font-size:12px;color:var(--sub);margin-top:32px;text-align:center}
  a.addEventListener('play',function(){b.textContent='❚❚';b.setAttribute('aria-label','멈춤')});
  a.addEventListener('pause',function(){b.textContent='▶';b.setAttribute('aria-label','재생')});
  a.addEventListener('timeupdate',function(){
-  if(!a.duration)return; r.value=a.currentTime/a.duration*1000; c.textContent=f(a.currentTime);
+  if(!a.duration)return; t.textContent=f(a.duration); r.value=a.currentTime/a.duration*1000; c.textContent=f(a.currentTime);
   var k=a.currentTime/a.duration*sum,acc=0;
   ps.forEach(function(p,i){var on=k>=acc&&k<acc+w[i];acc+=w[i];p.classList.toggle('on',on&&!a.paused)});
  });
