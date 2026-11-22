@@ -71,12 +71,13 @@ p{margin:0}
 .brand b{font-family:var(--f-display);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
 .brand small{display:block;font-size:.625rem;letter-spacing:.28em;color:var(--on-stage-2);line-height:1}
 .nav{display:flex;gap:22px;margin-left:auto;font-size:var(--s-sm)}
+.nav a{white-space:nowrap}
 .nav a{text-decoration:none;color:var(--on-stage-2);transition:color .2s}
 .nav a:hover{color:var(--on-stage)}
 .call{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--gold);color:var(--stage);text-decoration:none;font-weight:600;font-size:var(--s-sm);white-space:nowrap}
 .call:hover{background:var(--gold-soft)}
 /* 모바일: 메뉴를 로고 아래 한 줄로, 옆으로 밀어서 보기 */
-@media (max-width:860px){
+@media (max-width:1400px){
   html{scroll-padding-top:112px}
   .top .wrap{flex-wrap:wrap;height:auto;row-gap:0;column-gap:16px;padding-top:10px}
   .top .call{margin-left:auto}

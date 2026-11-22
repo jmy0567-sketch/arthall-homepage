@@ -81,12 +81,13 @@ p{margin:0}
 .brand b{font-family:var(--f-display);font-weight:500;font-size:1.05rem;letter-spacing:.02em}
 .brand small{display:block;font-size:.625rem;letter-spacing:.28em;color:var(--on-stage-2);line-height:1}
 .nav{display:flex;gap:24px;margin-left:auto;font-size:var(--s-sm)}
+.nav a{white-space:nowrap}
 .nav a{text-decoration:none;color:var(--on-stage-2);transition:color .2s}
 .nav a:hover{color:var(--on-stage)}
 .top .btn{padding:9px 16px;border-radius:999px}
 @media (max-width:1100px){.nav{gap:18px}}
 /* 모바일: 메뉴를 로고 아래 한 줄로, 옆으로 밀어서 보기 */
-@media (max-width:880px){
+@media (max-width:1400px){
   html{scroll-padding-top:112px}
   .top .wrap{flex-wrap:wrap;height:auto;row-gap:0;column-gap:16px;padding-top:10px}
   .top .btn{margin-left:auto}
