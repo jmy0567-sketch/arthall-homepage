@@ -258,6 +258,19 @@ section{padding-block:clamp(64px,9vw,120px)}
 /* process */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;counter-reset:s}
 .steps li{counter-increment:s;padding:22px 18px;background:#fff;border:1px solid var(--line-light);border-radius:8px;display:grid;gap:8px;align-content:start}
+.menu{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.menu li{padding:20px 18px;border:1px solid var(--line-dark);border-radius:8px;display:grid;gap:6px;align-content:start}
+.menu li.sig{border-color:var(--gold);background:rgba(214,174,92,.08)}
+.menu b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg);color:var(--gold-soft)}
+.menu span{color:var(--on-stage-2);font-size:var(--s-sm)}
+.news{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.news li{padding:22px 18px;background:#fff;border:1px solid var(--line-light);border-radius:8px;display:grid;gap:6px;align-content:start}
+.news .d{font-size:var(--s-xs);letter-spacing:.08em;font-weight:600;color:var(--oxblood)}
+.news b{font-family:var(--f-display);font-weight:500;font-size:var(--s-lg)}
+.news span{color:var(--ink-2);font-size:var(--s-sm)}
+.letter{margin-top:28px;padding:26px 22px;border-radius:8px;background:var(--stage);color:var(--on-stage);display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between}
+.letter p{max-width:60ch;color:var(--on-stage-2)}
+.letter b{display:block;font-family:var(--f-display);font-weight:500;font-size:var(--s-lg);color:var(--gold-soft);margin-bottom:4px}
 .steps li::before{content:counter(s);font-family:var(--f-display);font-weight:700;font-size:var(--s-xl);color:var(--oxblood);line-height:1}
 .steps b{font-weight:600}
 .steps span{font-size:var(--s-sm);color:var(--ink-2)}
@@ -334,7 +347,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
 </style>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "CafeOrCoffeeShop", "name": "멜버른커피하우스 (신불당아트센터 1층)", "url": "https://jmy0567-sketch.github.io/arthall-homepage/cafe.html", "telephone": "1533-8771", "image": "https://jmy0567-sketch.github.io/arthall-homepage/assets/img/hall-wide.jpg", "address": {"@type": "PostalAddress", "streetAddress": "불당34길 3-16", "addressLocality": "천안시 서북구", "addressRegion": "충청남도", "addressCountry": "KR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "09:00", "closes": "22:00"}], "description": "샹들리에 아트홀과 한 공간인 천안 불당동 카페. 직접 로스팅한 커피와 매일 굽는 베이커리, 2층 M갤러리 무료 전시."}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "멜버른커피하우스는 몇 시까지 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "매일 09:00~22:00, 쉬는 날 없이 엽니다."}}, {"@type": "Question", "name": "주차할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "건물 지하주차장을 무료로 쓰실 수 있습니다. 만차일 때는 옆 주차빌딩(지문사)을 이용하실 수 있습니다."}}, {"@type": "Question", "name": "카페에서 공연을 볼 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "카페와 1층 아트홀이 한 공간이라 평소에도 무대와 샹들리에가 보입니다. 공연이 있는 날은 공연마다 예약 방법이 다르니 공연 소식을 확인해 주세요."}}, {"@type": "Question", "name": "할인 혜택이 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "인스타그램 @shinbuldang_artcenter 팔로우 화면을 보여 주시면 음료 10% 할인, 공연 당일 관람객은 음료 50% 할인입니다. 두 할인은 함께 쓸 수 없습니다."}}, {"@type": "Question", "name": "아이나 어르신과 가기 편한가요?", "acceptedAnswer": {"@type": "Answer", "text": "1층이라 계단 없이 들어오실 수 있고, 지하주차장이 무료라 유모차나 어르신과 함께 오시기 편합니다."}}, {"@type": "Question", "name": "카페 말고 또 볼 것이 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "2층 신불당아트센터 M갤러리 전시를 무료로 보실 수 있고(매일 10:00~20:00), 2층 관람석에서 무대와 샹들리에를 내려다보며 사진을 찍으실 수 있습니다."}}, {"@type": "Question", "name": "단체 주문이나 행사 케이터링도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "단체 주문은 041-557-7775로 문의해 주세요. 건물에서 여는 송년회·세미나 등의 웰컴 음료·다과는 대관 상담 때 함께 안내해 드립니다."}}]}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "CafeOrCoffeeShop", "name": "멜버른커피하우스 (신불당아트센터 1층)", "url": "https://jmy0567-sketch.github.io/arthall-homepage/cafe.html", "telephone": "1533-8771", "image": "https://jmy0567-sketch.github.io/arthall-homepage/assets/img/hall-wide.jpg", "address": {"@type": "PostalAddress", "streetAddress": "불당34길 3-16", "addressLocality": "천안시 서북구", "addressRegion": "충청남도", "addressCountry": "KR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "09:00", "closes": "22:00"}], "foundingDate": "2019", "servesCuisine": "Coffee", "description": "2019년부터 이어 온 샹들리에 아트홀과 한 공간인 천안 불당동 카페. 시그니처 롱블랙. 직접 로스팅한 커피와 매일 굽는 베이커리, 2층 M갤러리 무료 전시."}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "멜버른커피하우스는 몇 시까지 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "매일 09:00~22:00, 쉬는 날 없이 엽니다."}}, {"@type": "Question", "name": "주차할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "건물 지하주차장을 무료로 쓰실 수 있습니다. 만차일 때는 옆 주차빌딩(지문사)을 이용하실 수 있습니다."}}, {"@type": "Question", "name": "카페에서 공연을 볼 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "카페와 1층 아트홀이 한 공간이라 평소에도 무대와 샹들리에가 보입니다. 공연이 있는 날은 공연마다 예약 방법이 다르니 공연 소식을 확인해 주세요."}}, {"@type": "Question", "name": "할인 혜택이 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "인스타그램 @shinbuldang_artcenter 팔로우 화면을 보여 주시면 음료 10% 할인, 공연 당일 관람객은 음료 50% 할인입니다. 두 할인은 함께 쓸 수 없습니다."}}, {"@type": "Question", "name": "아이나 어르신과 가기 편한가요?", "acceptedAnswer": {"@type": "Answer", "text": "1층이라 계단 없이 들어오실 수 있고, 지하주차장이 무료라 유모차나 어르신과 함께 오시기 편합니다."}}, {"@type": "Question", "name": "카페 말고 또 볼 것이 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "2층 신불당아트센터 M갤러리 전시를 무료로 보실 수 있고(매일 10:00~20:00), 2층 관람석에서 무대와 샹들리에를 내려다보며 사진을 찍으실 수 있습니다."}}, {"@type": "Question", "name": "단체 주문이나 행사 케이터링도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "단체 주문은 041-557-7775로 문의해 주세요. 건물에서 여는 송년회·세미나 등의 웰컴 음료·다과는 대관 상담 때 함께 안내해 드립니다."}}]}]}
 </script>
 </head>
 <body>
@@ -363,7 +376,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   <div class="hero-img"><img src="assets/img/hall-wide.jpg" alt="2층에서 내려다본 샹들리에와 붉은 벽 무대, 체크무늬 바닥의 1층 멜버른커피하우스" fetchpriority="high"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow">천안 불당동 대형카페 · 멜버른커피하우스</p>
+      <p class="eyebrow">Since 2019 · 천안 불당동 멜버른커피하우스</p>
       <h1 id="hero-title">커피 한 잔 앞에<br><em>샹들리에 무대</em></h1>
       <p class="hero-lead">공연장과 한 공간인 카페. 높은 천장의 크리스털 샹들리에, 붉은 벽 정면 무대, 그랜드 피아노를 보며 쉬어 가세요. 위층 갤러리 전시는 무료예요.</p>
       <div class="ctas">
@@ -372,6 +385,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       </div>
     </div>
     <div class="facts num" role="list">
+      <div class="fact" role="listitem"><b>2019년부터</b><span>불당동에서 7년째</span></div>
       <div class="fact" role="listitem"><b>09:00~22:00</b><span>매일, 쉬는 날 없음</span></div>
       <div class="fact" role="listitem"><b>샹들리에 무대</b><span>아트홀과 한 공간</span></div>
       <div class="fact" role="listitem"><b>무료 전시</b><span>2층 M갤러리</span></div>
@@ -402,8 +416,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
     <div class="sec-head">
       <p class="eyebrow">커피와 빵</p>
       <h2 id="cf-title">직접 볶은 커피, 매일 굽는 빵</h2>
-      <p>원두를 직접 로스팅하고, 베이커리는 매일 구워요. 시그니처는 진한 롱블랙. 핸드드립과 수제청 음료도 있습니다.</p>
+      <p>원두를 직접 로스팅하고, 베이커리는 매일 구워요. 처음 오셨다면 이것부터 드셔 보세요.</p>
     </div>
+    <ul class="menu" aria-label="대표 메뉴">
+      <li class="sig"><b>롱블랙</b><span>시그니처 · 멜버른식 진한 블랙커피</span></li>
+      <li><b>핸드드립</b><span>원두 5종 중에서 골라 마시는 한 잔</span></li>
+      <li><b>수제청 음료</b><span>커피를 안 드시는 분께</span></li>
+      <li><b>매일 굽는 베이커리</b><span>커피와 함께 그날 구운 빵</span></li>
+      <li><b>단체 주문</b><span>모임·행사 커피는 041-557-7775</span></li>
+    </ul>
     <div class="pics2">
       <img src="assets/img/cafe-window-seats.jpg" alt="멜버른커피하우스 아치형 창가 좌석" loading="lazy">
       <img src="assets/img/cafe-art-wall.jpg" alt="대형 회화가 걸린 멜버른커피하우스 내부와 체크무늬 바닥" loading="lazy">
@@ -429,6 +450,28 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
       <img src="assets/img/trio-night.jpg" alt="도시 야경 영상이 흐르는 LED 앞 피아노 삼중주 공연" loading="lazy">
     </div>
     <p class="services-note"><a href="mgallery/exhibitions.html">지금 열리는 전시 보기 →</a> · <a href="index.html#program">이번 공연 보기 →</a></p>
+  </div>
+</section>
+
+<section class="lobby" id="news" aria-labelledby="nw-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">이번 달 이 건물에서</p>
+      <h2 id="nw-title">커피 마시러 왔다가, 공연까지</h2>
+      <p>카페와 한 공간인 1층 아트홀에서 열리는 공연입니다. 누구나 무료, 전화로 예약해 주세요.</p>
+    </div>
+    <ul class="news num">
+      <li><span class="d">12. 17. (목) 18:00 · 1층 아트홀</span><b>비엔나 첼로 앙상블</b><span>무료 · 예약 필수 1533-8771</span></li>
+      <li><span class="d">12. 27. (일) 19:00 · 1층 아트홀</span><b>커피 콘서트</b><span>무료 · 예약 필수 1533-8771</span></li>
+      <li><span class="d">매일 10:00~20:00 · 2층</span><b>신불당아트센터 M갤러리</b><span>지금 열리는 전시는 <a href="mgallery/exhibitions.html">여기서 보기 →</a></span></li>
+    </ul>
+    <div class="letter">
+      <div>
+        <b>멜버른 소식지 · 두 달에 한 번</b>
+        <p>새 메뉴, 이달의 전시와 공연, 카페 혜택을 두 달에 한 번 카카오톡으로 보내 드려요. 채널 친구로 추가해 두시면 됩니다.</p>
+      </div>
+      <a class="btn btn-gold" href="https://pf.kakao.com/_vaDxeX/friend" target="_blank" rel="noopener">카카오톡으로 소식 받기</a>
+    </div>
   </div>
 </section>
 
